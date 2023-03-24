@@ -1,4 +1,6 @@
 import { AppbarComponent } from "./components/appBar";
+import { Footer } from "./components/footer";
+
 import "./globals.css";
 
 // export const metadata = {
@@ -13,8 +15,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <AppbarComponent />
-      <body>{children}</body>
+      <body>
+        <main className="flex flex-col min-h-screen">
+          <AppbarComponent />
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </main>
+      </body>
     </html>
   );
 }
