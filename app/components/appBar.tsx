@@ -1,18 +1,28 @@
 import Link from "next/link";
 
+const navItems = [
+  { title: "Home", path: "/" },
+  { title: "Contact", path: "/contact" },
+  { title: "About", path: "/about" },
+  { title: "Sign Up", path: "/signup" },
+];
+
 export const AppbarComponent = () => {
   return (
     <div className="full-width bg-slate-100 border-0 border-b border-slate-300">
       <div className="container flex justify-center items-center mx-auto h-20">
         {/* Logo section */}
-        <h2 className="flex-1 font-normal text-2xl text-center">XClusive</h2>
+        <h2 className="flex-1 font-normal text-2xl text-center">
+          <Link href="/">XClusive</Link>
+        </h2>
 
         {/* Navigation section  */}
         <div className="flex-1 flex space-x-4">
-          <Link href={"/"}>Home</Link>
-          <Link href={"/"}>Contact</Link>
-          <Link href={"/"}>About</Link>
-          <Link href={"/"}></Link>
+          {navItems.map((item, index) => (
+            <Link key={index} href={item.path}>
+              {item.title}
+            </Link>
+          ))}
         </div>
 
         {/* Search section  */}
