@@ -6,12 +6,12 @@ import btnPlaystore from "../../assets/images/btn_playstore.png";
 
 export const Footer = () => {
   return (
-    <div className="full-width bg-slate-900 flex items-center min-h-80 p-4 py-8">
+    <div className="min-w-full w-full bg-slate-900 flex items-center min-h-80 h-full p-4 py-8">
       <div className="container grid grid-flow-row grid-rows-4 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:grid-rows-2 lg:grid-rows-2  xl:grid-rows-1 mx-auto">
         <div className="flex flex-col items-center">
-          <h4 className="text-2xl font-bold text-center mb-4 text-gray-200 md:text-4xl lg:text-4xl">
+          <h2 className="text-xl font-bold text-center mb-4 text-gray-200 md:text-2xl lg:text-4xl">
             Xclusive
-          </h4>
+          </h2>
           <h4 className="text-md font-bold text-center mb-2 text-gray-200 md:text-xl lg:text-2xl">
             Subscribe
           </h4>
@@ -27,7 +27,7 @@ export const Footer = () => {
 
         <div>
           <h4 className="tex-lg mb-4 text-center font-medium text-gray-200 md:text-xl lg:text-2xl">
-            Subscribe
+            Support
           </h4>
           <div className="mb-4">
             <p className="text-base text-center text-gray-300 md:text-md lg:text-lg">
@@ -87,14 +87,8 @@ export const Footer = () => {
 
         <div className="flex space-y-1 items-center flex-col">
           <h4 className="text-lg mb-3 font-medium text-center text-gray-200 md:text-xl lg:text-2xl">
-            Account
-          </h4>
-          <Link
-            href="/account"
-            className="text-base text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
-          >
             Quick link
-          </Link>
+          </h4>
           <Link
             href="/account"
             className="text-base text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
