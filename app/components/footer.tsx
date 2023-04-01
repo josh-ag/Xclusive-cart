@@ -26,10 +26,10 @@ export const Footer = () => {
         </div>
 
         <div>
-          <h4 className="tex-lg mb-4 text-center font-medium text-gray-200 md:text-xl lg:text-2xl">
+          <h4 className="tex-lg mb-2 text-center font-medium text-gray-200 md:text-xl lg:text-2xl">
             Support
           </h4>
-          <div className="mb-4">
+          <div className="mb-2">
             <p className="text-base text-center text-gray-300 md:text-md lg:text-lg">
               111 Rd., Km15, Ikeja
             </p>
@@ -48,7 +48,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex space-y-1 flex-col items-center">
-          <h4 className="tex-lg mb-3 text-center font-medium text-gray-200 md:text-xl lg:text-2xl">
+          <h4 className="tex-lg mb-2 text-center font-medium text-gray-200 md:text-xl lg:text-2xl">
             Account
           </h4>
           <Link
@@ -86,7 +86,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex space-y-1 items-center flex-col">
-          <h4 className="text-lg mb-3 font-medium text-center text-gray-200 md:text-xl lg:text-2xl">
+          <h4 className="text-lg mb-2 font-medium text-center text-gray-200 md:text-xl lg:text-2xl">
             Quick link
           </h4>
           <Link
@@ -118,7 +118,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col">
-          <h4 className="text-lg mb-4 text-center font-medium text-gray-200 md:text-xl lg:text-2xl">
+          <h4 className="text-lg mb-2 text-center font-medium text-gray-200 md:text-xl lg:text-2xl">
             Download App
           </h4>
 

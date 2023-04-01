@@ -4,7 +4,7 @@ const navItems = [
   { title: "Home", path: "/" },
   { title: "Contact", path: "/contact" },
   { title: "About", path: "/about" },
-  { title: "Sign Up", path: "/signup" },
+  { title: "Signup", path: "/signup" },
 ];
 
 export const AppbarComponent = () => {
