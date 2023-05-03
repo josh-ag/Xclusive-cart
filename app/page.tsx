@@ -46,7 +46,7 @@ export default function Home() {
           </div>
         </div>
         <div className="basis-3/4  py-12 px-8">
-          <Slider {...settings}>
+          {/* <Slider {...settings}>
             <div>
               <h4 className="text-lg text-center text-medium text-slate-500">
                 Slider 1
@@ -67,7 +67,7 @@ export default function Home() {
                 Slider 4
               </h4>
             </div>
-          </Slider>
+          </Slider> */}
         </div>
       </div>
     </div>
