@@ -1,7 +1,7 @@
 import "./globals.css";
-import { AppbarComponent } from "./components/appBar";
-import { Footer } from "./components/footer";
-import { TopBarComponent } from "./components/topBar";
+import { AppbarComponent } from "./Components/appBar";
+import { Footer } from "./Components/footer";
+import { TopBarComponent } from "./Components/topBar";
 
 export default function RootLayout({
   children,

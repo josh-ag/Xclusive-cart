@@ -102,18 +102,18 @@ export const Footer = () => {
           >
             Terms of use
           </Link>
-          <Link
-            href="/account"
-            className="text-base text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
-          >
-            FAQ
-          </Link>
 
           <Link
             href="/account"
             className="text-base text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
           >
             Contact
+          </Link>
+          <Link
+            href="/account"
+            className="text-base text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
+          >
+            FAQ
           </Link>
         </div>
 
