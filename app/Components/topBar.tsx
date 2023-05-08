@@ -11,7 +11,7 @@ export const TopBarComponent = () => {
           </p>
           <Link
             href="/shop"
-            className="text-white text-sm md:text-base lg:text-md hover:underline"
+            className="text-white text-xs md:text-base lg:text-md hover:underline"
           >
             Shop Now
           </Link>

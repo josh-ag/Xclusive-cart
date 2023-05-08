@@ -56,7 +56,6 @@ export const AppbarComponent = () => {
           <Link href={"/cart"}>
             <IoCartOutline size={24} className="text-gray-600" />
           </Link>
-
           <button className="p-1 rounded-md ring-1 ring-gray-400 md:hidden">
             <IoMenuOutline size={24} className="text-gray-600" />
           </button>

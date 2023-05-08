@@ -45,7 +45,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="basis-3/4  py-12 px-8">
+        <div className="flex-1 md:basis-3/4">
+          <div className="h-52 bg-slate-900 p-4"></div>
           {/* <Slider {...settings}>
             <div>
               <h4 className="text-lg text-center text-medium text-slate-500">

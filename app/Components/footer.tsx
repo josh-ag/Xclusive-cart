@@ -1,42 +1,46 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   TiSocialFacebook,
   TiSocialTwitter,
   TiSocialLinkedin,
 } from "react-icons/ti";
-import { MdOutlineQrCode2 } from "react-icons/md";
 import {
   IoLogoGooglePlaystore,
   IoLogoApple,
   IoLogoInstagram,
-  IoSendOutline,
 } from "react-icons/io5";
+import QrCode from "../../assets/icons/Qr Code.svg";
+import iconSend from "../../assets/icons/icon-send.svg";
 
 export const Footer = () => {
   return (
-    <div className="min-w-full w-full bg-slate-900 flex items-center min-h-80 h-full p-4 py-8">
+    <div className="min-w-full w-full bg-slate-900 flex flex-col items-center min-h-80 h-full p-8">
       <div className="container grid grid-flow-row grid-rows-4 gap-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:grid-rows-2 lg:grid-rows-2  xl:grid-rows-1 mx-auto">
-        <div className="flex flex-col items-center">
-          <h2 className="text-xl font-bold text-center mb-2 text-gray-200 md:text-2xl lg:text-4xl">
+        <div>
+          <h2 className="text-xl font-bold text-center mb-4 text-gray-200 md:text-2xl lg:text-4xl">
             Xclusive
           </h2>
-          <h4 className="text-md font-bold text-center mb-2 text-gray-200 md:text-xl lg:text-2xl">
-            Subscribe
-          </h4>
-          <p className="text-center mb-1 text-gray-300 md:text-md lg:text-lg">
-            Get 10% off your first order
-          </p>
-          <div className="flex items-center">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="text-center text-gray-100 p-2 pr-10 w-60 md:w-52 h-auto bg-slate-800 rounded-md focus:ring-2 focus:ring-slate-400"
-            />
-            <IoSendOutline
-              size={24}
-              className="text-gray-400 hover:text-gray-300"
-              style={{ marginLeft: "-2rem" }}
-            />
+
+          <div className="flex flex-col items-center">
+            <h4 className="text-md font-bold text-center mb-2 text-gray-200 md:text-xl lg:text-2xl">
+              Subscribe
+            </h4>
+            <p className="text-center mb-1 text-gray-300 md:text-md lg:text-lg">
+              Get 10% off your first order
+            </p>
+            <div className="flex items-center">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="text-center text-gray-100 p-2 pr-10 w-60 md:w-52 h-auto bg-slate-800 rounded-md focus:ring-2 focus:ring-slate-400"
+              />
+              <Image
+                src={iconSend}
+                alt="send"
+                style={{ marginLeft: "-2rem" }}
+              />
+            </div>
           </div>
         </div>
 
@@ -62,7 +66,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex space-y-1 flex-col items-center">
+        <div className="flex flex-col items-center">
           <h4 className="tex-lg mb-1 text-center font-medium text-gray-200 md:text-xl lg:text-2xl">
             Account
           </h4>
@@ -100,7 +104,7 @@ export const Footer = () => {
           </Link>
         </div>
 
-        <div className="flex space-y-1 items-center flex-col">
+        <div className="flex items-center flex-col">
           <h4 className="text-lg mb-1 font-medium text-center text-gray-200 md:text-xl lg:text-2xl">
             Quick link
           </h4>
@@ -141,8 +145,8 @@ export const Footer = () => {
             <p className="text-sm text-center text-gray-300 md:text-sm lg:text-md">
               Save $3 With App New Users Only
             </p>
-            <div className="flex items-center justify-center space-x-2 mt-2">
-              <MdOutlineQrCode2 fontSize={118} className="text-gray-300" />
+            <div className="flex items-center justify-center space-x-4 mt-2">
+              <Image src={QrCode} alt="qrcode" className="w-24 h-24" />
               <div className="space-y-2">
                 <button className="flex w-40 h-12 space-x-2 items-center justify-center ring-1 p-2 rounded-lg ring-slate-400">
                   <IoLogoGooglePlaystore size={27} className="text-gray-300" />
@@ -150,7 +154,7 @@ export const Footer = () => {
                     <p className="text-gray-300 text-left text-sm font-light">
                       GET IT ON
                     </p>
-                    <p className="text-gray-300 font-bold text-lg text-center">
+                    <p className="text-gray-300 font-bold text-md text-center">
                       Google Play
                     </p>
                   </div>
@@ -161,7 +165,7 @@ export const Footer = () => {
                     <p className="text-gray-300 text-left text-sm font-light">
                       Download on the
                     </p>
-                    <p className="text-gray-300 font-bold text-lg text-center">
+                    <p className="text-gray-300 font-bold text-md text-center">
                       App Store
                     </p>
                   </div>
@@ -172,18 +176,25 @@ export const Footer = () => {
               <Link href="http://facebook.com">
                 <TiSocialFacebook size={24} className="text-gray-300" />
               </Link>
-              <Link href="http://instagram.com">
-                <IoLogoInstagram size={20} className="text-gray-300" />
-              </Link>
               <Link href="http://twitter.com">
                 <TiSocialTwitter size={24} className="text-gray-300" />
               </Link>
+              <Link href="http://instagram.com">
+                <IoLogoInstagram size={20} className="text-gray-300" />
+              </Link>
+
               <Link href="http://linkedin.com">
                 <TiSocialLinkedin size={24} className="text-gray-300" />
               </Link>
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="mt-6">
+        <h4 className="text-gray-400 text-sm text-center">
+          &copy; Copyright Xclusive-cart 2023. All right reserved.
+        </h4>
       </div>
     </div>
   );
