@@ -9,12 +9,14 @@ export default function ErrorPage({ error, reset }: ErrorProps) {
   // console.log("Error Message: ", error.message);
 
   return (
-    <div className="flex flex-col mt-4 justify-center items-center">
-      <>
-        <h2 className="text-4xl text-center">Whoops!</h2>
+    <div className="flex flex-col mt-4 justify-center items-center py-6">
+      <div>
+        <h2 className="text-4xl font-bold text-center">Whoops!</h2>
         <p className="text-lg mt-2 text-center">Something Went Wrong!</p>
-        <p className="text-sm">{error.message}</p>
-      </>
+        <p className="text-sm font-light px-8 mt-2 text-center">
+          {error.message}
+        </p>
+      </div>
 
       <button
         className="btn p-2 rounded-2xl bg-blue-500 text-white mt-6"
