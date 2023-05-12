@@ -2,7 +2,7 @@
 
 import { createContext, useState } from "react";
 
-export const AppContext = createContext();
+export const AppContext = createContext(null);
 
 export const AppContextProvider = (props: any) => {
   const [authenticated, setAuthenticated] = useState({

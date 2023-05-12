@@ -2,14 +2,12 @@
 
 // import { useContext } from "react";
 import Image from "next/image";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import Link from "next/link";
 // import { AppContext } from "./Context/appContext";
 import showcaseImage from "../assets/images/iphone.png";
 import appleLogo from "../assets/icons/apple_logo.svg";
 import arrowRight from "../assets/icons/arrow-right.svg";
-
-const inter = Inter({ subsets: ["latin"] });
 
 const sideNav = [
   { name: "Women's Fashion", path: "/fashion/women" },
