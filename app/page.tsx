@@ -1,10 +1,9 @@
 // "use client";
 
-// import { useContext } from "react";
 import Image from "next/image";
 // import { Inter } from "next/font/google";
 import Link from "next/link";
-// import { AppContext } from "./Context/appContext";
+
 import showcaseImage from "../assets/images/iphone.png";
 import appleLogo from "../assets/icons/apple_logo.svg";
 import arrowRight from "../assets/icons/arrow-right.svg";
@@ -22,13 +21,9 @@ const sideNav = [
 ];
 
 export default function Home() {
-  // const { authenticated } = useContext(AppContext);
-
-  // console.log(authenticated);
-
   return (
     <div className="min-w-full">
-      <div className="container flex justify-center items-center mx-auto">
+      <div className="container flex justify-evenly items-stretch mx-auto mb-1">
         <div className="basis-1/4 hidden flex-col items-center self-center space-y-2 border-r border-slate-300 p-4 md:flex">
           <div className="flex flex-col">
             {sideNav.map((item, index) => (
@@ -42,8 +37,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="flex-1 md:basis-3/4 p-2">
-          <div className="bg-gray-900 p-4 flex items-center justify-evenly">
+        <div className="flex-1 md:basis-3/4 md:m-2">
+          <div className="bg-gray-900 p-4 w-full h-full flex items-center justify-evenly">
             <div className="flex flex-col items-start space-y-4">
               <div className="flex items-center justify-start">
                 <Image
@@ -61,10 +56,9 @@ export default function Home() {
                   off Voucher
                 </h4>
               </div>
-
               <Link
                 href="/shop/now"
-                className="flex items-center justify-start text-gray-300 font-medium underline"
+                className="flex items-center text-sm justify-start text-gray-300 font-medium underline"
               >
                 Show Now
                 <Image src={arrowRight} alt="arrow" className="w-4 h-4 ml-1" />
@@ -73,7 +67,7 @@ export default function Home() {
 
             <Image
               src={showcaseImage}
-              className="w-40 h-36 md:w-52 md:h-40 lg:w-60 lg:h-48"
+              className="w-44 h-auto md:w-60 lg:w-72 "
               alt="showcase"
             />
           </div>
