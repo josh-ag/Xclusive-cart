@@ -1,10 +1,10 @@
-"use client";
+// "use client";
 
-import { useContext } from "react";
+// import { useContext } from "react";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import { AppContext } from "./Context/appContext";
+// import { AppContext } from "./Context/appContext";
 import showcaseImage from "../assets/images/iphone.png";
 import appleLogo from "../assets/icons/apple_logo.svg";
 import arrowRight from "../assets/icons/arrow-right.svg";
@@ -24,7 +24,7 @@ const sideNav = [
 ];
 
 export default function Home() {
-  const { authenticated } = useContext(AppContext);
+  // const { authenticated } = useContext(AppContext);
 
   // console.log(authenticated);
 
