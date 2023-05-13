@@ -149,23 +149,23 @@ export const Footer = () => {
               <Image src={QrCode} alt="qrcode" className="w-24 h-24" />
               <div className="space-y-2">
                 <button className="flex w-40 h-12 space-x-2 items-center justify-center ring-1 p-2 rounded-lg ring-slate-400">
-                  <IoLogoGooglePlaystore size={27} className="text-gray-300" />
+                  <IoLogoGooglePlaystore size={24} className="text-gray-300" />
                   <div className="flex flex-col justify-center">
                     <p className="text-gray-300 text-left text-sm font-light">
-                      GET IT ON
+                      Get it on
                     </p>
-                    <p className="text-gray-300 font-bold text-md text-center">
+                    <p className="text-gray-300 font-bold text-base text-center">
                       Google Play
                     </p>
                   </div>
                 </button>
                 <button className="flex w-40 h-12 space-x-2 items-center justify-center ring-1 p-2 rounded-lg ring-slate-400">
-                  <IoLogoApple size={27} className="text-gray-300" />
+                  <IoLogoApple size={24} className="text-gray-300" />
                   <div className="flex flex-col justify-center items-center">
                     <p className="text-gray-300 text-left text-sm font-light">
                       Download on the
                     </p>
-                    <p className="text-gray-300 font-bold text-md text-center">
+                    <p className="text-gray-300 font-bold text-base text-center">
                       App Store
                     </p>
                   </div>
@@ -193,7 +193,7 @@ export const Footer = () => {
 
       <div className="mt-6">
         <h4 className="text-gray-400 text-sm text-center">
-          &copy; Copyright Xclusive-cart 2023. All right reserved.
+          &copy;Copyright Xclusive-cart 2023. All right reserved.
         </h4>
       </div>
     </div>
