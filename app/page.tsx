@@ -1,6 +1,7 @@
-// "use client";
+"use client";
 
 //@imports
+import { useState } from "react";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
@@ -11,7 +12,13 @@ import ak_900_wired_keyboard from "../assets/images/ak_900_wired_keyboard.png";
 import havit_hv_g92_gamepad from "../assets/images/havit_hv_g92_gamepad.png";
 import ips_lcd_gaming_monitor from "../assets/images/ips_lcd_gaming_monitor.png";
 import s_series_confort_chair from "../assets/images/s_series_comfort_chair.png";
-import { IoArrowBackOutline, IoArrowForwardOutline } from "react-icons/io5";
+import {
+  IoArrowBackOutline,
+  IoArrowForwardOutline,
+  IoHeartOutline,
+  IoEyeOutline,
+  IoEyeOffOutline,
+} from "react-icons/io5";
 
 type ItemType = {
   ID: number;
@@ -20,6 +27,7 @@ type ItemType = {
   prevAmount: number;
   image: any;
   rating: number;
+  perc_discount: number;
 };
 
 const sideNav = [
@@ -42,6 +50,7 @@ const shoppingList = [
     rating: 5,
     image: havit_hv_g92_gamepad,
     ID: 1,
+    perc_discount: 40,
   },
   {
     name: "AK-900 Wired Keyboard",
@@ -50,6 +59,7 @@ const shoppingList = [
     rating: 4,
     image: ak_900_wired_keyboard,
     ID: 2,
+    perc_discount: 35,
   },
   {
     name: "IPS LCD Gaming Monitor",
@@ -58,6 +68,7 @@ const shoppingList = [
     rating: 5.5,
     image: ips_lcd_gaming_monitor,
     ID: 3,
+    perc_discount: 30,
   },
   {
     name: "S-Series Comfort Chair",
@@ -66,10 +77,18 @@ const shoppingList = [
     rating: 5.5,
     image: s_series_confort_chair,
     ID: 4,
+    perc_discount: 25,
   },
 ];
 
 export default function Home() {
+  const [visible, setVisible] = useState<Boolean>(true);
+  const isSeen = visible ? (
+    <IoEyeOutline className="w-6 h-6 text-gray-700" />
+  ) : (
+    <IoEyeOffOutline className="w-6 h-6 text-gray-700" />
+  );
+
   return (
     <div className="min-w-full space-y-24">
       {/* Showcase  */}
@@ -125,7 +144,7 @@ export default function Home() {
       </div>
 
       {/* Today Sale */}
-      <div className="container flex flex-col justify-center space-y-4  mx-auto">
+      <div className="container flex flex-col justify-center space-y-6  mx-auto pb-8">
         <div className="ml-4">
           {/* Bullet  */}
           <div className="flex items-center space-x-2">
@@ -202,13 +221,29 @@ export default function Home() {
         >
           {shoppingList.map((item: ItemType) => (
             <div key={item.ID} className="flex flex-col space-y-4 ml-4">
-              <div className="max-w-60 max-h-64 w-60 h-64 bg-gray-100 rounded-sm flex items-center justify-center">
+              <button className="relative max-w-64 max-h-64 w-64 h-64 bg-gray-100 rounded-sm flex items-center justify-between">
+                <button className="self-start mt-3 ml-3 rounded-md p-1 bg-red-600 text-xs text-gray-50 font-medium">
+                  -{item.perc_discount}%
+                </button>
                 <Image
                   src={item.image}
                   alt={item.name}
-                  style={{ width: "50%" }}
+                  style={{ width: "50%", height: 127 }}
                 />
-              </div>
+                <div className="self-start mt-3 mr-3 flex flex-col space-y-4">
+                  <button className="bg-gray-100">
+                    <IoHeartOutline className="w-6 h-6 text-gray-700" />
+                  </button>
+                  <button className="bg-gray-100">{isSeen}</button>
+                </div>
+
+                <button
+                  className="absolute bottom-0 text-center text-gray-100 self-end p-2 bg-gray-800"
+                  style={{ width: "100%" }}
+                >
+                  Add To Cart
+                </button>
+              </button>
               <div className="space-y-2 mb-4">
                 <h4 className="text-gray-700 text-md font-medium">
                   {item.name}
@@ -217,13 +252,16 @@ export default function Home() {
                 <h4 className="space-x-3 font-medium">
                   <span className="text-red-500">${item.amount}</span>
                   <span className="text-gray-400 line-through">
-                    {item.prevAmount}
+                    ${item.prevAmount}
                   </span>
                 </h4>
               </div>
             </div>
           ))}
         </div>
+        <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2">
+          View All Products
+        </button>
       </div>
     </div>
   );
