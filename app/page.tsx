@@ -12,6 +12,13 @@ import ak_900_wired_keyboard from "../assets/images/ak_900_wired_keyboard.png";
 import havit_hv_g92_gamepad from "../assets/images/havit_hv_g92_gamepad.png";
 import ips_lcd_gaming_monitor from "../assets/images/ips_lcd_gaming_monitor.png";
 import s_series_confort_chair from "../assets/images/s_series_comfort_chair.png";
+import category_cellphone from "../assets/icons/Category-CellPhone.svg";
+import category_computer from "../assets/icons/Category-Computer.svg";
+import category_camera from "../assets/icons/Category-Camera.svg";
+import category_gamepad from "../assets/icons/Category-Gamepad.svg";
+import catgory_headphone from "../assets/icons/Category-Headphone.svg";
+import category_smartwatch from "../assets/icons/Category-SmartWatch.svg";
+
 import {
   IoArrowBackOutline,
   IoArrowForwardOutline,
@@ -28,6 +35,12 @@ type ItemType = {
   image: any;
   rating: number;
   perc_discount: number;
+};
+
+type CategoryType = {
+  type: string;
+  logo: string;
+  id: number;
 };
 
 const sideNav = [
@@ -79,6 +92,51 @@ const shoppingList = [
     ID: 4,
     perc_discount: 25,
   },
+  {
+    name: "HAVIT HV-G92 Gamepad",
+    amount: 120,
+    prevAmount: 160,
+    rating: 5,
+    image: havit_hv_g92_gamepad,
+    ID: 5,
+    perc_discount: 40,
+  },
+  {
+    name: "AK-900 Wired Keyboard",
+    amount: 960,
+    prevAmount: 1160,
+    rating: 4,
+    image: ak_900_wired_keyboard,
+    ID: 6,
+    perc_discount: 35,
+  },
+  {
+    name: "IPS LCD Gaming Monitor",
+    amount: 370,
+    prevAmount: 400,
+    rating: 5.5,
+    image: ips_lcd_gaming_monitor,
+    ID: 7,
+    perc_discount: 30,
+  },
+  {
+    name: "S-Series Comfort Chair",
+    amount: 375,
+    prevAmount: 400,
+    rating: 5.5,
+    image: s_series_confort_chair,
+    ID: 8,
+    perc_discount: 25,
+  },
+];
+
+const Categories = [
+  { type: "Phones", logo: category_cellphone, id: 1 },
+  { type: "Computers", logo: category_computer, id: 2 },
+  { type: "SmartWatch", logo: category_smartwatch, id: 3 },
+  { type: "Camera", logo: category_camera, id: 4 },
+  { type: "Headphones", logo: category_cellphone, id: 5 },
+  { type: "Gamepad", logo: category_gamepad, id: 6 },
 ];
 
 export default function Home() {
@@ -143,125 +201,252 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Today Sale */}
-      <div className="container flex flex-col justify-center space-y-6  mx-auto pb-8">
-        <div className="ml-4">
-          {/* Bullet  */}
-          <div className="flex items-center space-x-2">
-            <div className="h-7 w-3 bg-red-600 rounded-sm" />
-            <h4 className="text-red-600 text-base font-medium md:text-lg">
-              Today's
-            </h4>
-          </div>
-        </div>
-
-        {/* Heading  */}
-        <div className="flex px-4 justify-between items-center space-x-6">
-          <h2 className="text-gray-700 text-lg font-bold md:text-2xl lg:text-4xl">
-            Flash Sales
-          </h2>
-          <div className="flex items-center justify-between space-x-2">
-            <div className="flex flex-col items-center justify-center space-y-2">
-              <p className="text-gray-700 font-medium text-xs md:text-md">
-                Days
-              </p>
-              <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
-                03
-              </h2>
-            </div>
-            <span className="text-2xl text-red-700">:</span>
-
-            <div className="flex flex-col space-y-2 items-center justify-center">
-              <p className="text-gray-700 font-medium text-xs md:text-md">
-                Hours
-              </p>
-              <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
-                23
-              </h2>
-            </div>
-            <span className="text-2xl text-red-700">:</span>
-
-            <div className="flex flex-col space-y-2 items-center justify-center">
-              <p className="text-gray-700 font-medium text-xs md:text-md">
-                Minutes
-              </p>
-              <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
-                19
-              </h2>
-            </div>
-            <span className="text-2xl text-red-700">:</span>
-
-            <div className="flex flex-col space-y-2 items-center justify-center">
-              <p className="text-gray-700 font-medium text-xs md:text-md">
-                Seconds
-              </p>
-              <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
-                56
-              </h2>
+      <div className="space-y-16 divide-y divide-slate-200">
+        {/* Today Sale */}
+        <div className="container flex flex-col justify-center space-y-6  mx-auto">
+          <div className="ml-4">
+            {/* Bullet  */}
+            <div className="flex items-center space-x-2">
+              <div className="h-7 w-3 bg-red-600 rounded-sm" />
+              <h4 className="text-red-600 text-base font-medium md:text-lg">
+                Today's
+              </h4>
             </div>
           </div>
 
-          <div className="flex basis-2/5 items-center justify-end">
-            <button className="bg-gray-200 rounded-lg mr-2 p-1">
-              <IoArrowBackOutline
-                size={20}
-                className="text-gray-500 w-3 h-3 md:w-5 md:h-5"
-              />
-            </button>
-            <button className="bg-gray-200 rounded-lg p-1">
-              <IoArrowForwardOutline className="text-gray-500 w-3 h-3 md:w-5 md:h-5" />
-            </button>
-          </div>
-        </div>
+          {/* Heading  */}
+          <div className="flex px-4 justify-between items-center space-x-6">
+            <h2 className="text-gray-700 text-lg font-medium md:text-2xl lg:text-4xl">
+              Flash Sales
+            </h2>
+            <div className="flex items-center justify-between space-x-2">
+              <div className="flex flex-col items-center justify-center space-y-2">
+                <p className="text-gray-700 font-medium text-xs md:text-md">
+                  Days
+                </p>
+                <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
+                  03
+                </h2>
+              </div>
+              <span className="text-2xl text-red-700">:</span>
 
-        {/* items */}
-        <div
-          className="flex space-x-6 items-center mb-6"
-          style={{ overflowX: "scroll" }}
-        >
-          {shoppingList.map((item: ItemType) => (
-            <div key={item.ID} className="flex flex-col space-y-4 ml-4">
-              <button className="relative max-w-64 max-h-64 w-64 h-64 bg-gray-100 rounded-sm flex items-center justify-between">
-                <button className="self-start mt-3 ml-3 rounded-md p-1 bg-red-600 text-xs text-gray-50 font-medium">
-                  -{item.perc_discount}%
-                </button>
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  style={{ width: "50%", height: 127 }}
-                />
-                <div className="self-start mt-3 mr-3 flex flex-col space-y-4">
-                  <button className="bg-gray-100">
-                    <IoHeartOutline className="w-6 h-6 text-gray-700" />
-                  </button>
-                  <button className="bg-gray-100">{isSeen}</button>
-                </div>
+              <div className="flex flex-col space-y-2 items-center justify-center">
+                <p className="text-gray-700 font-medium text-xs md:text-md">
+                  Hours
+                </p>
+                <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
+                  23
+                </h2>
+              </div>
+              <span className="text-2xl text-red-700">:</span>
 
-                <button
-                  className="absolute bottom-0 text-center text-gray-100 self-end p-2 bg-gray-800"
-                  style={{ width: "100%" }}
-                >
-                  Add To Cart
-                </button>
-              </button>
-              <div className="space-y-2 mb-4">
-                <h4 className="text-gray-700 text-md font-medium">
-                  {item.name}
-                </h4>
+              <div className="flex flex-col space-y-2 items-center justify-center">
+                <p className="text-gray-700 font-medium text-xs md:text-md">
+                  Minutes
+                </p>
+                <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
+                  19
+                </h2>
+              </div>
+              <span className="text-2xl text-red-700">:</span>
 
-                <h4 className="space-x-3 font-medium">
-                  <span className="text-red-500">${item.amount}</span>
-                  <span className="text-gray-400 line-through">
-                    ${item.prevAmount}
-                  </span>
-                </h4>
+              <div className="flex flex-col space-y-2 items-center justify-center">
+                <p className="text-gray-700 font-medium text-xs md:text-md">
+                  Seconds
+                </p>
+                <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
+                  56
+                </h2>
               </div>
             </div>
-          ))}
+
+            <div className="flex basis-2/5 items-center justify-end">
+              <button className="bg-gray-200 rounded-lg mr-2 p-1">
+                <IoArrowBackOutline
+                  size={20}
+                  className="text-gray-500 w-3 h-3 md:w-5 md:h-5"
+                />
+              </button>
+              <button className="bg-gray-200 rounded-lg p-1">
+                <IoArrowForwardOutline className="text-gray-500 w-3 h-3 md:w-5 md:h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* items */}
+          <div
+            className="flex space-x-6 items-center mb-6"
+            style={{ overflowX: "scroll" }}
+          >
+            {shoppingList.map((item: ItemType) => (
+              <div key={item.ID} className={`flex flex-col space-y-4 ml-4`}>
+                <button className="relative max-w-64 max-h-64 w-64 h-64 bg-gray-100 rounded-sm flex items-center justify-between">
+                  <button className="self-start mt-3 ml-3 rounded-md p-1 bg-red-600 text-xs text-gray-50 font-medium">
+                    -{item.perc_discount}%
+                  </button>
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    style={{ width: "50%", height: 127 }}
+                  />
+                  <div className="self-start mt-3 mr-3 flex flex-col space-y-4">
+                    <button className="bg-gray-100">
+                      <IoHeartOutline className="w-6 h-6 text-gray-700" />
+                    </button>
+                    <button className="bg-gray-100">{isSeen}</button>
+                  </div>
+
+                  <button
+                    className="absolute bottom-0 text-center text-gray-100 self-end p-2 bg-gray-800"
+                    style={{ width: "100%" }}
+                  >
+                    Add To Cart
+                  </button>
+                </button>
+                <div className="space-y-2 mb-4">
+                  <h4 className="text-gray-700 text-md font-medium">
+                    {item.name}
+                  </h4>
+
+                  <h4 className="space-x-3 font-medium">
+                    <span className="text-red-500">${item.amount}</span>
+                    <span className="text-gray-400 line-through">
+                      ${item.prevAmount}
+                    </span>
+                  </h4>
+                </div>
+              </div>
+            ))}
+          </div>
+          <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2">
+            View All Products
+          </button>
         </div>
-        <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2">
-          View All Products
-        </button>
+
+        {/* Categories */}
+        <div className="container pt-16 flex flex-col justify-center space-y-6  mx-auto pb-8">
+          <div className="ml-4">
+            {/* Bullet  */}
+            <div className="flex items-center space-x-2">
+              <div className="h-7 w-3 bg-red-600 rounded-sm" />
+              <h4 className="text-red-600 text-base font-medium md:text-lg">
+                Categories
+              </h4>
+            </div>
+          </div>
+
+          {/* Heading  */}
+          <div className="flex px-4 justify-between items-center space-x-6">
+            <h2 className="text-gray-700 text-lg font-medium md:text-2xl lg:text-4xl">
+              Browse By Categories
+            </h2>
+
+            <div className="flex basis-2/5 items-center justify-end">
+              <button className="bg-gray-200 rounded-lg mr-2 p-1">
+                <IoArrowBackOutline
+                  size={20}
+                  className="text-gray-500 w-3 h-3 md:w-5 md:h-5"
+                />
+              </button>
+              <button className="bg-gray-200 rounded-lg p-1">
+                <IoArrowForwardOutline className="text-gray-500 w-3 h-3 md:w-5 md:h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* items */}
+          <div
+            className="flex  items-center  space-x-8 mb-6"
+            style={{ overflowX: "scroll" }}
+          >
+            {Categories.map((category: CategoryType) => (
+              <button
+                key={category.id}
+                className="max-w-32 max-h-28 py-4 px-8 text-sm text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center ml-4  hover:bg-red-500 hover:text-gray-100"
+              >
+                <Image
+                  src={category.logo}
+                  alt={`${category.type} logo`}
+                  className="w-8 h-8 mb-4 md:w-12 md:h-12"
+                />
+                {category.type}
+              </button>
+            ))}
+          </div>
+          <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2">
+            View All Products
+          </button>
+        </div>
+
+        {/* Best selling Products */}
+        <div className="container flex flex-col justify-center space-y-6  mx-auto pt-16">
+          <div className="ml-4">
+            {/* Bullet  */}
+            <div className="flex items-center space-x-2">
+              <div className="h-7 w-3 bg-red-600 rounded-sm" />
+              <h4 className="text-red-600 text-base font-medium md:text-lg">
+                This Month
+              </h4>
+            </div>
+          </div>
+
+          {/* Heading  */}
+          <div className="flex px-4 justify-between items-center space-x-6">
+            <h2 className="text-gray-700 text-lg font-medium md:text-2xl lg:text-4xl">
+              Best Selling Products
+            </h2>
+
+            <button className="self-center rounded w-28 bg-red-600 text-gray-100 text-sm font-normal text-center p-2">
+              View All
+            </button>
+          </div>
+
+          {/* items */}
+          <div
+            className="flex space-x-6 items-center mb-6"
+            style={{ overflowX: "scroll" }}
+          >
+            {shoppingList.map((item: ItemType) => (
+              <div key={item.ID} className={`flex flex-col space-y-4 ml-4`}>
+                <button className="relative max-w-64 max-h-64 w-64 h-64 bg-gray-100 rounded-sm flex items-center justify-between">
+                  <button className="self-start mt-3 ml-3 rounded-md p-1 bg-red-600 text-xs text-gray-50 font-medium">
+                    -{item.perc_discount}%
+                  </button>
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    style={{ width: "50%", height: 127 }}
+                  />
+                  <div className="self-start mt-3 mr-3 flex flex-col space-y-4">
+                    <button className="bg-gray-100">
+                      <IoHeartOutline className="w-6 h-6 text-gray-700" />
+                    </button>
+                    <button className="bg-gray-100">{isSeen}</button>
+                  </div>
+
+                  <button
+                    className="absolute bottom-0 text-center text-gray-100 self-end p-2 bg-gray-800"
+                    style={{ width: "100%" }}
+                  >
+                    Add To Cart
+                  </button>
+                </button>
+                <div className="space-y-2 mb-4">
+                  <h4 className="text-gray-700 text-md font-medium">
+                    {item.name}
+                  </h4>
+
+                  <h4 className="space-x-3 font-medium">
+                    <span className="text-red-500">${item.amount}</span>
+                    <span className="text-gray-400 line-through">
+                      ${item.prevAmount}
+                    </span>
+                  </h4>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
