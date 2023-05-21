@@ -1,24 +1,18 @@
 "use client";
 
 //@imports
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import showcaseImage from "../assets/images/iphone.png";
 import appleLogo from "../assets/icons/apple_logo.svg";
 import arrowRight from "../assets/icons/arrow-right.svg";
-import ak_900_wired_keyboard from "../assets/images/ak_900_wired_keyboard.png";
-import havit_hv_g92_gamepad from "../assets/images/havit_hv_g92_gamepad.png";
-import ips_lcd_gaming_monitor from "../assets/images/ips_lcd_gaming_monitor.png";
-import s_series_confort_chair from "../assets/images/s_series_comfort_chair.png";
 import category_cellphone from "../assets/icons/Category-CellPhone.svg";
 import category_computer from "../assets/icons/Category-Computer.svg";
 import category_camera from "../assets/icons/Category-Camera.svg";
 import category_gamepad from "../assets/icons/Category-Gamepad.svg";
-import catgory_headphone from "../assets/icons/Category-Headphone.svg";
 import category_smartwatch from "../assets/icons/Category-SmartWatch.svg";
-
 import {
   IoArrowBackOutline,
   IoArrowForwardOutline,
@@ -26,22 +20,8 @@ import {
   IoEyeOutline,
   IoEyeOffOutline,
 } from "react-icons/io5";
-
-type ItemType = {
-  ID: number;
-  name: string;
-  amount: number;
-  prevAmount: number;
-  image: any;
-  rating: number;
-  perc_discount: number;
-};
-
-type CategoryType = {
-  type: string;
-  logo: string;
-  id: number;
-};
+import { ItemType, ProductType, CategoryType } from "@/type.d";
+import { AppContext } from "./Context/appContext";
 
 const sideNav = [
   { name: "Women's Fashion", path: "/fashion/women" },
@@ -55,92 +35,26 @@ const sideNav = [
   { name: "Health & Beauty", path: "/health" },
 ];
 
-const shoppingList = [
-  {
-    name: "HAVIT HV-G92 Gamepad",
-    amount: 120,
-    prevAmount: 160,
-    rating: 5,
-    image: havit_hv_g92_gamepad,
-    ID: 1,
-    perc_discount: 40,
-  },
-  {
-    name: "AK-900 Wired Keyboard",
-    amount: 960,
-    prevAmount: 1160,
-    rating: 4,
-    image: ak_900_wired_keyboard,
-    ID: 2,
-    perc_discount: 35,
-  },
-  {
-    name: "IPS LCD Gaming Monitor",
-    amount: 370,
-    prevAmount: 400,
-    rating: 5.5,
-    image: ips_lcd_gaming_monitor,
-    ID: 3,
-    perc_discount: 30,
-  },
-  {
-    name: "S-Series Comfort Chair",
-    amount: 375,
-    prevAmount: 400,
-    rating: 5.5,
-    image: s_series_confort_chair,
-    ID: 4,
-    perc_discount: 25,
-  },
-  {
-    name: "HAVIT HV-G92 Gamepad",
-    amount: 120,
-    prevAmount: 160,
-    rating: 5,
-    image: havit_hv_g92_gamepad,
-    ID: 5,
-    perc_discount: 40,
-  },
-  {
-    name: "AK-900 Wired Keyboard",
-    amount: 960,
-    prevAmount: 1160,
-    rating: 4,
-    image: ak_900_wired_keyboard,
-    ID: 6,
-    perc_discount: 35,
-  },
-  {
-    name: "IPS LCD Gaming Monitor",
-    amount: 370,
-    prevAmount: 400,
-    rating: 5.5,
-    image: ips_lcd_gaming_monitor,
-    ID: 7,
-    perc_discount: 30,
-  },
-  {
-    name: "S-Series Comfort Chair",
-    amount: 375,
-    prevAmount: 400,
-    rating: 5.5,
-    image: s_series_confort_chair,
-    ID: 8,
-    perc_discount: 25,
-  },
-];
-
 const Categories = [
-  { type: "Phones", logo: category_cellphone, id: 1 },
-  { type: "Computers", logo: category_computer, id: 2 },
-  { type: "SmartWatch", logo: category_smartwatch, id: 3 },
-  { type: "Camera", logo: category_camera, id: 4 },
-  { type: "Headphones", logo: category_cellphone, id: 5 },
-  { type: "Gamepad", logo: category_gamepad, id: 6 },
+  { type: "Phones", logo: category_cellphone, id: 1, path: "/phones" },
+  { type: "Computers", logo: category_computer, id: 2, path: "/computers" },
+  {
+    type: "SmartWatch",
+    logo: category_smartwatch,
+    id: 3,
+    path: "/smartwatches",
+  },
+  { type: "Camera", logo: category_camera, id: 4, path: "/cameras" },
+  { type: "Headphones", logo: category_cellphone, id: 5, path: "/headphones" },
+  { type: "Gamepad", logo: category_gamepad, id: 6, path: "/gamepad" },
 ];
 
 export default function Home() {
+  //Internal state
   const [visible, setVisible] = useState<Boolean>(true);
+
+  const { products, shopList } = useContext(AppContext);
+
   const isSeen = visible ? (
     <IoEyeOutline className="w-6 h-6 text-gray-700" />
   ) : (
@@ -148,7 +62,7 @@ export default function Home() {
   );
 
   return (
-    <div className="min-w-full space-y-24">
+    <div className="min-w-full space-y-10">
       {/* Showcase  */}
       <div className="container  md:space-x-4 flex justify-between items-stretch mx-auto mb-1">
         <div className="hidden basis-1/5 flex-col justify-starrt space-y-2 border-r border-slate-300 p-4 md:flex">
@@ -278,8 +192,8 @@ export default function Home() {
             className="flex space-x-6 items-center mb-6"
             style={{ overflowX: "scroll" }}
           >
-            {shoppingList.map((item: ItemType) => (
-              <div key={item.ID} className={`flex flex-col space-y-4 ml-4`}>
+            {shopList.map((item: ItemType) => (
+              <div key={item.ID} className={`flex flex-col space-y-2 ml-4`}>
                 <button className="relative max-w-64 max-h-64 w-64 h-64 bg-gray-100 rounded-sm flex items-center justify-between">
                   <button className="self-start mt-3 ml-3 rounded-md p-1 bg-red-600 text-xs text-gray-50 font-medium">
                     -{item.perc_discount}%
@@ -303,7 +217,7 @@ export default function Home() {
                     Add To Cart
                   </button>
                 </button>
-                <div className="space-y-2 mb-4">
+                <Link href={item.path} className="space-y-2 mb-4">
                   <h4 className="text-gray-700 text-md font-medium">
                     {item.name}
                   </h4>
@@ -314,7 +228,9 @@ export default function Home() {
                       ${item.prevAmount}
                     </span>
                   </h4>
-                </div>
+
+                  <span className="text-gray-400">Rating ({item.rating})</span>
+                </Link>
               </div>
             ))}
           </div>
@@ -360,9 +276,10 @@ export default function Home() {
             style={{ overflowX: "scroll" }}
           >
             {Categories.map((category: CategoryType) => (
-              <button
+              <Link
+                href={category.path}
                 key={category.id}
-                className="max-w-32 max-h-28 py-4 px-8 text-sm text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center ml-4  hover:bg-red-500 hover:text-gray-100"
+                className="w-32 h-28 py-4 px-8 text-sm text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center ml-4  hover:bg-red-500 hover:text-gray-100"
               >
                 <Image
                   src={category.logo}
@@ -370,7 +287,7 @@ export default function Home() {
                   className="w-8 h-8 mb-4 md:w-12 md:h-12"
                 />
                 {category.type}
-              </button>
+              </Link>
             ))}
           </div>
           <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2">
@@ -406,18 +323,15 @@ export default function Home() {
             className="flex space-x-6 items-center mb-6"
             style={{ overflowX: "scroll" }}
           >
-            {shoppingList.map((item: ItemType) => (
-              <div key={item.ID} className={`flex flex-col space-y-4 ml-4`}>
-                <button className="relative max-w-64 max-h-64 w-64 h-64 bg-gray-100 rounded-sm flex items-center justify-between">
-                  <button className="self-start mt-3 ml-3 rounded-md p-1 bg-red-600 text-xs text-gray-50 font-medium">
-                    -{item.perc_discount}%
-                  </button>
+            {products.map((item: ProductType) => (
+              <div key={item.ID} className={`flex flex-col space-y-2 ml-4`}>
+                <button className="relative max-w-64 max-h-64 w-64 h-64 bg-gray-100 rounded-sm flex items-center justify-around">
                   <Image
                     src={item.image}
                     alt={item.name}
                     style={{ width: "50%", height: 127 }}
                   />
-                  <div className="self-start mt-3 mr-3 flex flex-col space-y-4">
+                  <div className="self-start mt-3 flex flex-col space-y-4">
                     <button className="bg-gray-100">
                       <IoHeartOutline className="w-6 h-6 text-gray-700" />
                     </button>
@@ -431,7 +345,7 @@ export default function Home() {
                     Add To Cart
                   </button>
                 </button>
-                <div className="space-y-2 mb-4">
+                <Link href={item.path} className="space-y-2 mb-4">
                   <h4 className="text-gray-700 text-md font-medium">
                     {item.name}
                   </h4>
@@ -442,7 +356,9 @@ export default function Home() {
                       ${item.prevAmount}
                     </span>
                   </h4>
-                </div>
+
+                  <span className="text-gray-400">Rating ({item.rating})</span>
+                </Link>
               </div>
             ))}
           </div>
