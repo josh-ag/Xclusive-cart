@@ -21,7 +21,7 @@ export const AppbarComponent = () => {
         {/* Logo section */}
         <Link
           href="/"
-          className="basis-1/4 font-medium text-xl text-center lg:text-2xl"
+          className="basis-1/4 font-normal text-center text-2xl lg:text-4xl"
         >
           XClusive
         </Link>
