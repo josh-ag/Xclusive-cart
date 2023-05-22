@@ -13,6 +13,7 @@ import category_computer from "../assets/icons/Category-Computer.svg";
 import category_camera from "../assets/icons/Category-Camera.svg";
 import category_gamepad from "../assets/icons/Category-Gamepad.svg";
 import category_smartwatch from "../assets/icons/Category-SmartWatch.svg";
+import jbl_boombox from "../assets/images/jbl_boombox.png";
 import {
   IoArrowBackOutline,
   IoArrowForwardOutline,
@@ -363,6 +364,68 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </div>
+
+      <div className="py-12 bg-gray-900 space-x-4 flex items-center justify-around">
+        <div className="space-y-8 flex flex-col">
+          <h4 className="text-green-400 font-medium text-lg md:text-2xl">
+            Categories
+          </h4>
+          <div>
+            <h2 className="text-2xl font-bold text-gray-200 md:text-4xl lg:text-6xl">
+              Enhance Your
+            </h2>
+            <h2 className="text-2xl font-bold text-gray-200 md:text-4xl lg:text-6xl">
+              Music Experience
+            </h2>
+          </div>
+
+          <div className="flex justify-start items-center space-x-2 md:space-x-3">
+            <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
+              <h2 className="text-sm md:text-2xl font-bold text-gray-700">
+                23
+              </h2>
+              <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+                Hours
+              </h4>
+            </div>
+
+            <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
+              <h2 className="text-sm md:text-2xl font-bold text-gray-700">
+                05
+              </h2>
+              <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+                Days
+              </h4>
+            </div>
+
+            <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
+              <h2 className="text-sm md:text-2xl font-bold text-gray-700">
+                59
+              </h2>
+              <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+                Minutes
+              </h4>
+            </div>
+            <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
+              <h2 className="text-sm md:text-2xl font-bold text-gray-700">
+                35
+              </h2>
+              <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+                Seconds
+              </h4>
+            </div>
+          </div>
+
+          <button className="p-4 w-32 flex items-center justify-center h-10 bg-green-500 font-normal text-gray-100 text-sm md:text-lg rounded-sm">
+            Buy Now!
+          </button>
+        </div>
+        <Image
+          src={jbl_boombox}
+          alt="category image"
+          className="w-1/3 h-2/3 "
+        />
       </div>
     </div>
   );

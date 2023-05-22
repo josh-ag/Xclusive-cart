@@ -10,8 +10,13 @@ import north_coat from "../../assets/images/north_coat.png";
 import gucci_bag from "../../assets/images/gucci_bag.png";
 import rgb_cooler from "../../assets/images/rgb_cooler.png";
 import book_shelf from "../../assets/images/small_shelf.png";
+import { AppContextInterface } from "@/type.d";
 
-export const AppContext = createContext(React.Children);
+export const AppContext = createContext<AppContextInterface>({
+  authenticated: {},
+  products: [],
+  shopList: [],
+});
 
 export const AppContextProvider = (props: any) => {
   /*===========================================

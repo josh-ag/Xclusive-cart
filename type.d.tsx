@@ -28,3 +28,9 @@ export type CategoryType = {
   id: number;
   path: string;
 };
+
+export interface AppContextInterface {
+  authenticated: {};
+  products: [];
+  shopList: [];
+}
