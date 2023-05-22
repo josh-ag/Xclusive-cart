@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
 import ak_900_wired_keyboard from "../../assets/images/ak_900_wired_keyboard.png";
 import havit_hv_g92_gamepad from "../../assets/images/havit_hv_g92_gamepad.png";
@@ -11,7 +11,7 @@ import gucci_bag from "../../assets/images/gucci_bag.png";
 import rgb_cooler from "../../assets/images/rgb_cooler.png";
 import book_shelf from "../../assets/images/small_shelf.png";
 
-export const AppContext = createContext(null);
+export const AppContext = createContext(React.Children);
 
 export const AppContextProvider = (props: any) => {
   /*===========================================
