@@ -21,7 +21,12 @@ import {
   IoEyeOutline,
   IoEyeOffOutline,
 } from "react-icons/io5";
-import { ItemType, ProductType, CategoryType } from "@/type.d";
+import {
+  ItemType,
+  ProductType,
+  CategoryType,
+  TrendingProductsType,
+} from "@/type.d";
 import { AppContext } from "./Context/appContext";
 
 const sideNav = [
@@ -54,7 +59,7 @@ export default function Home() {
   //Internal state
   const [visible, setVisible] = useState<Boolean>(true);
 
-  const { products, shopList } = useContext(AppContext);
+  const { products, shopList, trendingProducts } = useContext(AppContext);
 
   const isSeen = visible ? (
     <IoEyeOutline className="w-6 h-6 text-gray-700" />
@@ -365,67 +370,153 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* Categories2 */}
+      <div className="container mx-auto pb-8">
+        <div className="py-12 bg-gray-900 space-x-4 flex items-center justify-around">
+          <div className="space-y-8 flex flex-col">
+            <h4 className="text-green-400 font-medium text-lg md:text-2xl">
+              Categories
+            </h4>
+            <div>
+              <h2 className="text-2xl font-bold text-gray-200 md:text-4xl lg:text-6xl">
+                Enhance Your
+              </h2>
+              <h2 className="text-2xl font-bold text-gray-200 md:text-4xl lg:text-6xl">
+                Music Experience
+              </h2>
+            </div>
+            <div className="flex justify-start items-center space-x-2 md:space-x-3">
+              <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
+                <h2 className="text-sm md:text-2xl font-bold text-gray-700">
+                  23
+                </h2>
+                <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+                  Hours
+                </h4>
+              </div>
 
-      <div className="py-12 bg-gray-900 space-x-4 flex items-center justify-around">
-        <div className="space-y-8 flex flex-col">
-          <h4 className="text-green-400 font-medium text-lg md:text-2xl">
-            Categories
-          </h4>
-          <div>
-            <h2 className="text-2xl font-bold text-gray-200 md:text-4xl lg:text-6xl">
-              Enhance Your
-            </h2>
-            <h2 className="text-2xl font-bold text-gray-200 md:text-4xl lg:text-6xl">
-              Music Experience
-            </h2>
+              <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
+                <h2 className="text-sm md:text-2xl font-bold text-gray-700">
+                  05
+                </h2>
+                <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+                  Days
+                </h4>
+              </div>
+
+              <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
+                <h2 className="text-sm md:text-2xl font-bold text-gray-700">
+                  59
+                </h2>
+                <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+                  Minutes
+                </h4>
+              </div>
+              <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
+                <h2 className="text-sm md:text-2xl font-bold text-gray-700">
+                  35
+                </h2>
+                <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+                  Seconds
+                </h4>
+              </div>
+            </div>
+
+            <button className="p-4 w-32 flex items-center justify-center h-10 bg-green-500 font-normal text-gray-100 text-sm md:text-lg rounded-sm">
+              Buy Now!
+            </button>
+          </div>
+          <Image
+            src={jbl_boombox}
+            alt="category image"
+            className="w-1/3 h-2/3 "
+          />
+        </div>
+      </div>
+
+      <div className="space-y-16 divide-y divide-slate-200 pb-8">
+        {/* Today Sale */}
+        <div className="container flex flex-col justify-center space-y-6  mx-auto">
+          <div className="ml-4">
+            {/* Bullet  */}
+            <div className="flex items-center space-x-2">
+              <div className="h-7 w-3 bg-red-600 rounded-sm" />
+              <h4 className="text-red-600 text-base font-medium md:text-lg">
+                Our Products
+              </h4>
+            </div>
           </div>
 
-          <div className="flex justify-start items-center space-x-2 md:space-x-3">
-            <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
-              <h2 className="text-sm md:text-2xl font-bold text-gray-700">
-                23
-              </h2>
-              <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
-                Hours
-              </h4>
-            </div>
+          {/* Heading  */}
+          <div className="flex px-4 justify-between items-center space-x-6">
+            <h2 className="text-gray-700 text-lg font-medium md:text-2xl lg:text-4xl">
+              Explore Our Products
+            </h2>
 
-            <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
-              <h2 className="text-sm md:text-2xl font-bold text-gray-700">
-                05
-              </h2>
-              <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
-                Days
-              </h4>
-            </div>
-
-            <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
-              <h2 className="text-sm md:text-2xl font-bold text-gray-700">
-                59
-              </h2>
-              <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
-                Minutes
-              </h4>
-            </div>
-            <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
-              <h2 className="text-sm md:text-2xl font-bold text-gray-700">
-                35
-              </h2>
-              <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
-                Seconds
-              </h4>
+            <div className="flex basis-2/5 items-center justify-end">
+              <button className="bg-gray-200 rounded-lg mr-2 p-1">
+                <IoArrowBackOutline
+                  size={20}
+                  className="text-gray-500 w-3 h-3 md:w-5 md:h-5"
+                />
+              </button>
+              <button className="bg-gray-200 rounded-lg p-1">
+                <IoArrowForwardOutline className="text-gray-500 w-3 h-3 md:w-5 md:h-5" />
+              </button>
             </div>
           </div>
 
-          <button className="p-4 w-32 flex items-center justify-center h-10 bg-green-500 font-normal text-gray-100 text-sm md:text-lg rounded-sm">
-            Buy Now!
+          {/* items */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 mb-6">
+            {trendingProducts.map((item: TrendingProductsType) => (
+              <div key={item.ID} className={`flex flex-col space-y-2 ml-4`}>
+                <button className="relative max-w-64 max-h-64 w-64 h-64 bg-gray-100 rounded-sm flex items-center justify-between">
+                  {item.isNew ? (
+                    <button className="self-start mt-3 ml-3 rounded-md p-2 bg-green-400 text-sm text-gray-50 font-medium">
+                      New
+                    </button>
+                  ) : null}
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    className="w-2/4 h-2/4"
+                    // style={{ width: "50%", height: 127 }}
+                  />
+                  <div className="self-start mt-3 mr-3 flex flex-col space-y-4">
+                    <button className="bg-gray-100">
+                      <IoHeartOutline className="w-6 h-6 text-gray-700" />
+                    </button>
+                    <button className="bg-gray-100">{isSeen}</button>
+                  </div>
+
+                  <button
+                    className="absolute bottom-0 text-center text-gray-100 self-end p-2 bg-gray-800"
+                    style={{ width: "100%" }}
+                  >
+                    Add To Cart
+                  </button>
+                </button>
+                <Link href={item.path} className="space-y-2 mb-4">
+                  <h4 className="text-gray-700 text-md font-medium">
+                    {item.name}
+                  </h4>
+
+                  <h4 className="space-x-3 font-medium">
+                    <span className="text-red-500">${item.amount}</span>
+                    <span className="text-gray-400 line-through">
+                      ${item.prevAmount}
+                    </span>
+                  </h4>
+
+                  <span className="text-gray-400">Rating ({item.rating})</span>
+                </Link>
+              </div>
+            ))}
+          </div>
+          <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2">
+            View All Products
           </button>
         </div>
-        <Image
-          src={jbl_boombox}
-          alt="category image"
-          className="w-1/3 h-2/3 "
-        />
       </div>
     </div>
   );

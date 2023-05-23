@@ -5,10 +5,22 @@ export type ProductType = {
   ID: string;
   name: string;
   amount: number;
-  prevAmount: number;
+  prevAmount?: number;
   image: any;
   rating: number;
   path: string;
+};
+
+export type TrendingProductsType = {
+  ID: string;
+  name: string;
+  amount: number;
+  prevAmount?: number;
+  image: any;
+  rating: number;
+  path: string;
+  isNew?: Boolean;
+  colors?: any;
 };
 
 export type ItemType = {
@@ -33,4 +45,5 @@ export interface AppContextInterface {
   authenticated: {};
   products: [];
   shopList: [];
+  trendingProducts: [];
 }

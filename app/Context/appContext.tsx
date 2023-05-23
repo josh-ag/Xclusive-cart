@@ -10,20 +10,34 @@ import north_coat from "../../assets/images/north_coat.png";
 import gucci_bag from "../../assets/images/gucci_bag.png";
 import rgb_cooler from "../../assets/images/rgb_cooler.png";
 import book_shelf from "../../assets/images/small_shelf.png";
-import { AppContextInterface } from "@/type.d";
+import asus_gaming_pc from "../../assets/images/asus_gaming_pc.png";
+import canon_dslr_camera from "../../assets/images/canon_dslr_camera.png";
+import curology_product_set from "../../assets/images/curology.png";
+import dog_food from "../../assets/images/dog_food.png";
+import gp11_prd3 from "../../assets/images/GP11_PRD3 1.png";
+import kid_electric_car from "../../assets/images/kid_electric_car.png";
+import jr_zoom_soccer_cleats from "../../assets/images/jr_zoom_soccer_cleats.png";
+import quilted_satin_jacket from "../../assets/images/quilted_satin_jacket.png";
+
+import {
+  AppContextInterface,
+  ItemType,
+  ProductType,
+  TrendingProductsType,
+} from "@/type.d";
 
 export const AppContext = createContext<AppContextInterface>({
   authenticated: {},
   products: [],
   shopList: [],
+  trendingProducts: [],
 });
 
 export const AppContextProvider = (props: any) => {
   /*===========================================
             STATE
     ===========================================*/
-
-  const [products, setProducts] = useState([
+  const [products, setProducts] = useState<ProductType[]>([
     {
       name: "The North Coat",
       amount: 260,
@@ -62,7 +76,7 @@ export const AppContextProvider = (props: any) => {
     },
   ]);
 
-  const [shopList, setShoplist] = useState([
+  const [shopList, setShoplist] = useState<ItemType[]>([
     {
       name: "HAVIT HV-G92 Gamepad",
       amount: 120,
@@ -105,6 +119,86 @@ export const AppContextProvider = (props: any) => {
     },
   ]);
 
+  const [trendingProducts, setTrendingProducts] = useState<
+    TrendingProductsType[]
+  >([
+    {
+      name: "Breed Dry Dog Food",
+      amount: 100,
+      image: dog_food,
+      rating: 35,
+      ID: "T_0001",
+      path: "/",
+    },
+
+    {
+      name: "Canon EOS Dslr Camera",
+      amount: 360,
+      image: canon_dslr_camera,
+      rating: 95,
+      ID: "T_0002",
+      path: "/",
+    },
+
+    {
+      name: "Asus FHD Gaming Laptop",
+      amount: 700,
+      image: asus_gaming_pc,
+      rating: 325,
+      ID: "T_0003",
+      path: "/",
+    },
+    {
+      name: "Curology Product Set",
+      amount: 500,
+      image: curology_product_set,
+      rating: 145,
+      ID: "T_0004",
+      path: "/",
+    },
+    {
+      name: "Kids Electric Car",
+      amount: 960,
+      image: kid_electric_car,
+      rating: 65,
+      ID: "T_0005",
+      isNew: true,
+      path: "/",
+      colors: ["red"],
+    },
+
+    {
+      name: "Jr. Zoom Soccer Cleats",
+      amount: 1160,
+      image: jr_zoom_soccer_cleats,
+      rating: 35,
+      ID: "T_0006",
+      path: "/",
+      colors: ["yellow", "red"],
+    },
+
+    {
+      name: "GP11 Shooter USB Gamepad",
+      amount: 660,
+      image: gp11_prd3,
+      rating: 95,
+      ID: "T_0007",
+      isNew: true,
+      path: "/",
+      colors: ["black", "red"],
+    },
+
+    {
+      name: "Quilted Satin Jacket",
+      amount: 660,
+      image: quilted_satin_jacket,
+      rating: 55,
+      ID: "T_0008",
+      path: "/",
+      colors: ["black", "red"],
+    },
+  ]);
+
   const [authenticated, setAuthenticated] = useState({
     isLogin: false,
     username: null,
@@ -112,7 +206,7 @@ export const AppContextProvider = (props: any) => {
 
   return (
     <AppContext.Provider
-      value={{ authenticated, products, shopList }}
+      value={{ authenticated, products, shopList, trendingProducts }}
       {...props}
     />
   );
