@@ -2,6 +2,7 @@
 
 //@imports
 import { useState, useContext } from "react";
+import Countdown from "react-countdown";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
@@ -54,6 +55,86 @@ const Categories = [
   { type: "Headphones", logo: category_cellphone, id: 5, path: "/headphones" },
   { type: "Gamepad", logo: category_gamepad, id: 6, path: "/gamepad" },
 ];
+
+const FlashRenderer = ({ days, hours, minutes, seconds, completed }: any) => {
+  return (
+    <div className="flex items-center justify-between space-x-2">
+      <div className="flex flex-col items-center justify-center space-y-2">
+        <p className="text-gray-700 font-medium text-xs md:text-md">Days</p>
+        <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
+          {days}
+        </h2>
+      </div>
+      <span className="text-2xl text-red-700">:</span>
+
+      <div className="flex flex-col space-y-2 items-center justify-center">
+        <p className="text-gray-700 font-medium text-xs md:text-md">Hours</p>
+        <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
+          {hours}
+        </h2>
+      </div>
+      <span className="text-2xl text-red-700">:</span>
+
+      <div className="flex flex-col space-y-2 items-center justify-center">
+        <p className="text-gray-700 font-medium text-xs md:text-md">Minutes</p>
+        <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
+          {minutes}
+        </h2>
+      </div>
+      <span className="text-2xl text-red-700">:</span>
+
+      <div className="flex flex-col space-y-2 items-center justify-center">
+        <p className="text-gray-700 font-medium text-xs md:text-md">Seconds</p>
+        <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
+          {seconds}
+        </h2>
+      </div>
+    </div>
+  );
+};
+
+const ProductCategoryRenderer = ({
+  days,
+  hours,
+  minutes,
+  seconds,
+  completed,
+}: any) => {
+  return (
+    <div className="flex justify-start items-center space-x-2 md:space-x-3">
+      <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
+        <h2 className="text-sm md:text-2xl font-bold text-gray-700">{hours}</h2>
+        <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+          Hours
+        </h4>
+      </div>
+
+      <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
+        <h2 className="text-sm md:text-2xl font-bold text-gray-700">{days}</h2>
+        <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+          Days
+        </h4>
+      </div>
+
+      <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
+        <h2 className="text-sm md:text-2xl font-bold text-gray-700">
+          {minutes}
+        </h2>
+        <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+          Minutes
+        </h4>
+      </div>
+      <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
+        <h2 className="text-sm md:text-2xl font-bold text-gray-700">
+          {seconds}
+        </h2>
+        <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+          Seconds
+        </h4>
+      </div>
+    </div>
+  );
+};
 
 export default function Home() {
   //Internal state
@@ -139,46 +220,10 @@ export default function Home() {
             <h2 className="text-gray-700 text-lg font-medium md:text-2xl lg:text-4xl">
               Flash Sales
             </h2>
-            <div className="flex items-center justify-between space-x-2">
-              <div className="flex flex-col items-center justify-center space-y-2">
-                <p className="text-gray-700 font-medium text-xs md:text-md">
-                  Days
-                </p>
-                <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
-                  03
-                </h2>
-              </div>
-              <span className="text-2xl text-red-700">:</span>
-
-              <div className="flex flex-col space-y-2 items-center justify-center">
-                <p className="text-gray-700 font-medium text-xs md:text-md">
-                  Hours
-                </p>
-                <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
-                  23
-                </h2>
-              </div>
-              <span className="text-2xl text-red-700">:</span>
-
-              <div className="flex flex-col space-y-2 items-center justify-center">
-                <p className="text-gray-700 font-medium text-xs md:text-md">
-                  Minutes
-                </p>
-                <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
-                  19
-                </h2>
-              </div>
-              <span className="text-2xl text-red-700">:</span>
-
-              <div className="flex flex-col space-y-2 items-center justify-center">
-                <p className="text-gray-700 font-medium text-xs md:text-md">
-                  Seconds
-                </p>
-                <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
-                  56
-                </h2>
-              </div>
-            </div>
+            <Countdown
+              renderer={FlashRenderer}
+              date={Date.now() + 331200000 /*4days */}
+            />
 
             <div className="flex basis-2/5 items-center justify-end">
               <button className="bg-gray-200 rounded-lg mr-2 p-1">
@@ -199,17 +244,20 @@ export default function Home() {
             style={{ overflowX: "scroll" }}
           >
             {shopList.map((item: ItemType) => (
-              <div key={item.ID} className={`flex flex-col space-y-2 ml-4`}>
-                <button className="relative max-w-64 max-h-64 w-64 h-64 bg-gray-100 rounded-sm flex items-center justify-between">
-                  <button className="self-start mt-3 ml-3 rounded-md p-1 bg-red-600 text-xs text-gray-50 font-medium">
+              <div
+                key={item.ID}
+                className={`relative flex flex-col space-y-2 ml-4`}
+              >
+                <button className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
+                  <button className="absolute left-4 top-4 rounded-md p-1 bg-red-600 text-xs text-gray-50 font-medium">
                     -{item.perc_discount}%
                   </button>
                   <Image
                     src={item.image}
                     alt={item.name}
-                    style={{ width: "50%", height: 127 }}
+                    className="w-2/5 h-2/5"
                   />
-                  <div className="self-start mt-3 mr-3 flex flex-col space-y-4">
+                  <div className="absolute top-4 right-2 flex flex-col space-y-4">
                     <button className="bg-gray-100">
                       <IoHeartOutline className="w-6 h-6 text-gray-700" />
                     </button>
@@ -217,7 +265,7 @@ export default function Home() {
                   </div>
 
                   <button
-                    className="absolute bottom-0 text-center text-gray-100 self-end p-2 bg-gray-800"
+                    className="absolute bottom-0  text-center text-gray-100  p-2 bg-gray-800"
                     style={{ width: "100%" }}
                   >
                     Add To Cart
@@ -331,22 +379,31 @@ export default function Home() {
           >
             {products.map((item: ProductType) => (
               <div key={item.ID} className={`flex flex-col space-y-2 ml-4`}>
-                <button className="relative max-w-64 max-h-64 w-64 h-64 bg-gray-100 rounded-sm flex items-center justify-around">
+                <button className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
                   <Image
                     src={item.image}
                     alt={item.name}
-                    style={{ width: "50%", height: 127 }}
+                    className="w-2/5 h-2/5"
                   />
-                  <div className="self-start mt-3 flex flex-col space-y-4">
-                    <button className="bg-gray-100">
+                  <div className="absolute z-50 top-4 right-2 flex flex-col space-y-4">
+                    <button
+                      className="bg-gray-100"
+                      onClick={() => alert("Item Added To Your Favorites")}
+                    >
                       <IoHeartOutline className="w-6 h-6 text-gray-700" />
                     </button>
-                    <button className="bg-gray-100">{isSeen}</button>
+                    <button
+                      className="bg-gray-100"
+                      onClick={() => alert("Seen!")}
+                    >
+                      {isSeen}
+                    </button>
                   </div>
 
                   <button
-                    className="absolute bottom-0 text-center text-gray-100 self-end p-2 bg-gray-800"
+                    className="absolute bottom-0 z-50 text-center text-gray-100 self-end p-2 bg-gray-800"
                     style={{ width: "100%" }}
+                    onClick={() => alert("Item Added To Cart")}
                   >
                     Add To Cart
                   </button>
@@ -385,42 +442,10 @@ export default function Home() {
                 Music Experience
               </h2>
             </div>
-            <div className="flex justify-start items-center space-x-2 md:space-x-3">
-              <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
-                <h2 className="text-sm md:text-2xl font-bold text-gray-700">
-                  23
-                </h2>
-                <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
-                  Hours
-                </h4>
-              </div>
-
-              <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
-                <h2 className="text-sm md:text-2xl font-bold text-gray-700">
-                  05
-                </h2>
-                <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
-                  Days
-                </h4>
-              </div>
-
-              <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
-                <h2 className="text-sm md:text-2xl font-bold text-gray-700">
-                  59
-                </h2>
-                <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
-                  Minutes
-                </h4>
-              </div>
-              <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
-                <h2 className="text-sm md:text-2xl font-bold text-gray-700">
-                  35
-                </h2>
-                <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
-                  Seconds
-                </h4>
-              </div>
-            </div>
+            <Countdown
+              renderer={ProductCategoryRenderer}
+              date={Date.now() + 496800000 /*6days */}
+            />
 
             <button className="p-4 w-32 flex items-center justify-center h-10 bg-green-500 font-normal text-gray-100 text-sm md:text-lg rounded-sm">
               Buy Now!
@@ -467,22 +492,21 @@ export default function Home() {
           </div>
 
           {/* items */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 mb-6">
+          <div className="self-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 mb-6">
             {trendingProducts.map((item: TrendingProductsType) => (
               <div key={item.ID} className={`flex flex-col space-y-2 ml-4`}>
-                <button className="relative max-w-64 max-h-64 w-64 h-64 bg-gray-100 rounded-sm flex items-center justify-between">
+                <button className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
                   {item.isNew ? (
-                    <button className="self-start mt-3 ml-3 rounded-md p-2 bg-green-400 text-sm text-gray-50 font-medium">
+                    <button className="absolute left-4 top-4 rounded-md p-1 bg-green-400 text-xs md:text-sm text-gray-50 font-base text-center w-12 h-8">
                       New
                     </button>
                   ) : null}
                   <Image
                     src={item.image}
                     alt={item.name}
-                    className="w-2/4 h-2/4"
-                    // style={{ width: "50%", height: 127 }}
+                    className="w-2/5 h-2/5"
                   />
-                  <div className="self-start mt-3 mr-3 flex flex-col space-y-4">
+                  <div className="absolute top-4 right-4 z-50 flex flex-col space-y-4">
                     <button className="bg-gray-100">
                       <IoHeartOutline className="w-6 h-6 text-gray-700" />
                     </button>
@@ -490,7 +514,7 @@ export default function Home() {
                   </div>
 
                   <button
-                    className="absolute bottom-0 text-center text-gray-100 self-end p-2 bg-gray-800"
+                    className="absolute bottom-0 z-50  text-center text-gray-100  p-2 bg-gray-800"
                     style={{ width: "100%" }}
                   >
                     Add To Cart
