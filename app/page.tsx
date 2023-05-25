@@ -325,20 +325,17 @@ export default function Home() {
           </div>
 
           {/* items */}
-          <div
-            className="flex  items-center  space-x-8 mb-6"
-            style={{ overflowX: "scroll" }}
-          >
+          <div className="flex flex-wrap  items-center justify-start  space-x-4  mb-6">
             {Categories.map((category: CategoryType) => (
               <Link
                 href={category.path}
                 key={category.id}
-                className="w-32 h-28 py-4 px-8 text-sm text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center ml-4  hover:bg-red-500 hover:text-gray-100"
+                className="w-24 h-20 lg:w-32 lg:h-28 py-4 px-8 text-xs md:text-sm text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center ml-4 mb-4 hover:bg-red-500 hover:text-gray-100"
               >
                 <Image
                   src={category.logo}
                   alt={`${category.type} logo`}
-                  className="w-8 h-8 mb-4 md:w-12 md:h-12"
+                  className="w-2/3 h-2/3 md:w-2/4 md:h-2/4 mb-2"
                 />
                 {category.type}
               </Link>
@@ -378,7 +375,10 @@ export default function Home() {
             style={{ overflowX: "scroll" }}
           >
             {products.map((item: ProductType) => (
-              <div key={item.ID} className={`flex flex-col space-y-2 ml-4`}>
+              <div
+                key={item.ID}
+                className={`relative flex flex-col space-y-2 ml-4`}
+              >
                 <button className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
                   <Image
                     src={item.image}
@@ -494,8 +494,8 @@ export default function Home() {
           {/* items */}
           <div className="self-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 mb-6">
             {trendingProducts.map((item: TrendingProductsType) => (
-              <div key={item.ID} className={`flex flex-col space-y-2 ml-4`}>
-                <button className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
+              <div key={item.ID} className={`relative flex flex-col space-y-4`}>
+                <button className="relative w-40 h-40 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-60 lg:h-60">
                   {item.isNew ? (
                     <button className="absolute left-4 top-4 rounded-md p-1 bg-green-400 text-xs md:text-sm text-gray-50 font-base text-center w-12 h-8">
                       New
@@ -521,18 +521,28 @@ export default function Home() {
                   </button>
                 </button>
                 <Link href={item.path} className="space-y-2 mb-4">
-                  <h4 className="text-gray-700 text-md font-medium">
-                    {item.name}
-                  </h4>
+                  <h4 className="text-gray-700 font-medium">{item.name}</h4>
 
                   <h4 className="space-x-3 font-medium">
                     <span className="text-red-500">${item.amount}</span>
-                    <span className="text-gray-400 line-through">
-                      ${item.prevAmount}
-                    </span>
+                    {item.prevAmount ? (
+                      <span className="text-gray-400 line-through">
+                        ${item.prevAmount}
+                      </span>
+                    ) : null}
                   </h4>
-
                   <span className="text-gray-400">Rating ({item.rating})</span>
+
+                  {item.colors ? (
+                    <div className="flex items-center space-x-2">
+                      {item.colors.map((color: string) => (
+                        <button
+                          className="w-4 h-4 lg:w-5 lg:h-5 rounded-xl hover:outline-2 hover:outline-gray-800"
+                          style={{ backgroundColor: color }}
+                        />
+                      ))}
+                    </div>
+                  ) : null}
                 </Link>
               </div>
             ))}
