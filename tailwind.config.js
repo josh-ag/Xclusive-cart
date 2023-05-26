@@ -9,7 +9,14 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'playStation': "url('../assets/images/ps5.png')",
+        'womenCollection': 'url("../assets/images/women_wear.png")',
+        'speakers': 'url("../assets/images/speakers.png")',
+        'perfums': 'url("../assets/images/perfums.png")'
+      }
+    },
   },
   plugins: [require('@tailwindcss/forms'),],
 }

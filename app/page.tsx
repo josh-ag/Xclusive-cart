@@ -15,6 +15,9 @@ import category_camera from "../assets/icons/Category-Camera.svg";
 import category_gamepad from "../assets/icons/Category-Gamepad.svg";
 import category_smartwatch from "../assets/icons/Category-SmartWatch.svg";
 import jbl_boombox from "../assets/images/jbl_boombox.png";
+import icon_delivery from "../assets/icons/icon-delivery.svg";
+import icon_customer_service from "../assets/icons/Icon-Customer_service.svg";
+import icon_secure from "../assets/icons/Icon-secure.svg";
 import {
   IoArrowBackOutline,
   IoArrowForwardOutline,
@@ -140,7 +143,7 @@ export default function Home() {
   //Internal state
   const [visible, setVisible] = useState<Boolean>(true);
 
-  const { products, shopList, trendingProducts } = useContext(AppContext);
+  const { products, shopList, bestSelling } = useContext(AppContext);
 
   const isSeen = visible ? (
     <IoEyeOutline className="w-6 h-6 text-gray-700" />
@@ -374,7 +377,7 @@ export default function Home() {
             className="flex space-x-6 items-center mb-6"
             style={{ overflowX: "scroll" }}
           >
-            {products.map((item: ProductType) => (
+            {bestSelling.map((item: ProductType) => (
               <div
                 key={item.ID}
                 className={`relative flex flex-col space-y-2 ml-4`}
@@ -492,8 +495,8 @@ export default function Home() {
           </div>
 
           {/* items */}
-          <div className="self-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 mb-6">
-            {trendingProducts.map((item: TrendingProductsType) => (
+          <div className="self-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 mb-6 px-4 md:px-0">
+            {products.map((item: TrendingProductsType) => (
               <div key={item.ID} className={`relative flex flex-col space-y-4`}>
                 <button className="relative w-40 h-40 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-60 lg:h-60">
                   {item.isNew ? (
@@ -537,6 +540,7 @@ export default function Home() {
                     <div className="flex items-center space-x-2">
                       {item.colors.map((color: string) => (
                         <button
+                          key={color}
                           className="w-4 h-4 lg:w-5 lg:h-5 rounded-xl hover:outline-2 hover:outline-gray-800"
                           style={{ backgroundColor: color }}
                         />
@@ -550,6 +554,106 @@ export default function Home() {
           <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2">
             View All Products
           </button>
+        </div>
+      </div>
+
+      {/* Featured */}
+      <div className="container pt-16 flex flex-col justify-center space-y-6  mx-auto pb-8 px-4 md:px-0">
+        <div className="ml-4">
+          {/* Bullet  */}
+          <div className="flex items-center space-x-2">
+            <div className="h-7 w-3 bg-red-600 rounded-sm" />
+            <h4 className="text-red-600 text-base font-medium md:text-lg">
+              Featured
+            </h4>
+          </div>
+        </div>
+
+        {/* Heading  */}
+        <div className="flex px-4 justify-between items-center space-x-6">
+          <h2 className="text-gray-700 text-lg font-medium md:text-2xl lg:text-4xl">
+            New Arrival
+          </h2>
+        </div>
+
+        {/* items */}
+        <div className="flex flex-wrap items-stretch space-x-4 mb-6">
+          <div className="bg-playStation bg-right bg-contain bg-no-repeat h-96 flex-1 flex items-end bg-black p-8">
+            <div className="space-y-3">
+              <h2 className="text-gray-200 text-xl font-medium md:text-2xl lg:text-4xl">
+                PlayStation 5
+              </h2>
+              <p className="text-gray-400 text-sm font-medium md:text-md lg:text-lg">
+                Black and White version of the PS5 coming out on sale.
+              </p>
+              <button className="text-gray-200 font-medium text-sm md:text-md lg:text-lg py-1 border-b border-b-gray-400 hover:text-gray-100">
+                Shop Now
+              </button>
+            </div>
+          </div>
+
+          <div className="flex-1 flex flex-col item-stretch space-y-3">
+            <div className="flex-1 flex items-end bg-womenCollection bg-black bg-right bg-contain bg-no-repeat p-6">
+              <div className="space-y-3">
+                <h2 className="text-gray-200 text-xl font-medium md:text-2xl lg:text-4xl">
+                  Women's Collections
+                </h2>
+                <p className="text-gray-400 text-sm font-medium md:text-md lg:text-lg">
+                  Featured woman collections that give you another vibe.
+                </p>
+                <button className="text-gray-200 font-medium text-sm md:text-md lg:text-lg py-1 border-b border-b-gray-400 hover:text-gray-100">
+                  Shop Now
+                </button>
+              </div>
+            </div>
+
+            <div className="flex-1 flex space-x-4 items-stretch justify-stretch">
+              <div className="flex-1 flex items-end bg-speakers bg-black  bg-right bg-contain bg-no-repeat p-6">
+                <div className="space-y-3">
+                  <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-2xl">
+                    Speakers
+                  </h2>
+                  <p className="text-gray-400 text-xs font-medium md:text-md lg:text-lg">
+                    Amazon wireless speakers
+                  </p>
+                  <button className="text-gray-200 font-medium text-xs md:text-md lg:text-lg py-1 border-b border-b-gray-400 hover:text-gray-100">
+                    Shop Now
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex-1 flex items-end bg-perfums bg-black  bg-right bg-contain bg-no-repeat p-6">
+                <div className="space-y-3">
+                  <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-2xl">
+                    Perfums
+                  </h2>
+                  <p className="text-gray-400 text-xs font-medium md:text-md lg:text-lg">
+                    GUCCI INTENSE OUD EDP
+                  </p>
+                  <button className="text-gray-200 font-medium text-xs md:text-md lg:text-lg py-1 border-b border-b-gray-400 hover:text-gray-100">
+                    Shop Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center space-x-4">
+          <div className="flex flex-col items-center justify-center space-y-3">
+            {/* Icon  */}
+            <button className="w-12 h-12 bg-gray-900 rounded-full p-2 outline-2 border-gray-500">
+              <Image src={icon_delivery} alt="icon delivery" />
+            </button>
+
+            <h2 className="text-gray-700 text-xl font-medium md:text-2xl lg:text-4xl">
+              FREE AND FAST DELIVERY
+            </h2>
+
+            <p className="text-gray-600 text-sm font-medium md:text-md lg:text-lg">
+              Free delivery for all orders over $140
+            </p>
+          </div>
         </div>
       </div>
     </div>

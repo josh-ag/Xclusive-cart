@@ -30,14 +30,14 @@ export const AppContext = createContext<AppContextInterface>({
   authenticated: {},
   products: [],
   shopList: [],
-  trendingProducts: [],
+  bestSelling: [],
 });
 
 export const AppContextProvider = (props: any) => {
   /*===========================================
             STATE
     ===========================================*/
-  const [products, setProducts] = useState<ProductType[]>([
+  const [bestSelling, setBestSelling] = useState<ProductType[]>([
     {
       name: "The North Coat",
       amount: 260,
@@ -119,9 +119,7 @@ export const AppContextProvider = (props: any) => {
     },
   ]);
 
-  const [trendingProducts, setTrendingProducts] = useState<
-    TrendingProductsType[]
-  >([
+  const [products, setProducts] = useState<TrendingProductsType[]>([
     {
       name: "Breed Dry Dog Food",
       amount: 100,
@@ -206,7 +204,7 @@ export const AppContextProvider = (props: any) => {
 
   return (
     <AppContext.Provider
-      value={{ authenticated, products, shopList, trendingProducts }}
+      value={{ authenticated, products, shopList, bestSelling }}
       {...props}
     />
   );

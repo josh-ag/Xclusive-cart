@@ -45,5 +45,5 @@ export interface AppContextInterface {
   authenticated: {};
   products: [];
   shopList: [];
-  trendingProducts: [];
+  bestSelling: [];
 }
