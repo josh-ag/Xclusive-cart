@@ -1,7 +1,7 @@
 "use client";
 
 //@imports
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Countdown from "react-countdown";
 import Image from "next/image";
 import { Inter } from "next/font/google";
@@ -165,7 +165,9 @@ export default function Home() {
     });
   };
 
-  // window.addEventListener("scroll", toggleVisible);
+  useEffect(() => {
+    window.addEventListener("scroll", toggleVisible);
+  });
 
   const isSeen = visible ? (
     <IoEyeOutline className="w-6 h-6 text-gray-700" />
