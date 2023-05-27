@@ -12,6 +12,7 @@ import {
 } from "react-icons/io5";
 import QrCode from "../../assets/icons/Qr Code.svg";
 import iconSend from "../../assets/icons/icon-send.svg";
+import playstore_icon from "../../assets/icons/icons8-google-play.svg";
 
 export const Footer = () => {
   return (
@@ -149,7 +150,13 @@ export const Footer = () => {
               <Image src={QrCode} alt="qrcode" className="w-24 h-24" />
               <div className="space-y-2">
                 <button className="flex w-40 h-12 space-x-2 items-center justify-center ring-1 p-2 rounded-lg ring-slate-400">
-                  <IoLogoGooglePlaystore size={24} className="text-gray-300" />
+                  <Image
+                    src={playstore_icon}
+                    alt="logo playstore"
+                    width={27}
+                    height={27}
+                  />
+
                   <div className="flex flex-col justify-center">
                     <p className="text-gray-300 text-left text-sm font-light">
                       Get it on
@@ -160,7 +167,7 @@ export const Footer = () => {
                   </div>
                 </button>
                 <button className="flex w-40 h-12 space-x-2 items-center justify-center ring-1 p-2 rounded-lg ring-slate-400">
-                  <IoLogoApple size={24} className="text-gray-300" />
+                  <IoLogoApple size={27} className="text-gray-300" />
                   <div className="flex flex-col justify-center items-center">
                     <p className="text-gray-300 text-left text-sm font-light">
                       Download on the

@@ -10,9 +10,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <AppContextProvider>
-      <html lang="en">
-        <body>
+    <html lang="en">
+      <body>
+        <AppContextProvider>
           <TopBarComponent />
           <main className="relative flex flex-col min-h-screen h-full w-full">
             <AppbarComponent />
@@ -21,8 +21,8 @@ export default function RootLayout({
             </div>
             <Footer />
           </main>
-        </body>
-      </html>
-    </AppContextProvider>
+        </AppContextProvider>
+      </body>
+    </html>
   );
 }

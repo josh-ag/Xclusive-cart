@@ -32,6 +32,7 @@ import {
   TrendingProductsType,
 } from "@/type.d";
 import { AppContext } from "./Context/appContext";
+import arrow_up from "../assets/icons/arrow-up.svg";
 
 const sideNav = [
   { name: "Women's Fashion", path: "/fashion/women" },
@@ -142,8 +143,29 @@ const ProductCategoryRenderer = ({
 export default function Home() {
   //Internal state
   const [visible, setVisible] = useState<Boolean>(true);
+  const [scrollVisible, setScrollVisible] = useState<Boolean>(false);
 
   const { products, shopList, bestSelling } = useContext(AppContext);
+
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 500) {
+      setScrollVisible(true);
+    } else if (scrolled <= 500) {
+      setScrollVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+      /* you can also use 'auto' behaviour
+         in place of 'smooth' */
+    });
+  };
+
+  window.addEventListener("scroll", toggleVisible);
 
   const isSeen = visible ? (
     <IoEyeOutline className="w-6 h-6 text-gray-700" />
@@ -154,6 +176,7 @@ export default function Home() {
   return (
     <div className="min-w-full space-y-10">
       {/* Showcase  */}
+
       <div className="container  md:space-x-4 flex justify-between items-stretch mx-auto mb-1">
         <div className="hidden basis-1/5 flex-col justify-starrt space-y-2 border-r border-slate-300 p-4 md:flex">
           <div className="flex self-center flex-col">
@@ -251,7 +274,7 @@ export default function Home() {
                 key={item.ID}
                 className={`relative flex flex-col space-y-2 ml-4`}
               >
-                <button className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
+                <div className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
                   <button className="absolute left-4 top-4 rounded-md p-1 bg-red-600 text-xs text-gray-50 font-medium">
                     -{item.perc_discount}%
                   </button>
@@ -273,7 +296,7 @@ export default function Home() {
                   >
                     Add To Cart
                   </button>
-                </button>
+                </div>
                 <Link href={item.path} className="space-y-2 mb-4">
                   <h4 className="text-gray-700 text-md font-medium">
                     {item.name}
@@ -382,7 +405,7 @@ export default function Home() {
                 key={item.ID}
                 className={`relative flex flex-col space-y-2 ml-4`}
               >
-                <button className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
+                <div className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -410,7 +433,7 @@ export default function Home() {
                   >
                     Add To Cart
                   </button>
-                </button>
+                </div>
                 <Link href={item.path} className="space-y-2 mb-4">
                   <h4 className="text-gray-700 text-md font-medium">
                     {item.name}
@@ -498,7 +521,7 @@ export default function Home() {
           <div className="self-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 mb-6 px-4 md:px-0">
             {products.map((item: TrendingProductsType) => (
               <div key={item.ID} className={`relative flex flex-col space-y-4`}>
-                <button className="relative w-40 h-40 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-60 lg:h-60">
+                <div className="relative w-40 h-40 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-60 lg:h-60">
                   {item.isNew ? (
                     <button className="absolute left-4 top-4 rounded-md p-1 bg-green-400 text-xs md:text-sm text-gray-50 font-base text-center w-12 h-8">
                       New
@@ -522,7 +545,7 @@ export default function Home() {
                   >
                     Add To Cart
                   </button>
-                </button>
+                </div>
                 <Link href={item.path} className="space-y-2 mb-4">
                   <h4 className="text-gray-700 font-medium">{item.name}</h4>
 
@@ -577,10 +600,10 @@ export default function Home() {
         </div>
 
         {/* items */}
-        <div className="flex flex-wrap items-stretch space-x-4 mb-6">
+        <div className="grid grid-cols-1 grid-rows-1 gap-2 md:grid-cols-2">
           <div className="bg-playStation bg-right bg-contain bg-no-repeat h-96 flex-1 flex items-end bg-black p-8">
             <div className="space-y-3">
-              <h2 className="text-gray-200 text-xl font-medium md:text-2xl lg:text-4xl">
+              <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-4xl">
                 PlayStation 5
               </h2>
               <p className="text-gray-400 text-sm font-medium md:text-md lg:text-lg">
@@ -595,7 +618,7 @@ export default function Home() {
           <div className="flex-1 flex flex-col item-stretch space-y-3">
             <div className="flex-1 flex items-end bg-womenCollection bg-black bg-right bg-contain bg-no-repeat p-6">
               <div className="space-y-3">
-                <h2 className="text-gray-200 text-xl font-medium md:text-2xl lg:text-4xl">
+                <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-4xl">
                   Women's Collections
                 </h2>
                 <p className="text-gray-400 text-sm font-medium md:text-md lg:text-lg">
@@ -639,21 +662,61 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center space-x-4">
-          <div className="flex flex-col items-center justify-center space-y-3">
+        <div className="flex items-center justify-center space-x-6 py-16 md:justify-evenly">
+          <div className="flex flex-col items-center justify-center space-y-4">
             {/* Icon  */}
-            <button className="w-12 h-12 bg-gray-900 rounded-full p-2 outline-2 border-gray-500">
+            <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-400">
               <Image src={icon_delivery} alt="icon delivery" />
             </button>
 
-            <h2 className="text-gray-700 text-xl font-medium md:text-2xl lg:text-4xl">
+            <h2 className="text-gray-800 text-center text-sm font-medium md:text-lg lg:text-xl">
               FREE AND FAST DELIVERY
             </h2>
 
-            <p className="text-gray-600 text-sm font-medium md:text-md lg:text-lg">
+            <p className="text-gray-600 text-center text-xs font-medium md:text-sm lg:text-md">
               Free delivery for all orders over $140
             </p>
           </div>
+
+          <div className="flex flex-col items-center justify-center space-y-4">
+            {/* Icon  */}
+            <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-400">
+              <Image src={icon_customer_service} alt="icon delivery" />
+            </button>
+
+            <h2 className="text-gray-800 text-sm text-center font-medium md:text-lg lg:text-xl">
+              24/7 CUSTOMER SERVICE
+            </h2>
+
+            <p className="text-gray-600 text-xs text-center font-medium md:text-sm lg:text-md">
+              Friendly 24/7 customer support
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center justify-center space-y-4">
+            {/* Icon  */}
+            <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-400">
+              <Image src={icon_secure} alt="icon delivery" />
+            </button>
+
+            <h2 className="text-gray-800 text-sm text-center font-medium md:text-lg lg:text-xl">
+              MONEY BACK GUARANTEE
+            </h2>
+
+            <p className="text-gray-600 text-xs text-center font-medium md:text-sm lg:text-md">
+              We reurn money within 30 days
+            </p>
+          </div>
+        </div>
+
+        <div className="flex justify-end">
+          <button
+            className="p-4 w-12 h-12 z-50 fixed bottom-10 bg-gray-200 rounded-full"
+            style={{ display: scrollVisible ? "block" : "none" }}
+            onClick={scrollToTop}
+          >
+            <Image src={arrow_up} alt="logo arrow_up" />
+          </button>
         </div>
       </div>
     </div>
