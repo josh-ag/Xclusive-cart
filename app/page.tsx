@@ -165,7 +165,7 @@ export default function Home() {
     });
   };
 
-  window.addEventListener("scroll", toggleVisible);
+  // window.addEventListener("scroll", toggleVisible);
 
   const isSeen = visible ? (
     <IoEyeOutline className="w-6 h-6 text-gray-700" />
