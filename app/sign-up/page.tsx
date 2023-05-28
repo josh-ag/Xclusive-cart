@@ -1,0 +1,55 @@
+import Image from "next/image";
+import shopping_cart from "../../assets/images/shopping.png";
+import Link from "next/link";
+
+export default function SigninPage() {
+  return (
+    <div className="flex items-center my-4 h-auto">
+      <div className="h-full w-full grid grid-cols-1 grid-rows-1  md:grid-cols-2 space-y-8">
+        <Image src={shopping_cart} alt="shopping cart" className="h-full" />
+        <div className="w-2/3 flex flex-col items-center justify-center space-y-6 py-8 mx-auto">
+          <div className="w-full space-y-3">
+            <h2 className="text-gray-800 text-xl font-medium md:text-2xl lg:text-4xl">
+              Create an account
+            </h2>
+            <p className="text-gray-600 text-base md:text-md lg:text-lg">
+              Enter your details below
+            </p>
+          </div>
+          <div className="w-full space-y-4">
+            <input
+              placeholder="Name"
+              className="block w-full border-b text-gray-600 text-base placeholder-gray-400 border-gray-300 p-2 md:text-left"
+            />
+            <input
+              placeholder="Email or Phone Number"
+              className="w-full block border-b text-gray-600 text-base placeholder-gray-400 border-gray-300 p-2 md:text-left"
+            />
+            <input
+              placeholder="Password"
+              className="w-full block border-b text-gray-600 text-base placeholder-gray-400 border-gray-300 p-2"
+            />
+            <button className="w-full text-lg bg-red-600 font-medium text-gray-100 p-4 rounded">
+              Create Account
+            </button>
+
+            <button className="w-full text-lg outline-1 outline outline-gray-400 font-medium text-gray-600 p-4 rounded">
+              Sign-up with Google
+            </button>
+            <div className="flex items-center justify-center space-x-4">
+              <p className="text-gray-600 text-base md:text-md lg:text-lg">
+                Already have account?
+              </p>
+              <Link
+                href="/sign-in"
+                className="font-bold text-base text-gray-600"
+              >
+                Log In
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -16,7 +16,7 @@ export default function RootLayout({
           <TopBarComponent />
           <main className="relative flex flex-col min-h-screen h-full w-full">
             <AppbarComponent />
-            <div className="flex-1 min-h-full h-full min-w-full w-full">
+            <div className="flex-1 flex flex-col justify-center min-h-full h-full min-w-full w-full">
               {children}
             </div>
             <Footer />

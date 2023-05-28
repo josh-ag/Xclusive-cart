@@ -11,7 +11,7 @@ const navItems = [
   { title: "Home", path: "/" },
   { title: "Contact", path: "/contact" },
   { title: "About", path: "/about" },
-  { title: "Signup", path: "/signup" },
+  { title: "Signup", path: "/sign-up" },
 ];
 
 export const AppbarComponent = () => {
