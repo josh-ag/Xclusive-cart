@@ -41,9 +41,19 @@ export type CategoryType = {
   path: string;
 };
 
+export type UserType = {
+  ID?: string;
+  firstname?: string;
+  lastname?: string;
+  email: string;
+  password: string;
+};
+
 export interface AppContextInterface {
-  authenticated: {};
+  authenticated: any;
   products: [];
   shopList: [];
   bestSelling: [];
+  setUser: (arg: UserType) => any;
+  setAuthenticated: (arg: boolean) => any;
 }

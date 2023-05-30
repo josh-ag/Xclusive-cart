@@ -18,19 +18,23 @@ import gp11_prd3 from "../../assets/images/GP11_PRD3 1.png";
 import kid_electric_car from "../../assets/images/kid_electric_car.png";
 import jr_zoom_soccer_cleats from "../../assets/images/jr_zoom_soccer_cleats.png";
 import quilted_satin_jacket from "../../assets/images/quilted_satin_jacket.png";
+import { DummyUsers } from "@/data/dummyData";
 
 import {
   AppContextInterface,
   ItemType,
   ProductType,
   TrendingProductsType,
+  UserType,
 } from "@/type.d";
 
 export const AppContext = createContext<AppContextInterface>({
-  authenticated: {},
+  authenticated: Boolean,
   products: [],
   shopList: [],
   bestSelling: [],
+  setUser: (arg: UserType) => arg,
+  setAuthenticated: (arg: boolean) => arg,
 });
 
 export const AppContextProvider = (props: any) => {
@@ -197,14 +201,24 @@ export const AppContextProvider = (props: any) => {
     },
   ]);
 
-  const [authenticated, setAuthenticated] = useState({
-    isLogin: false,
-    username: null,
-  });
+  const [authenticated, setAuthenticated] = useState<Boolean>(false);
+  const [user, setUser] = useState<UserType>({ email: "", password: "" });
+
+  //Handle login
+  const handleLogin = (login: UserType) => {
+    const loginUser = DummyUsers.filter((user) => user.ID === login.ID);
+  };
 
   return (
     <AppContext.Provider
-      value={{ authenticated, products, shopList, bestSelling }}
+      value={{
+        authenticated,
+        products,
+        shopList,
+        bestSelling,
+        setAuthenticated,
+        setUser,
+      }}
       {...props}
     />
   );

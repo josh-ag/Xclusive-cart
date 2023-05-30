@@ -1,8 +1,44 @@
+"use client";
+
+import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import shopping_cart from "../../assets/images/shopping.png";
 import Link from "next/link";
+import { DummyUsers } from "@/data/dummyData";
+import { AppContext } from "../Context/appContext";
+
+type LoginType = { email: string; password: string };
 
 export default function SigninPage() {
+  //Internal State
+  const [login, setLogin] = useState<LoginType>({ email: "", password: "" });
+
+  const { setAuthenticated, setUser, authenticated } = useContext(AppContext);
+
+  // Handle login
+  const handleLogin = () => {
+    const { email, password } = login;
+
+    if (!email) return alert("Email Fied Is Empty!");
+    if (!password) return alert("Password Fied Is Empty!");
+
+    const findUser = DummyUsers.filter(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (!findUser.length) return alert("No user was found!");
+
+    setAuthenticated(true);
+    setUser(findUser[0]);
+  };
+
+  useEffect(() => {
+    if (authenticated) {
+      redirect("/");
+    }
+  });
+
   return (
     <div className="flex items-center my-4 h-auto">
       <div className="h-full w-full grid grid-cols-1 grid-rows-1  md:grid-cols-2 space-y-8">
@@ -18,17 +54,36 @@ export default function SigninPage() {
           </div>
           <div className="w-full space-y-4">
             <input
+              value={login.email}
+              name="email"
+              onChange={(e) =>
+                setLogin((prevState) => ({
+                  ...prevState,
+                  email: e.target.value,
+                }))
+              }
               placeholder="Email or Phone Number"
               className="w-full block border-b text-gray-600 text-base placeholder-gray-400 border-gray-300 p-2"
             />
             <input
+              value={login.password}
+              name="password"
+              onChange={(e) =>
+                setLogin((prevState) => ({
+                  ...prevState,
+                  password: e.target.value,
+                }))
+              }
               placeholder="Password"
               className="w-full block border-b text-gray-600 text-base placeholder-gray-400 border-gray-300 p-2"
             />
           </div>
 
           <div className="w-full flex justify-between items-center">
-            <button className="w-28 text-lg bg-red-600 font-medium text-gray-100 p-2 rounded">
+            <button
+              onClick={handleLogin}
+              className="w-28 text-lg bg-red-600 font-medium text-gray-100 p-2 rounded"
+            >
               Log In
             </button>
             <Link href="/forgot-password" className="text-red-500 text-base">

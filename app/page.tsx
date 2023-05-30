@@ -4,6 +4,7 @@
 import { useState, useContext, useEffect } from "react";
 import Countdown from "react-countdown";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import showcaseImage from "../assets/images/iphone.png";
@@ -145,7 +146,12 @@ export default function Home() {
   const [visible, setVisible] = useState<Boolean>(true);
   const [scrollVisible, setScrollVisible] = useState<Boolean>(false);
 
-  const { products, shopList, bestSelling } = useContext(AppContext);
+  const { products, shopList, bestSelling, authenticated } =
+    useContext(AppContext);
+  //redirect if not Authenticated
+  if (!authenticated) {
+    return redirect("/sign-in");
+  }
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
