@@ -146,7 +146,7 @@ export default function Home() {
   const [visible, setVisible] = useState<Boolean>(true);
   const [scrollVisible, setScrollVisible] = useState<Boolean>(false);
 
-  const { products, shopList, bestSelling, authenticated } =
+  const { products, shopList, bestSelling, authenticated, setCart, cart } =
     useContext(AppContext);
   //redirect if not Authenticated
   if (!authenticated) {
@@ -185,7 +185,7 @@ export default function Home() {
     <div className="min-w-full space-y-10">
       {/* Showcase  */}
 
-      <div className="container  md:space-x-4 flex justify-between items-stretch mx-auto mb-1">
+      <div className="container  md:space-x-4 flex justify-between items-stretch mx-auto mb-1 mt-2">
         <div className="hidden basis-1/5 flex-col justify-starrt space-y-2 border-r border-slate-300 p-4 md:flex">
           <div className="flex self-center flex-col">
             {sideNav.map((item, index) => (
@@ -301,6 +301,7 @@ export default function Home() {
                   <button
                     className="absolute bottom-0  text-center text-gray-100  p-2 bg-gray-800"
                     style={{ width: "100%" }}
+                    onClick={() => setCart(cart + 1)}
                   >
                     Add To Cart
                   </button>
@@ -437,7 +438,7 @@ export default function Home() {
                   <button
                     className="absolute bottom-0 z-50 text-center text-gray-100 self-end p-2 bg-gray-800"
                     style={{ width: "100%" }}
-                    onClick={() => alert("Item Added To Cart")}
+                    onClick={() => setCart(cart + 1)}
                   >
                     Add To Cart
                   </button>
@@ -488,7 +489,7 @@ export default function Home() {
           <Image
             src={jbl_boombox}
             alt="category image"
-            className="w-1/3 h-2/3 "
+            className="w-1/3 h-2/3"
           />
         </div>
       </div>
@@ -548,6 +549,7 @@ export default function Home() {
                   </div>
 
                   <button
+                    onClick={() => setCart(cart + 1)}
                     className="absolute bottom-0 z-50  text-center text-gray-100  p-2 bg-gray-800"
                     style={{ width: "100%" }}
                   >

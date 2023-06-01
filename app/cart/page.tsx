@@ -4,7 +4,7 @@ export default function Page() {
       {/* Header */}
       <header className="flex justify-between items-center">
         <h4 className="text-base font-medium text-gray-400 d:text-base lg:text-lg">
-          About /
+          Home / <span className="text-gray-500">Cart</span>
         </h4>
       </header>
     </div>

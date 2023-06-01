@@ -34,6 +34,7 @@ export const AppContext = createContext<AppContextInterface>({
   shopList: [],
   bestSelling: [],
   setUser: (arg: UserType) => arg,
+  setCart: (arg: number) => arg,
   setAuthenticated: (arg: boolean) => arg,
 });
 
@@ -41,6 +42,7 @@ export const AppContextProvider = (props: any) => {
   /*===========================================
             STATE
     ===========================================*/
+  const [cart, setCart] = useState<number>(0);
   const [bestSelling, setBestSelling] = useState<ProductType[]>([
     {
       name: "The North Coat",
@@ -218,6 +220,8 @@ export const AppContextProvider = (props: any) => {
         bestSelling,
         setAuthenticated,
         setUser,
+        cart,
+        setCart,
       }}
       {...props}
     />

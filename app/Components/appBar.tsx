@@ -1,32 +1,76 @@
 "use client";
 
 import Link from "next/link";
-import { useContext } from "react";
+import Image from "next/image";
+import { useContext, useState } from "react";
+import { AppContext } from "../Context/appContext";
 import {
   IoMenuOutline,
   IoCartOutline,
   IoHeartOutline,
   IoSearchOutline,
 } from "react-icons/io5";
-import { AppContext } from "../Context/appContext";
+import user_icon from "../../assets/icons/user_icon.svg";
+import order_icon from "../../assets/icons/order.svg";
+import cancel_icon from "../../assets/icons/icon-cancel.svg";
+import review_icon from "../../assets/icons/Icon-Reviews.svg";
+import logout_icon from "../../assets/icons/Icon-logout.svg";
 
-const navItems = [
-  { title: "Home", path: "/" },
-  { title: "Contact", path: "/contact" },
-  { title: "About", path: "/about" },
-  { title: "Signup", path: "/sign-up" },
-];
+type NavlistType = {
+  handleClose: (arg: boolean) => any;
+};
+
+const NavList = ({ handleClose }: NavlistType) => {
+  return (
+    <div
+      onMouseLeave={() => handleClose(false)}
+      onClick={() => handleClose(false)}
+      className="absolute flex justify-end w-full h-full top-12 right-0"
+    >
+      <div className="flex flex-col items-start justify-center w-80 h-80 bg-gray-600 backdrop-filter backdrop-blur-lg backdrop-opacity-50 rounded-lg p-4 space-y-4">
+        <Link href="/account" className="flex items-center space-x-4">
+          <Image src={user_icon} alt="order icon" />
+          <p className="text-gray-200 text-xl font-medium md:text-lg">
+            Manage My Account
+          </p>
+        </Link>
+        <Link href="/order" className="flex items-center space-x-4">
+          <Image src={order_icon} alt="order icon" />
+          <p className="text-gray-200 text-xl font-medium md:text-lg">
+            My Order
+          </p>
+        </Link>
+
+        <Link href="/cancel" className="flex items-center space-x-4">
+          <Image src={cancel_icon} alt="cancel icon" />
+          <p className="text-gray-200 text-xl font-medium md:text-lg">
+            My Cancellation
+          </p>
+        </Link>
+
+        <Link href="/reviews" className="flex items-center space-x-4">
+          <Image src={review_icon} alt="review icon" />
+          <p className="text-gray-200 text-xl font-medium md:text-lg">
+            My Review
+          </p>
+        </Link>
+
+        <button className="flex items-center space-x-4">
+          <Image src={logout_icon} alt="logout icon" />
+          <p className="text-gray-200 text-xl font-medium md:text-lg">Logout</p>
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export const AppbarComponent = () => {
-  const { authenticated, setAuthenticated } = useContext(AppContext);
-
-  // useEffect(() => {
-  //   setTimeout(() => setAuthenticated(true), 2000);
-  // });
+  const { authenticated, cart } = useContext(AppContext);
+  const [navList, setNavList] = useState(false);
 
   return (
     <div className="min-w-full border-0 border-b border-slate-300">
-      <div className="container flex justify-between md:justify-center items-center mx-auto p-2">
+      <div className="relative container flex justify-between md:justify-center items-center mx-auto p-2">
         {/* Logo section */}
         <Link
           href="/"
@@ -37,7 +81,7 @@ export const AppbarComponent = () => {
 
         {/* Navigation section  */}
         <div className="hidden basis-2/3 md:flex justify-center space-x-4">
-          <Link href="/home" className="text-sm lg:text-base">
+          <Link href="/" className="text-sm lg:text-base">
             Home
           </Link>
           <Link href="/contact" className="text-sm lg:text-base">
@@ -73,42 +117,46 @@ export const AppbarComponent = () => {
           </button>
           {authenticated ? (
             <>
-              <Link href={"/"}>
+              <Link href={"/wishlist"}>
                 <IoHeartOutline size={24} className="text-gray-600" />
               </Link>
-              <Link href={"/carts"}>
+              <Link href="/cart" className="relative">
                 <IoCartOutline size={24} className="text-gray-600" />
+                {cart ? (
+                  <button className="absolute flex items-center justify-center text-xs font-bold text-center -top-2 -right-3 bg-red-600 text-gray-200 p-1 w-5 h-5 rounded-full">
+                    {cart}
+                  </button>
+                ) : null}
               </Link>
-              <Link
-                href={"/user"}
-                className="hover:text-gray-200 hover:bg-red-500 p-1 rounded-full"
+              <button
+                onClick={() => setNavList(!navList)}
+                onMouseOver={() => setNavList(true)}
+                className="text-gray-700 hover:text-gray-200 hover:bg-red-500 p-1 rounded-full"
               >
                 <svg
-                  width="27"
-                  height="27"
-                  viewBox="0 0 32 32"
+                  width="30"
+                  height="32"
+                  viewBox="0 0 32 30"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="stroke-2 stroke-gray-500 hover:stroke-gray-200"
                 >
                   <path
                     d="M24 27V24.3333C24 22.9188 23.5224 21.5623 22.6722 20.5621C21.8221 19.5619 20.669 19 19.4667 19H11.5333C10.331 19 9.17795 19.5619 8.32778 20.5621C7.47762 21.5623 7 22.9188 7 24.3333V27"
-                    stroke="black"
-                    strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                   <path
                     d="M16.5 14C18.9853 14 21 11.9853 21 9.5C21 7.01472 18.9853 5 16.5 5C14.0147 5 12 7.01472 12 9.5C12 11.9853 14.0147 14 16.5 14Z"
-                    stroke="black"
-                    strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                 </svg>
-              </Link>
+              </button>
             </>
           ) : null}
         </div>
+        {navList && <NavList handleClose={setNavList} />}
       </div>
     </div>
   );

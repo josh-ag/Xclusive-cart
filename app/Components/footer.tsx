@@ -78,27 +78,27 @@ export const Footer = () => {
             My account
           </Link>
           <Link
-            href="/account"
+            href="/sign-in"
             className="text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
           >
             Log-in/register
           </Link>
 
           <Link
-            href="/account"
+            href="/cart"
             className="text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
           >
             Cart
           </Link>
           <Link
-            href="/account"
+            href="/wishlist"
             className="text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
           >
             Wishlist
           </Link>
 
           <Link
-            href="/account"
+            href="/shop"
             className="text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
           >
             Shop
@@ -110,27 +110,27 @@ export const Footer = () => {
             Quick link
           </h4>
           <Link
-            href="/account"
+            href="/privacy"
             className="text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
           >
             Privacy policy
           </Link>
 
           <Link
-            href="/account"
+            href="/terms"
             className="text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
           >
             Terms of use
           </Link>
 
           <Link
-            href="/account"
+            href="/contact"
             className="text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
           >
             Contact
           </Link>
           <Link
-            href="/account"
+            href="/faqs"
             className="text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
           >
             FAQ

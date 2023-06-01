@@ -4,7 +4,7 @@ export default function Page() {
       {/* Header */}
       <header className="flex justify-between items-center">
         <h4 className="text-base font-medium text-gray-400 d:text-base lg:text-lg">
-          About /
+          Contact /
         </h4>
       </header>
     </div>
