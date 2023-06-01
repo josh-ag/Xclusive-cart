@@ -33,6 +33,7 @@ export const AppContext = createContext<AppContextInterface>({
   products: [],
   shopList: [],
   bestSelling: [],
+  cart: 0,
   setUser: (arg: UserType) => arg,
   setCart: (arg: number) => arg,
   setAuthenticated: (arg: boolean) => arg,
