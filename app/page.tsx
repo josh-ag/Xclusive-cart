@@ -146,13 +146,16 @@ export default function Home() {
   const [visible, setVisible] = useState<Boolean>(true);
   const [scrollVisible, setScrollVisible] = useState<Boolean>(false);
 
+  // consume context
   const { products, shopList, bestSelling, authenticated, setCart, cart } =
     useContext(AppContext);
-  //redirect if not Authenticated
+
+  //redirect user if not Authenticated
   if (!authenticated) {
     return redirect("/sign-in");
   }
 
+  // Scroll-To-Top effect
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
     if (scrolled > 500) {
@@ -173,7 +176,7 @@ export default function Home() {
 
   useEffect(() => {
     window.addEventListener("scroll", toggleVisible);
-  });
+  }); //end scroll-to-top
 
   const isSeen = visible ? (
     <IoEyeOutline className="w-6 h-6 text-gray-700" />

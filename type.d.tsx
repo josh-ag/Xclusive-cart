@@ -54,6 +54,7 @@ export interface AppContextInterface {
   products: [];
   shopList: [];
   bestSelling: [];
+  wishList?: [];
   cart: number;
   setCart: (arg: number) => number;
   setUser: (arg: UserType) => any;

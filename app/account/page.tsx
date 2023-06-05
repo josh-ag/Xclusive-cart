@@ -7,7 +7,7 @@ export default function Page() {
           Home / <span className="text-gray-500">My Account</span>
         </h4>
         <h4 className="text-base font-medium text-gray-700 d:text-base lg:text-lg">
-          Welcome <span className="text-red-500">John!</span>
+          Welcome Back <span className="text-red-500">John!</span>
         </h4>
       </header>
     </div>

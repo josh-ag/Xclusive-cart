@@ -33,6 +33,7 @@ export const AppContext = createContext<AppContextInterface>({
   products: [],
   shopList: [],
   bestSelling: [],
+  wishList: [],
   cart: 0,
   setUser: (arg: UserType) => arg,
   setCart: (arg: number) => arg,
@@ -41,7 +42,7 @@ export const AppContext = createContext<AppContextInterface>({
 
 export const AppContextProvider = (props: any) => {
   /*===========================================
-            STATE
+             APP  GLOBAL  STATE
     ===========================================*/
   const [cart, setCart] = useState<number>(0);
   const [bestSelling, setBestSelling] = useState<ProductType[]>([
@@ -204,6 +205,18 @@ export const AppContextProvider = (props: any) => {
     },
   ]);
 
+  const [wishList, setWishList] = useState<ProductType[]>([
+    {
+      name: "The North Coat",
+      amount: 260,
+      prevAmount: 360,
+      rating: 65,
+      image: north_coat,
+      ID: "P_0001",
+      path: "/the_north_coat",
+    },
+  ]);
+
   const [authenticated, setAuthenticated] = useState<Boolean>(false);
   const [user, setUser] = useState<UserType>({ email: "", password: "" });
 
@@ -223,6 +236,7 @@ export const AppContextProvider = (props: any) => {
         setUser,
         cart,
         setCart,
+        wishList,
       }}
       {...props}
     />
