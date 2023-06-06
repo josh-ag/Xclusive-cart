@@ -19,9 +19,9 @@ export default function Page() {
   const { shopList, setCart, cart, wishList } = useContext(AppContext);
 
   const isSeen = visible ? (
-    <IoEyeOutline className="w-6 h-6 text-gray-700" />
+    <IoEyeOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700" />
   ) : (
-    <IoEyeOffOutline className="w-6 h-6 text-gray-700" />
+    <IoEyeOffOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700" />
   );
 
   return (
@@ -50,11 +50,12 @@ export default function Page() {
                 key={item.ID}
                 className={`relative flex flex-col space-y-2 ml-4`}
               >
-                <div className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
+                <div className="relative w-40 h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
                   <Image
                     src={item.image}
                     alt={item.name}
                     className="w-2/5 h-2/5"
+                    priority={true}
                   />
                   <div className="absolute z-50 top-4 right-2 flex flex-col space-y-4">
                     <button className="bg-gray-100">
@@ -63,11 +64,11 @@ export default function Page() {
                   </div>
 
                   <button
-                    className="absolute flex items-center justify-center bottom-0 z-50 text-center text-gray-100 self-end p-2 bg-gray-800"
+                    className="absolute text-sm font-medium flex items-center justify-center bottom-0 z-50 text-center text-gray-100 self-end p-2 bg-gray-800"
                     style={{ width: "100%" }}
-                    onClick={() => setCart(cart + 1)}
+                    // onClick={() => setCart(cart?.length)}
                   >
-                    <IoCartOutline className="w-5 h-5 text-gray-200 mr-2" />
+                    <IoCartOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-200 mr-2" />
                     Add To Cart
                   </button>
                 </div>
@@ -109,16 +110,13 @@ export default function Page() {
             See All
           </button>
         </header>
-        <div
-          className="flex space-x-6 items-center mb-6"
-          style={{ overflowX: "scroll" }}
-        >
+        <div className="flex space-x-6 items-center mb-6 overflow-x-auto">
           {shopList.map((item: ItemType) => (
             <div
               key={item.ID}
               className={`relative flex flex-col space-y-2 ml-4`}
             >
-              <div className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
+              <div className="relative w-40 h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
                 <Image
                   src={item.image}
                   alt={item.name}
@@ -134,11 +132,11 @@ export default function Page() {
                 </div>
 
                 <button
-                  className="absolute flex items-center justify-center bottom-0 z-50 text-center text-gray-100 self-end p-2 bg-gray-800"
+                  className="absolute text-sm font-medium flex items-center justify-center bottom-0 z-50 text-center text-gray-100 self-end p-2 bg-gray-800"
                   style={{ width: "100%" }}
-                  onClick={() => setCart(cart + 1)}
+                  // onClick={() => setCart(cart + 1)}
                 >
-                  <IoCartOutline className="w-5 h-5 text-gray-200 mr-2" />
+                  <IoCartOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-200 mr-2" />
                   Add To Cart
                 </button>
               </div>

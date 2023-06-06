@@ -5,7 +5,7 @@ import { useState, useContext, useEffect } from "react";
 import Countdown from "react-countdown";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import Link from "next/link";
 import showcaseImage from "../assets/images/iphone.png";
 import appleLogo from "../assets/icons/apple_logo.svg";
@@ -179,9 +179,9 @@ export default function Home() {
   }); //end scroll-to-top
 
   const isSeen = visible ? (
-    <IoEyeOutline className="w-6 h-6 text-gray-700" />
+    <IoEyeOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700" />
   ) : (
-    <IoEyeOffOutline className="w-6 h-6 text-gray-700" />
+    <IoEyeOffOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700" />
   );
 
   return (
@@ -276,16 +276,13 @@ export default function Home() {
           </div>
 
           {/* items */}
-          <div
-            className="flex space-x-6 items-center mb-6"
-            style={{ overflowX: "scroll" }}
-          >
+          <div className="flex space-x-6 items-center mb-6 overflow-x-auto">
             {shopList.map((item: ItemType) => (
               <div
                 key={item.ID}
                 className={`relative flex flex-col space-y-2 ml-4`}
               >
-                <div className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
+                <div className="relative w-40 h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
                   <button className="absolute left-4 top-4 rounded-md p-1 bg-red-600 text-xs text-gray-50 font-medium">
                     -{item.perc_discount}%
                   </button>
@@ -293,10 +290,11 @@ export default function Home() {
                     src={item.image}
                     alt={item.name}
                     className="w-2/5 h-2/5"
+                    priority={true}
                   />
                   <div className="absolute top-4 right-2 flex flex-col space-y-4">
                     <button className="bg-gray-100">
-                      <IoHeartOutline className="w-6 h-6 text-gray-700" />
+                      <IoHeartOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700" />
                     </button>
                     <button className="bg-gray-100">{isSeen}</button>
                   </div>
@@ -304,7 +302,7 @@ export default function Home() {
                   <button
                     className="absolute bottom-0  text-center text-gray-100  p-2 bg-gray-800"
                     style={{ width: "100%" }}
-                    onClick={() => setCart(cart + 1)}
+                    // onClick={() => setCart(cart + 1)}
                   >
                     Add To Cart
                   </button>
@@ -408,16 +406,13 @@ export default function Home() {
           </div>
 
           {/* items */}
-          <div
-            className="flex space-x-6 items-center mb-6"
-            style={{ overflowX: "scroll" }}
-          >
+          <div className="flex space-x-6 items-center mb-6 overflow-x-auto">
             {bestSelling.map((item: ProductType) => (
               <div
                 key={item.ID}
                 className={`relative flex flex-col space-y-2 ml-4`}
               >
-                <div className="relative w-48 h-48 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-64 lg:h-64">
+                <div className="relative w-40 h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -428,7 +423,7 @@ export default function Home() {
                       className="bg-gray-100"
                       onClick={() => alert("Item Added To Your Favorites")}
                     >
-                      <IoHeartOutline className="w-6 h-6 text-gray-700" />
+                      <IoHeartOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700" />
                     </button>
                     <button
                       className="bg-gray-100"
@@ -441,7 +436,7 @@ export default function Home() {
                   <button
                     className="absolute bottom-0 z-50 text-center text-gray-100 self-end p-2 bg-gray-800"
                     style={{ width: "100%" }}
-                    onClick={() => setCart(cart + 1)}
+                    // onClick={() => setCart(cart + 1)}
                   >
                     Add To Cart
                   </button>
@@ -533,7 +528,7 @@ export default function Home() {
           <div className="self-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 mb-6 px-4 md:px-0">
             {products.map((item: TrendingProductsType) => (
               <div key={item.ID} className={`relative flex flex-col space-y-4`}>
-                <div className="relative w-40 h-40 bg-gray-100 rounded-sm flex items-center justify-center md:w-56 md:h-56 lg:w-60 lg:h-60">
+                <div className="relative  w-40 h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
                   {item.isNew ? (
                     <button className="absolute left-4 top-4 rounded-md p-1 bg-green-400 text-xs md:text-sm text-gray-50 font-base text-center w-12 h-8">
                       New
@@ -546,13 +541,13 @@ export default function Home() {
                   />
                   <div className="absolute top-4 right-4 z-50 flex flex-col space-y-4">
                     <button className="bg-gray-100">
-                      <IoHeartOutline className="w-6 h-6 text-gray-700" />
+                      <IoHeartOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700" />
                     </button>
                     <button className="bg-gray-100">{isSeen}</button>
                   </div>
 
                   <button
-                    onClick={() => setCart(cart + 1)}
+                    // onClick={() => setCart(cart + 1)}
                     className="absolute bottom-0 z-50  text-center text-gray-100  p-2 bg-gray-800"
                     style={{ width: "100%" }}
                   >

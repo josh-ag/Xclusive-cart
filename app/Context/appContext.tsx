@@ -34,7 +34,7 @@ export const AppContext = createContext<AppContextInterface>({
   shopList: [],
   bestSelling: [],
   wishList: [],
-  cart: 0,
+  cart: [],
   setUser: (arg: UserType) => arg,
   setCart: (arg: number) => arg,
   setAuthenticated: (arg: boolean) => arg,
@@ -44,7 +44,25 @@ export const AppContextProvider = (props: any) => {
   /*===========================================
              APP  GLOBAL  STATE
     ===========================================*/
-  const [cart, setCart] = useState<number>(0);
+  const [cart, setCart] = useState<ProductType[]>([
+    {
+      name: "Small Bookshelf",
+      amount: 360,
+      prevAmount: 360,
+      rating: 65,
+      image: book_shelf,
+      ID: "P_0004",
+      path: "/small_shelf",
+    },
+    {
+      name: "Canon EOS Dslr Camera",
+      amount: 360,
+      image: canon_dslr_camera,
+      rating: 95,
+      ID: "T_0002",
+      path: "/",
+    },
+  ]);
   const [bestSelling, setBestSelling] = useState<ProductType[]>([
     {
       name: "The North Coat",

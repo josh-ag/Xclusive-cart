@@ -124,7 +124,7 @@ export const AppbarComponent = () => {
                 <IoCartOutline size={24} className="text-gray-600" />
                 {cart ? (
                   <button className="absolute flex items-center justify-center text-xs font-bold text-center -top-2 -right-3 bg-red-600 text-gray-200 p-1 w-5 h-5 rounded-full">
-                    {cart}
+                    {cart?.length}
                   </button>
                 ) : null}
               </Link>
