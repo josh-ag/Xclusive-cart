@@ -41,10 +41,7 @@ export default function Page() {
         </header>
 
         {wishList?.length ? (
-          <div
-            className="flex space-x-6 items-center mb-6"
-            style={{ overflowX: "scroll" }}
-          >
+          <div className="flex space-x-6 items-center mb-6 overflow-x-auto">
             {wishList.map((item: ProductType) => (
               <div
                 key={item.ID}

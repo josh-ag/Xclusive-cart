@@ -2,17 +2,16 @@
 
 import { useContext } from "react";
 import { AppContext } from "../Context/appContext";
-import { ItemType } from "@/type.d";
+import { ProductType } from "@/type.d";
 import Image from "next/image";
-import {
-  IoCaretDown,
-  IoCaretUp,
-  IoChevronDownOutline,
-  IoChevronUpOutline,
-} from "react-icons/io5";
+import { IoChevronDownOutline, IoChevronUpOutline } from "react-icons/io5";
 
 export default function Page() {
   const { cart } = useContext(AppContext);
+
+  const cartTotal = cart
+    ?.map((val: any) => val.amount)
+    .reduce((prevVal, currentVal) => prevVal + currentVal);
 
   return (
     <div className="container mx-auto my-4  w-full h-auto p-8 space-y-8">
@@ -41,8 +40,11 @@ export default function Page() {
                   Subtotal
                 </h4>
               </div>
-              {cart.map((item: ItemType) => (
-                <div className="flex justify-between items-center shadow p-4 shadow-gray-100">
+              {cart.map((item: ProductType) => (
+                <div
+                  key={item.ID}
+                  className="flex justify-between items-center shadow p-4 shadow-gray-100"
+                >
                   <div className="basis-1/4 flex items-center space-x-2">
                     <Image
                       src={item.image}
@@ -62,9 +64,11 @@ export default function Page() {
                       <h4 className="text-sm lg:text-base font-medium text-gray-600">
                         01
                       </h4>
-                      <div className="flex flex-col items-center space-y-2">
+                      <div className="flex flex-col items-center justify-center space-y-1">
                         <button>
                           <IoChevronUpOutline className="w-4 h-4 text-gray-500" />
+                        </button>
+                        <button>
                           <IoChevronDownOutline className="w-4 h-4 text-gray-500" />
                         </button>
                       </div>
@@ -88,22 +92,25 @@ export default function Page() {
 
               {/* Summary  */}
               <div className="flex items-start justify-between pt-16">
-                <div className="flex items-center space-x-2">
-                  <button className="p-2 w-36 lg:w-52 h-14 flex items-center justify-center text-sm lg:text-base font-medium text-gray-500 border rounded border-gray-300">
-                    Coupon Code
-                  </button>
-                  <button className="p-2 w-28 lg:w-48 h-14 flex items-center justify-center text-sm lg:text-base font-medium text-gray-50 bg-red-500 rounded">
+                <div className="basis-full md:basis-2/4 flex items-center space-x-2 pr-2">
+                  <input
+                    placeholder="Coupon Code"
+                    type="text"
+                    className="w-full lg:w-48 form-input p-4 text-center border-0 bg-slate-100 focus:border-slate-500 focus:ring-slate-400"
+                  />
+
+                  <button className="w-full lg:w-48 p-3 flex items-center justify-center text-xs md:text-sm lg:text-base font-medium text-gray-50 bg-red-500 rounded">
                     Apply Code
                   </button>
                 </div>
 
-                <div className="basis-2/4 p-6 flex flex-col justify-center text-sm lg:text-base font-medium rounded space-y-4 text-gray-600 border border-gray-500">
+                <div className="basis-full md:basis-2/4  p-6 flex flex-col justify-center text-sm lg:text-base font-medium rounded space-y-4 text-gray-600 border border-gray-500">
                   <h2 className="text-lg lg:text-2xl  font-medium text-gray-700">
                     Cart Total
                   </h2>
                   <div className="flex items-center justify-between p-3 border-b border-b-gray-300">
                     <h4>Subtotal: </h4>
-                    <h4>$112</h4>
+                    <h4>$ {cartTotal}</h4>
                   </div>
                   <div className="flex items-center justify-between p-3 border-b border-b-gray-300">
                     <h4>Shipping: </h4>
@@ -112,10 +119,10 @@ export default function Page() {
 
                   <div className="flex items-center justify-between p-3">
                     <h4>Total: </h4>
-                    <h4>$1720</h4>
+                    <h4>$ {cartTotal}</h4>
                   </div>
 
-                  <button className="self-center p-2 w-28 lg:w-48 h-14 flex items-center justify-center text-sm lg:text-base font-medium text-gray-50 bg-red-500 rounded">
+                  <button className="self-center p-2 w-full md:w-28 lg:w-48 h-14 flex items-center justify-center text-sm lg:text-base font-medium text-gray-50 bg-red-500 rounded">
                     Process to checkout
                   </button>
                 </div>
