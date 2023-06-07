@@ -1,6 +1,7 @@
+import Link from "next/link";
 import Image from "next/image";
 import shopping_cart from "../../assets/images/shopping.webp";
-import Link from "next/link";
+import logo_google from "../../assets/icons/icons8-google-96.svg";
 
 export default function SigninPage() {
   return (
@@ -38,7 +39,12 @@ export default function SigninPage() {
               Create Account
             </button>
 
-            <button className="w-full text-lg outline-1 outline outline-gray-400 font-medium text-gray-600 p-4 rounded">
+            <button className="w-full flex items-center justify-center text-lg outline-1 outline outline-gray-400 font-medium text-gray-600 p-4 rounded">
+              <Image
+                src={logo_google}
+                alt="logo google"
+                className="w-7 h-7 mr-4"
+              />
               Sign-up with Google
             </button>
             <div className="flex items-center justify-center space-x-4">
