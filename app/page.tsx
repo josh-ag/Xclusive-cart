@@ -187,7 +187,6 @@ export default function Home() {
   return (
     <div className="min-w-full space-y-10">
       {/* Showcase  */}
-
       <div className="container  md:space-x-4 flex justify-between items-stretch mx-auto mb-1 mt-2">
         <div className="hidden basis-1/5 flex-col justify-starrt space-y-2 border-r border-slate-300 p-4 md:flex">
           <div className="flex self-center flex-col">
@@ -203,7 +202,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex-1">
-          <div className="bg-gray-900 p-4 w-full h-full flex items-center justify-evenly md:mt-4">
+          <div className="bg-gray-900 p-4 w-full min-h-full h-80 flex items-center justify-evenly md:mt-4">
             <div className="flex flex-col items-start space-y-4">
               <div className="flex items-center justify-start">
                 <Image
@@ -234,6 +233,7 @@ export default function Home() {
               src={showcaseImage}
               className="w-44 h-36 md:w-60 md:h-44 lg:w-72 lg:h-52"
               alt="showcase"
+              priority={true}
             />
           </div>
         </div>

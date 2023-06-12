@@ -5,6 +5,7 @@ import { AppContext } from "../Context/appContext";
 import { ProductType } from "@/type.d";
 import Image from "next/image";
 import { IoChevronDownOutline, IoChevronUpOutline } from "react-icons/io5";
+import Link from "next/link";
 
 export default function Page() {
   const { cart } = useContext(AppContext);
@@ -17,7 +18,7 @@ export default function Page() {
     <div className="container mx-auto my-4  w-full h-auto p-8 space-y-8">
       {/* Breadcrumb */}
       <header className="flex justify-between items-center">
-        <h4 className="text-base font-medium text-gray-400 d:text-base lg:text-lg">
+        <h4 className="text-sm font-medium text-gray-400 d:text-base lg:text-lg">
           Home / <span className="text-gray-500">Cart</span>
         </h4>
       </header>
@@ -81,50 +82,53 @@ export default function Page() {
               ))}
 
               <div className="flex justify-between items-center">
-                <button className="p-3 flex items-center justify-center text-sm lg:text-base font-medium text-gray-600 border border-gray-300">
+                <button className="py-3 px-5 flex items-center justify-center text-sm lg:text-base font-medium text-gray-600 border border-gray-300">
                   Return To Shop
                 </button>
 
-                <button className="p-3 flex items-center justify-center text-sm lg:text-base font-medium text-gray-600 border border-gray-300">
+                <button className="py-3 px-5 flex items-center justify-center text-sm lg:text-base font-medium text-gray-600 border border-gray-300">
                   Update Cart
                 </button>
               </div>
 
               {/* Summary  */}
-              <div className="flex items-start justify-between pt-16">
+              <div className="flex items-start justify-between flex-wrap space-y-3 pt-16">
                 <div className="basis-full md:basis-2/4 flex items-center space-x-2 pr-2">
                   <input
                     placeholder="Coupon Code"
                     type="text"
-                    className="w-full lg:w-48 form-input p-4 text-center border-0 bg-slate-100 focus:border-slate-500 focus:ring-slate-400"
+                    className="w-full flex-1W lg:w-48 form-input p-4 text-center border-0 bg-slate-100 focus:border-slate-500 focus:ring-slate-400"
                   />
 
-                  <button className="w-full lg:w-48 p-3 flex items-center justify-center text-xs md:text-sm lg:text-base font-medium text-gray-50 bg-red-500 rounded">
+                  <button className="w-48 p-4 flex items-center justify-center text-base md:text-sm lg:text-base text-gray-50 bg-red-500 rounded">
                     Apply Code
                   </button>
                 </div>
 
-                <div className="basis-full md:basis-2/4  p-6 flex flex-col justify-center text-sm lg:text-base font-medium rounded space-y-4 text-gray-600 border border-gray-500">
-                  <h2 className="text-lg lg:text-2xl  font-medium text-gray-700">
+                <div className="basis-full md:basis-2/4  p-6 flex flex-col justify-center text-sm lg:text-base font-medium rounded space-y-4 text-gray-600 border border-gray-300">
+                  <h2 className="text-2xl  font-medium text-gray-700">
                     Cart Total
                   </h2>
                   <div className="flex items-center justify-between p-3 border-b border-b-gray-300">
-                    <h4>Subtotal: </h4>
-                    <h4>$ {cartTotal}</h4>
+                    <h4 className="text-lg text-gray-700">Subtotal: </h4>
+                    <h4 className="text-lg text-gray-700">$ {cartTotal}</h4>
                   </div>
                   <div className="flex items-center justify-between p-3 border-b border-b-gray-300">
-                    <h4>Shipping: </h4>
-                    <h4>Free</h4>
+                    <h4 className="text-lg text-gray-700">Shipping: </h4>
+                    <h4 className="text-lg text-gray-700">Free</h4>
                   </div>
 
                   <div className="flex items-center justify-between p-3">
-                    <h4>Total: </h4>
-                    <h4>$ {cartTotal}</h4>
+                    <h4 className="text-lg text-gray-700">Total: </h4>
+                    <h4 className="text-lg text-gray-700">$ {cartTotal}</h4>
                   </div>
 
-                  <button className="self-center p-2 w-full md:w-28 lg:w-48 h-14 flex items-center justify-center text-sm lg:text-base font-medium text-gray-50 bg-red-500 rounded">
+                  <Link
+                    href="/checkout"
+                    className="self-center py-1 px-3 w-full md:w-auto lg:w-48 h-14 flex items-center justify-center text-base text-gray-50 bg-red-500 rounded"
+                  >
                     Process to checkout
-                  </button>
+                  </Link>
                 </div>
               </div>
             </>

@@ -30,36 +30,28 @@ const NavList = ({ handleClose }: NavlistType) => {
       <div className="flex flex-col items-start justify-center w-72 h-72 bg-gray-600 backdrop-filter backdrop-blur-lg backdrop-opacity-50 rounded-lg p-4 space-y-4">
         <Link href="/account" className="flex items-center space-x-4">
           <Image src={user_icon} alt="order icon" className="w-7 h-7" />
-          <p className="text-gray-200 text-base font-medium md:text-lg">
+          <p className="text-gray-200 text-base md:text-lg">
             Manage My Account
           </p>
         </Link>
         <Link href="/order" className="flex items-center space-x-4">
           <Image src={order_icon} alt="order icon" className="w-5 h-5" />
-          <p className="text-gray-200 text-base font-medium md:text-lg">
-            My Order
-          </p>
+          <p className="text-gray-200 text-base md:text-lg">My Order</p>
         </Link>
 
         <Link href="/cancel" className="flex items-center space-x-4">
           <Image src={cancel_icon} alt="cancel icon" className="w-5 h-5" />
-          <p className="text-gray-200 text-base font-medium md:text-lg">
-            My Cancellation
-          </p>
+          <p className="text-gray-200 text-base md:text-lg">My Cancellation</p>
         </Link>
 
         <Link href="/reviews" className="flex items-center space-x-4">
           <Image src={review_icon} alt="review icon" className="w-6 h-6" />
-          <p className="text-gray-200 text-base font-medium md:text-lg">
-            My Review
-          </p>
+          <p className="text-gray-200 text-base md:text-lg">My Review</p>
         </Link>
 
         <button className="flex items-center space-x-4">
           <Image src={logout_icon} alt="logout icon" className="w-6 h-6" />
-          <p className="text-gray-200 text-base font-medium md:text-lg">
-            Logout
-          </p>
+          <p className="text-gray-200 text-base md:text-lg">Logout</p>
         </button>
       </div>
     </div>
@@ -114,9 +106,7 @@ export const AppbarComponent = () => {
           <button className="md:hidden">
             <IoSearchOutline size={24} className="text-gray-600" />
           </button>
-          <button className="p-1 rounded-md ring-1 ring-gray-400 md:hidden">
-            <IoMenuOutline size={24} className="text-gray-600" />
-          </button>
+
           {authenticated ? (
             <>
               <Link href={"/wishlist"}>
