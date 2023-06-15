@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useContext, useState } from "react";
 import { AppContext } from "../Context/appContext";
 import {
-  IoMenuOutline,
   IoCartOutline,
   IoHeartOutline,
   IoSearchOutline,
@@ -59,7 +58,7 @@ const NavList = ({ handleClose }: NavlistType) => {
 };
 
 export const AppbarComponent = () => {
-  const { authenticated, cart } = useContext(AppContext);
+  const { authenticated, cart, wishList } = useContext(AppContext);
   const [navList, setNavList] = useState(false);
 
   return (
@@ -109,8 +108,13 @@ export const AppbarComponent = () => {
 
           {authenticated ? (
             <>
-              <Link href={"/wishlist"}>
+              <Link href="/wishlist" className="relative">
                 <IoHeartOutline size={24} className="text-gray-600" />
+                {wishList ? (
+                  <button className="absolute flex items-center justify-center text-xs font-bold text-center -top-2 -right-3 bg-red-600 text-gray-200 p-1 w-5 h-5 rounded-full">
+                    {wishList?.length}
+                  </button>
+                ) : null}
               </Link>
               <Link href="/cart" className="relative">
                 <IoCartOutline size={24} className="text-gray-600" />

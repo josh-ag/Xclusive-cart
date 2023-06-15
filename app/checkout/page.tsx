@@ -1,11 +1,12 @@
 "use client";
 
 import { useContext } from "react";
-import { AppContext } from "../Context/appContext";
-import { ProductType } from "@/type.d";
 import Image from "next/image";
-import { IoChevronDownOutline, IoChevronUpOutline } from "react-icons/io5";
-import Link from "next/link";
+import { AppContext } from "../Context/appContext";
+import master_card from "../../assets/images/master.png";
+import visa_card from "../../assets/images/visa.png";
+import bkash_card from "../../assets/images/bkash.png";
+import nagad_card from "../../assets/images/nagad.png";
 
 export default function Page() {
   const { cart } = useContext(AppContext);
@@ -15,16 +16,16 @@ export default function Page() {
     .reduce((prevVal, currentVal) => prevVal + currentVal);
 
   return (
-    <div className="container mx-auto my-4  w-full h-auto p-8 space-y-8">
+    <div className="container mx-auto  w-full h-auto p-8 space-y-8">
       {/* Breadcrumb */}
       <header className="flex justify-between items-center">
-        <h4 className="text-sm font-medium text-gray-400 md:text-base lg:text-lg">
+        <h4 className="text-xs font-medium text-gray-400 md:text-base lg:text-lg">
           Account / My account / product / view cart /{" "}
           <span className="text-gray-500">Checkout</span>
         </h4>
       </header>
 
-      <div className="pt-10">
+      <div className="pt-4">
         <div className="flex flex-wrap justify-center md:justify-between items-stretch space-y-8">
           <div className="basis-full md:basis-2/4">
             <h2 className="text-2xl lg:text-4xl font-medium text-gray-700 mb-5">
@@ -102,7 +103,7 @@ export default function Page() {
                   type="checkbox"
                   className="appearance:none checked:text-red-500 checked:ring-red-500 hover:ring-red-500 active:ring-red-500 indeterminate:ring-red-500"
                 />
-                <span className="block text-base font-medium text-slate-500">
+                <span className="block text-sm lg:text-base font-medium text-slate-500">
                   Save this information for faster check-out next time
                 </span>
               </label>
@@ -125,7 +126,7 @@ export default function Page() {
                 <h4 className="text-lg text-gray-700">$ {cartTotal}</h4>
               </div>
 
-              <div className="flex items-center justify-between space-x-4">
+              <div className="flex items-center justify-between space-x-4  flex-wrap">
                 <label className="flex items-center justify-start space-x-4">
                   <input
                     type="checkbox"
@@ -133,6 +134,12 @@ export default function Page() {
                   />
                   <h4 className="text-lg text-gray-700">Bank</h4>
                 </label>
+                <div className="flex items-center justify-end space-x-4">
+                  <Image src={master_card} alt="card master" />
+                  <Image src={visa_card} alt="card master" />
+                  <Image src={bkash_card} alt="card master" />
+                  <Image src={nagad_card} alt="card master" />
+                </div>
               </div>
 
               <label className="flex items-center justify-start space-x-4">
