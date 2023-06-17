@@ -36,10 +36,10 @@ export const SideNavScreen = () => {
           My Returns
         </Link>
         <Link
-          href="/account/cancellation"
+          href="/account/cancellations"
           className="text-sm lg:text-base text-gray-600 hover:text-red-500"
         >
-          My Cancellation
+          My Cancellations
         </Link>
       </div>
 

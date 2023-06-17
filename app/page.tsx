@@ -27,6 +27,14 @@ import {
   IoEyeOffOutline,
 } from "react-icons/io5";
 import {
+  MdOutlineCameraAlt,
+  MdOutlineDesktopWindows,
+  MdOutlineHeadphones,
+  MdOutlinePhoneAndroid,
+  MdOutlineSportsEsports,
+  MdOutlineWatch,
+} from "react-icons/md";
+import {
   ItemType,
   ProductType,
   CategoryType,
@@ -48,17 +56,22 @@ const sideNav = [
 ];
 
 const Categories = [
-  { type: "Phones", logo: category_cellphone, id: 1, path: "/phones" },
-  { type: "Computers", logo: category_computer, id: 2, path: "/computers" },
+  { type: "Phones", logo: MdOutlinePhoneAndroid, id: 1, path: "/phones" },
+  {
+    type: "Computers",
+    logo: MdOutlineDesktopWindows,
+    id: 2,
+    path: "/computers",
+  },
   {
     type: "SmartWatch",
-    logo: category_smartwatch,
+    logo: MdOutlineWatch,
     id: 3,
     path: "/smartwatches",
   },
-  { type: "Camera", logo: category_camera, id: 4, path: "/cameras" },
-  { type: "Headphones", logo: category_cellphone, id: 5, path: "/headphones" },
-  { type: "Gamepad", logo: category_gamepad, id: 6, path: "/gamepad" },
+  { type: "Camera", logo: MdOutlineCameraAlt, id: 4, path: "/cameras" },
+  { type: "Headphones", logo: MdOutlineHeadphones, id: 5, path: "/headphones" },
+  { type: "Gamepad", logo: MdOutlineSportsEsports, id: 6, path: "/gamepad" },
 ];
 
 const FlashRenderer = ({ days, hours, minutes, seconds, completed }: any) => {
@@ -361,23 +374,19 @@ export default function Home() {
           </div>
 
           {/* items */}
-          <div className="flex flex-wrap  items-center justify-start  space-x-4  mb-6">
+          <div className="flex w-full  items-center justify-start  space-x-2 lg:space-x-6">
             {Categories.map((category: CategoryType) => (
               <Link
                 href={category.path}
                 key={category.id}
-                className="w-24 h-20 lg:w-32 lg:h-28 py-4 px-8 text-xs md:text-sm text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center ml-4 mb-4 hover:bg-red-500 hover:text-gray-100"
+                className="basis-1/6 p-2  md:py-6 md:px-4 text-xs md:text-sm lg:text-base text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center hover:bg-red-500 hover:text-gray-100"
               >
-                <Image
-                  src={category.logo}
-                  alt={`${category.type} logo`}
-                  className="w-2/3 h-2/3 md:w-2/4 md:h-2/4 mb-2"
-                />
+                <category.logo className="w-4 h-4 lg:w-6 lg:h-6 mb-4" />
                 {category.type}
               </Link>
             ))}
           </div>
-          <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2">
+          <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2 mt-10">
             View All Products
           </button>
         </div>
@@ -673,7 +682,7 @@ export default function Home() {
         <div className="flex items-center justify-center space-x-6 py-16 md:justify-evenly">
           <div className="flex flex-col items-center justify-center space-y-4">
             {/* Icon  */}
-            <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-400">
+            <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-300">
               <Image src={icon_delivery} alt="icon delivery" />
             </button>
 
@@ -688,7 +697,7 @@ export default function Home() {
 
           <div className="flex flex-col items-center justify-center space-y-4">
             {/* Icon  */}
-            <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-400">
+            <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-300">
               <Image src={icon_customer_service} alt="icon delivery" />
             </button>
 
@@ -703,7 +712,7 @@ export default function Home() {
 
           <div className="flex flex-col items-center justify-center space-y-4">
             {/* Icon  */}
-            <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-400">
+            <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-300">
               <Image src={icon_secure} alt="icon delivery" />
             </button>
 

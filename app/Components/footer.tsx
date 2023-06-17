@@ -122,7 +122,12 @@ export const Footer = () => {
           >
             Terms of use
           </Link>
-
+          <Link
+            href="/about"
+            className="text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"
+          >
+            About
+          </Link>
           <Link
             href="/contact"
             className="text-center text-gray-400 hover:text-gray-200 md:text-md lg:text-lg"

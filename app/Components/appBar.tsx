@@ -24,7 +24,7 @@ const NavList = ({ handleClose }: NavlistType) => {
     <div
       onMouseLeave={() => handleClose(false)}
       onClick={() => handleClose(false)}
-      className="absolute flex justify-end w-full h-full top-12 right-0"
+      className="absolute flex justify-end w-full h-full top-12 right-0 z-50"
     >
       <div className="flex flex-col items-start justify-center w-72 h-72 bg-gray-600 backdrop-filter backdrop-blur-lg backdrop-opacity-50 rounded-lg p-4 space-y-4">
         <Link href="/account" className="flex items-center space-x-4">

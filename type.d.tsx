@@ -36,7 +36,7 @@ export type ItemType = {
 
 export type CategoryType = {
   type: string;
-  logo: string;
+  logo: any;
   id: number;
   path: string;
 };

@@ -45,7 +45,7 @@ export default function Page() {
             {wishList.map((item: ProductType) => (
               <div
                 key={item.ID}
-                className={`relative flex flex-col space-y-2 ml-4`}
+                className={`relative flex flex-col space-y-2 ml-4 z-30`}
               >
                 <div className="relative w-40 h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
                   <Image
