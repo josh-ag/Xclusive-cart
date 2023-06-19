@@ -343,7 +343,7 @@ export default function Home() {
         </div>
 
         {/* Categories */}
-        <div className="container pt-16 flex flex-col justify-center space-y-6  mx-auto pb-8">
+        <div className="container pt-16 flex flex-col justify-center space-y-8  mx-auto ">
           <div className="ml-4">
             {/* Bullet  */}
             <div className="flex items-center space-x-2">
@@ -374,12 +374,12 @@ export default function Home() {
           </div>
 
           {/* items */}
-          <div className="flex w-full  items-center justify-start  space-x-2 lg:space-x-6">
+          <div className="grid grid-cols-6 grid-rows-1 gap-4">
             {Categories.map((category: CategoryType) => (
               <Link
                 href={category.path}
                 key={category.id}
-                className="basis-1/6 p-2  md:py-6 md:px-4 text-xs md:text-sm lg:text-base text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center hover:bg-red-500 hover:text-gray-100"
+                className="p-4 text-xs font-light md:text-sm lg:text-base text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center truncate text-ellipsis hover:bg-red-500 hover:text-gray-100"
               >
                 <category.logo className="w-4 h-4 lg:w-6 lg:h-6 mb-4" />
                 {category.type}
@@ -534,10 +534,13 @@ export default function Home() {
           </div>
 
           {/* items */}
-          <div className="self-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 mb-6 px-4 md:px-0">
+          <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  gap-4 mb-6">
             {products.map((item: TrendingProductsType) => (
-              <div key={item.ID} className={`relative flex flex-col space-y-4`}>
-                <div className="relative  w-40 h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
+              <div
+                key={item.ID}
+                className={`relative flex flex-col space-y-4 items-center`}
+              >
+                <div className="relative w-5/6  h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
                   {item.isNew ? (
                     <button className="absolute left-4 top-4 rounded-md p-1 bg-green-400 text-xs md:text-sm text-gray-50 font-base text-center w-12 h-8">
                       New

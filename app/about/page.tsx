@@ -8,7 +8,6 @@ import person2 from "../../assets/images/person2.png";
 import person3 from "../../assets/images/person3.png";
 
 import {
-  IoLogoFacebook,
   IoLogoInstagram,
   IoLogoLinkedin,
   IoLogoTwitter,
@@ -18,7 +17,7 @@ import {
 
 export default function Page() {
   return (
-    <div className="container mx-auto my-4  w-full h-auto p-8 space-y-10">
+    <div className="container mx-auto my-4  w-full h-auto p-8 space-y-10 lg:space-y-20">
       {/* Header */}
       <header className="flex justify-between items-center">
         <h4 className="text-base font-medium text-gray-400 d:text-base lg:text-lg">
@@ -45,13 +44,13 @@ export default function Page() {
             ranging from consumer.
           </p>
         </div>
-        <div className="basis-full md:basis-3/4 flex justify-center mb-8">
+        <div className="basis-full md:basis-3/4 flex justify-center md:justify-end mb-8">
           <Image src={about_image} alt="about image" className="w-3/4 h-2/3" />
         </div>
       </div>
 
-      <div className="flex items-stretch justify-center space-x-4">
-        <button className="basis-1/4 flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
+      <div className="grid grid-cols-4 gap-4">
+        <button className="flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
           <div className="p-2 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
             <IoStorefrontOutline className="text-gray-50 w-4 h-4 md:w-6 md:h-6" />
           </div>
@@ -60,7 +59,7 @@ export default function Page() {
           <h4 className="text-inherit text-sm">Active Sellers On Site</h4>
         </button>
 
-        <button className="basis-1/4 flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
+        <button className="flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
           <div className="p-2 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
             <IoMusicalNoteOutline className="text-gray-50  w-4 h-4 md:w-6 md:h-6" />
           </div>
@@ -69,7 +68,7 @@ export default function Page() {
           <h4 className="text-inherit text-sm">Monthly Products Sale</h4>
         </button>
 
-        <button className="basis-1/4 flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
+        <button className="flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
           <div className="p-2 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
             <IoMusicalNoteOutline className="text-gray-50  w-4 h-4 md:w-6 md:h-6" />
           </div>
@@ -78,7 +77,7 @@ export default function Page() {
           <h4 className="text-inherit text-sm">Active Customers On Site</h4>
         </button>
 
-        <button className="basis-1/4 flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
+        <button className="flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
           <div className="p-2 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
             <IoMusicalNoteOutline className="text-gray-50  w-4 h-4 md:w-6 md:h-6" />
           </div>
@@ -88,10 +87,10 @@ export default function Page() {
         </button>
       </div>
 
-      <div className="flex items-stretch justify-center space-x-6 py-16 md:justify-evenly">
-        <div className="basis-1/4 flex flex-col items-start justify-center space-y-4">
-          <div className="bg-gray-200 h-auto flex items-end justify-center px-4 pt-4">
-            <Image src={person1} alt="admin one" />
+      <div className="grid grid-rows-1 grid-cols-1 md:grid-cols-3 gap-2 lg:gap-10 h-86">
+        <div className="h-full flex flex-col space-y-4">
+          <div className="bg-gray-200 h-3/4 flex items-end justify-center px-4 pt-4">
+            <Image src={person1} alt="admin one" style={{ height: "95%" }} />
           </div>
           <div className="flex flex-col justify-start items-start space-y-2">
             <h4 className="text-gray-700 text-lg md:text-2xl font-medium">
@@ -108,16 +107,16 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="basis-1/4 flex flex-col items-start justify-center space-y-4">
-          <div className="bg-gray-200 h-auto flex items-end justify-center px-4 pt-4">
-            <Image src={person2} alt="admin one" />
+        <div className="h-full flex flex-col space-y-4">
+          <div className="bg-gray-200 h-3/4 flex items-end justify-center px-4 pt-4">
+            <Image src={person2} alt="admin two" style={{ height: "95%" }} />
           </div>
           <div className="flex flex-col justify-start items-start space-y-2">
             <h4 className="text-gray-700 text-lg md:text-2xl font-medium">
               Emma Watson
             </h4>
             <p className="text-sm lg:text-base text-gray-600">
-              Managing director
+              Managing Director
             </p>
             <div className="flex justify-start space-x-2">
               <IoLogoTwitter className="w-3 h-3" />
@@ -127,9 +126,9 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="basis-1/4 flex flex-col items-start justify-center space-y-4">
-          <div className="bg-gray-200 h-auto flex items-end justify-center px-4 pt-4">
-            <Image src={person3} alt="admin one" />
+        <div className="h-full flex flex-col space-y-4">
+          <div className="bg-gray-200 h-3/4 flex items-end justify-center px-4 pt-4">
+            <Image src={person3} alt="admin three" style={{ height: "95%" }} />
           </div>
           <div className="flex flex-col justify-start items-start space-y-2">
             <h4 className="text-gray-700 text-lg md:text-2xl font-medium">
