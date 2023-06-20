@@ -20,17 +20,17 @@ export default function Page() {
     <div className="container mx-auto my-4  w-full h-auto p-8 space-y-10 lg:space-y-20">
       {/* Header */}
       <header className="flex justify-between items-center">
-        <h4 className="text-base font-medium text-gray-400 d:text-base lg:text-lg">
+        <h4 className="text-xs font-medium text-gray-400  md:text-sm">
           / <span className="text-gray-500 font-medium">About</span>
         </h4>
       </header>
 
       <div className="flex justify-between items-center flex-wrap-reverse md:flex-nowrap">
         <div className="basis-full md:basis-2/5 space-y-4">
-          <h2 className="text-2xl lg:text-4xl text-gray-800 font-medium">
+          <h2 className="text-base md:text-lg lg:text-xl text-gray-800 font-medium">
             Our Story
           </h2>
-          <p className="text-sm lg:text-base text-gray-500">
+          <p className="text-xs md:text-sm lg:text-base text-gray-500">
             Launced in 2015, Exclusive is South Asia’s premier online shopping
             makterplace with an active presense in Bangladesh. Supported by wide
             range of tailored marketing, data and service solutions, Exclusive
@@ -38,7 +38,7 @@ export default function Page() {
             across the region.
           </p>
 
-          <p className="text-sm lg:text-base text-gray-500">
+          <p className="text-xs md:text-sm lg:text-base text-gray-500">
             Exclusive has more than 1 Million products to offer, growing at a
             very fast. Exclusive offers a diverse assotment in categories
             ranging from consumer.
@@ -51,39 +51,55 @@ export default function Page() {
 
       <div className="grid grid-cols-4 gap-4">
         <button className="flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
-          <div className="p-2 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
-            <IoStorefrontOutline className="text-gray-50 w-4 h-4 md:w-6 md:h-6" />
+          <div className="p-1 md:p-2 border-4 md:border-8  text-inherit border-gray-300 rounded-full bg-gray-900">
+            <IoStorefrontOutline className="text-gray-50 w-3 h-3 md:w-6 md:h-6" />
           </div>
-          <h2 className="font-bold text-xl lg:text-4xl text-inherit">10.5k</h2>
+          <h2 className="font-bold text-sm md:text-lg lg:text-2xl text-inherit">
+            10.5k
+          </h2>
 
-          <h4 className="text-inherit text-sm">Active Sellers On Site</h4>
+          <h4 className="text-inherit text-xs md:text-sm lg:text-base text-center">
+            Active Sellers On Site
+          </h4>
         </button>
 
         <button className="flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
-          <div className="p-2 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
-            <IoMusicalNoteOutline className="text-gray-50  w-4 h-4 md:w-6 md:h-6" />
+          <div className="p-1 md:p-2 border-4 md:border-8  text-inherit border-gray-300 rounded-full bg-gray-900">
+            <IoMusicalNoteOutline className="text-gray-50  w-3 h-3 md:w-6 md:h-6" />
           </div>
-          <h2 className="font-bold text-xl lg:text-4xl text-inherit">33k</h2>
+          <h2 className="font-bold text-sm md:text-lg lg:text-2xl text-inherit">
+            33k
+          </h2>
 
-          <h4 className="text-inherit text-sm">Monthly Products Sale</h4>
+          <h4 className="text-inherit text-xs md:text-sm lg:text-base text-center">
+            Monthly Products Sale
+          </h4>
         </button>
 
         <button className="flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
-          <div className="p-2 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
-            <IoMusicalNoteOutline className="text-gray-50  w-4 h-4 md:w-6 md:h-6" />
+          <div className="p-1 md:p-2 border-4 md:border-8  text-inherit border-gray-300 rounded-full bg-gray-900">
+            <IoMusicalNoteOutline className="text-gray-50  w-3 h-3 md:w-6 md:h-6" />
           </div>
-          <h2 className="font-bold text-xl lg:text-4xl text-inherit">45.5k</h2>
+          <h2 className="font-bold text-sm md:text-lg lg:text-2xl text-inherit">
+            45.5k
+          </h2>
 
-          <h4 className="text-inherit text-sm">Active Customers On Site</h4>
+          <h4 className="text-inherit text-xs md:text-sm lg:text-base text-center">
+            Active Customers On Site
+          </h4>
         </button>
 
         <button className="flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
-          <div className="p-2 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
-            <IoMusicalNoteOutline className="text-gray-50  w-4 h-4 md:w-6 md:h-6" />
+          <div className="p-1 md:p-2 border-4 md:border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
+            <IoMusicalNoteOutline className="text-gray-50  w-3 h-3 md:w-6 md:h-6" />
           </div>
-          <h2 className="font-bold text-xl lg:text-4xl text-inherit">25k</h2>
+          <h2 className="font-bold text-sm md:text-lg lg:text-2xl text-inherit">
+            25k
+          </h2>
 
-          <h4 className="text-inherit text-sm">Gross Annual Sales On Site</h4>
+          <h4 className="text-inherit text-xs md:text-sm lg:text-base text-center">
+            Gross Annual Sales On Site
+          </h4>
         </button>
       </div>
 
@@ -93,10 +109,10 @@ export default function Page() {
             <Image src={person1} alt="admin one" style={{ height: "95%" }} />
           </div>
           <div className="flex flex-col justify-start items-start space-y-2">
-            <h4 className="text-gray-700 text-lg md:text-2xl font-medium">
+            <h4 className="text-gray-700 text-sm md:text-base lg:text-lg font-medium">
               Tom Cruise
             </h4>
-            <p className="text-sm lg:text-base text-gray-600">
+            <p className="text-xs lg:text-base text-gray-600">
               Founder & chairman
             </p>
             <div className="flex justify-start space-x-2">
@@ -112,10 +128,10 @@ export default function Page() {
             <Image src={person2} alt="admin two" style={{ height: "95%" }} />
           </div>
           <div className="flex flex-col justify-start items-start space-y-2">
-            <h4 className="text-gray-700 text-lg md:text-2xl font-medium">
+            <h4 className="text-gray-700 text-sm md:text-base lg:text-lg font-medium">
               Emma Watson
             </h4>
-            <p className="text-sm lg:text-base text-gray-600">
+            <p className="text-xs lg:text-base text-gray-600">
               Managing Director
             </p>
             <div className="flex justify-start space-x-2">
@@ -131,10 +147,10 @@ export default function Page() {
             <Image src={person3} alt="admin three" style={{ height: "95%" }} />
           </div>
           <div className="flex flex-col justify-start items-start space-y-2">
-            <h4 className="text-gray-700 text-lg md:text-2xl font-medium">
+            <h4 className="text-gray-700 text-sm md:text-base lg:text-lg font-medium">
               Will Smith
             </h4>
-            <p className="text-sm lg:text-base text-gray-600">
+            <p className="text-xs lg:text-base text-gray-600">
               Product Designer
             </p>
             <div className="flex justify-start space-x-2">
@@ -153,11 +169,11 @@ export default function Page() {
             <Image src={icon_delivery} alt="icon delivery" />
           </button>
 
-          <h2 className="text-gray-800 text-center text-sm font-medium md:text-lg lg:text-xl">
+          <h2 className="text-gray-800 text-center  font-medium text-xs md:text-base lg:text-lg">
             FREE AND FAST DELIVERY
           </h2>
 
-          <p className="text-gray-600 text-center text-xs font-medium md:text-sm lg:text-md">
+          <p className="text-gray-600 text-center text-xs md:text-sm">
             Free delivery for all orders over $140
           </p>
         </div>
@@ -168,11 +184,11 @@ export default function Page() {
             <Image src={icon_customer_service} alt="icon delivery" />
           </button>
 
-          <h2 className="text-gray-800 text-sm text-center font-medium md:text-lg lg:text-xl">
+          <h2 className="text-gray-800 text-center font-medium text-xs md:text-base lg:text-lg">
             24/7 CUSTOMER SERVICE
           </h2>
 
-          <p className="text-gray-600 text-xs text-center font-medium md:text-sm lg:text-md">
+          <p className="text-gray-600 text-xs text-center font-medium md:text-sm">
             Friendly 24/7 customer support
           </p>
         </div>
@@ -183,11 +199,11 @@ export default function Page() {
             <Image src={icon_secure} alt="icon delivery" />
           </button>
 
-          <h2 className="text-gray-800 text-sm text-center font-medium md:text-lg lg:text-xl">
+          <h2 className="text-gray-800 text-center font-medium text-xs md:text-base lg:text-lg">
             MONEY BACK GUARANTEE
           </h2>
 
-          <p className="text-gray-600 text-xs text-center font-medium md:text-sm lg:text-md">
+          <p className="text-gray-600 text-xs text-center font-medium md:text-sm">
             We reurn money within 30 days
           </p>
         </div>
