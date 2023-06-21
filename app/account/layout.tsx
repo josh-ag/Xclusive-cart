@@ -6,7 +6,7 @@ export default function LeafLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="container mx-auto my-4  w-full h-auto p-8 space-y-8">
+    <div className="container mx-auto mb-4  w-full h-auto p-8 space-y-4">
       {/* Header */}
       <header className="flex justify-between items-center">
         <h4 className="text-xs md:text-sm font-medium text-gray-400">

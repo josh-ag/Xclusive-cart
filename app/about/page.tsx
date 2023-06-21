@@ -1,8 +1,5 @@
 import Image from "next/image";
 import about_image from "../../assets/images/side_image.png";
-import icon_delivery from "../../assets/icons/icon-delivery.svg";
-import icon_customer_service from "../../assets/icons/Icon-Customer_service.svg";
-import icon_secure from "../../assets/icons/Icon-secure.svg";
 import person1 from "../../assets/images/person1.png";
 import person2 from "../../assets/images/person2.png";
 import person3 from "../../assets/images/person3.png";
@@ -14,6 +11,14 @@ import {
   IoMusicalNoteOutline,
   IoStorefrontOutline,
 } from "react-icons/io5";
+import {
+  MdOutlineCurrencyExchange,
+  MdOutlineHeadsetMic,
+  MdOutlineLocalShipping,
+  MdOutlineMonetizationOn,
+  MdOutlineShoppingBag,
+  MdOutlineVerifiedUser,
+} from "react-icons/md";
 
 export default function Page() {
   return (
@@ -27,10 +32,10 @@ export default function Page() {
 
       <div className="flex justify-between items-center flex-wrap-reverse md:flex-nowrap">
         <div className="basis-full md:basis-2/5 space-y-4">
-          <h2 className="text-base md:text-lg lg:text-xl text-gray-800 font-medium">
+          <h2 className="text-lg md:text-xl lg:text-2xl text-gray-800 font-medium">
             Our Story
           </h2>
-          <p className="text-xs md:text-sm lg:text-base text-gray-500">
+          <p className="text-sm lg:text-base text-gray-500">
             Launced in 2015, Exclusive is South Asia’s premier online shopping
             makterplace with an active presense in Bangladesh. Supported by wide
             range of tailored marketing, data and service solutions, Exclusive
@@ -38,7 +43,7 @@ export default function Page() {
             across the region.
           </p>
 
-          <p className="text-xs md:text-sm lg:text-base text-gray-500">
+          <p className="text-sm lg:text-base text-gray-500">
             Exclusive has more than 1 Million products to offer, growing at a
             very fast. Exclusive offers a diverse assotment in categories
             ranging from consumer.
@@ -52,7 +57,7 @@ export default function Page() {
       <div className="grid grid-cols-4 gap-4">
         <button className="flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
           <div className="p-1 md:p-2 border-4 md:border-8  text-inherit border-gray-300 rounded-full bg-gray-900">
-            <IoStorefrontOutline className="text-gray-50 w-3 h-3 md:w-6 md:h-6" />
+            <IoStorefrontOutline className="text-gray-50 w-4 h-4 md:w-6 md:h-6" />
           </div>
           <h2 className="font-bold text-sm md:text-lg lg:text-2xl text-inherit">
             10.5k
@@ -65,7 +70,7 @@ export default function Page() {
 
         <button className="flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
           <div className="p-1 md:p-2 border-4 md:border-8  text-inherit border-gray-300 rounded-full bg-gray-900">
-            <IoMusicalNoteOutline className="text-gray-50  w-3 h-3 md:w-6 md:h-6" />
+            <MdOutlineMonetizationOn className="text-gray-50  w-4 h-4 md:w-6 md:h-6" />
           </div>
           <h2 className="font-bold text-sm md:text-lg lg:text-2xl text-inherit">
             33k
@@ -78,7 +83,7 @@ export default function Page() {
 
         <button className="flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
           <div className="p-1 md:p-2 border-4 md:border-8  text-inherit border-gray-300 rounded-full bg-gray-900">
-            <IoMusicalNoteOutline className="text-gray-50  w-3 h-3 md:w-6 md:h-6" />
+            <MdOutlineShoppingBag className="text-gray-50  w-4 h-4 md:w-6 md:h-6" />
           </div>
           <h2 className="font-bold text-sm md:text-lg lg:text-2xl text-inherit">
             45.5k
@@ -91,7 +96,7 @@ export default function Page() {
 
         <button className="flex flex-col items-center justify-center p-6 border border-gray-300 space-y-4 rounded hover:bg-red-500 hover:text-gray-50">
           <div className="p-1 md:p-2 border-4 md:border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
-            <IoMusicalNoteOutline className="text-gray-50  w-3 h-3 md:w-6 md:h-6" />
+            <MdOutlineCurrencyExchange className="text-gray-50  w-4 h-4 md:w-6 md:h-6" />
           </div>
           <h2 className="font-bold text-sm md:text-lg lg:text-2xl text-inherit">
             25k
@@ -165,46 +170,46 @@ export default function Page() {
       <div className="flex items-center justify-center space-x-6 md:justify-evenly">
         <div className="basis-1/3 flex flex-col items-center justify-center space-y-4">
           {/* Icon  */}
-          <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-300">
-            <Image src={icon_delivery} alt="icon delivery" />
+          <button className="p-3 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
+            <MdOutlineLocalShipping className="text-gray-50 w-6 h-6" />
           </button>
 
           <h2 className="text-gray-800 text-center  font-medium text-xs md:text-base lg:text-lg">
             FREE AND FAST DELIVERY
           </h2>
 
-          <p className="text-gray-600 text-center text-xs md:text-sm">
+          <p className="text-gray-500 text-center text-xs md:text-sm">
             Free delivery for all orders over $140
           </p>
         </div>
 
         <div className="basis-1/3 flex flex-col items-center justify-center space-y-4">
           {/* Icon  */}
-          <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-300">
-            <Image src={icon_customer_service} alt="icon delivery" />
+          <button className="p-3 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
+            <MdOutlineHeadsetMic className="text-gray-50 w-6 h-6" />
           </button>
 
           <h2 className="text-gray-800 text-center font-medium text-xs md:text-base lg:text-lg">
             24/7 CUSTOMER SERVICE
           </h2>
 
-          <p className="text-gray-600 text-xs text-center font-medium md:text-sm">
+          <p className="text-gray-500 text-xs text-center md:text-sm">
             Friendly 24/7 customer support
           </p>
         </div>
 
         <div className="basis-1/3 flex flex-col items-center justify-center space-y-4">
           {/* Icon  */}
-          <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-300">
-            <Image src={icon_secure} alt="icon delivery" />
+          <button className="p-3 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
+            <MdOutlineVerifiedUser className="text-gray-50 w-6 h-6" />
           </button>
 
           <h2 className="text-gray-800 text-center font-medium text-xs md:text-base lg:text-lg">
             MONEY BACK GUARANTEE
           </h2>
 
-          <p className="text-gray-600 text-xs text-center font-medium md:text-sm">
-            We reurn money within 30 days
+          <p className="text-gray-500 text-xs text-center md:text-sm">
+            We return money within 30 days
           </p>
         </div>
       </div>

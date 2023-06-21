@@ -8,7 +8,7 @@ export default function Page() {
       <form className="flex flex-col space-y-4">
         <div className="flex items-center space-x-6">
           <label className="block flex-1">
-            <span className="block text-xs md:text-sm font-medium text-slate-500">
+            <span className="block text-xs md:text-sm text-slate-500">
               First Name
             </span>
             <input
@@ -17,7 +17,7 @@ export default function Page() {
             />
           </label>
           <label className="block flex-1">
-            <span className="block text-xs md:text-sm font-medium text-slate-500">
+            <span className="block text-xs md:text-sm text-slate-500">
               Last Name
             </span>
             <input
@@ -29,7 +29,7 @@ export default function Page() {
 
         <div className="flex items-center space-x-6">
           <label className="block flex-1">
-            <span className="block text-xs md:text-sm font-medium text-slate-500">
+            <span className="block text-xs md:text-sm text-slate-500">
               Email
             </span>
             <input
@@ -38,18 +38,18 @@ export default function Page() {
             />
           </label>
           <label className="block flex-1">
-            <span className="block text-xs md:text-sm font-medium text-slate-500">
+            <span className="block text-xs md:text-sm text-slate-500">
               Address
             </span>
             <input
               name="address"
-              className="mt-1 block w-full p-1 md:p-3 bg-gray-100 border border-slate-300 rounded-md text-xs md:text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+              className="mt-1 block w-full p-2 md:p-3 bg-gray-100 border border-slate-300 rounded-md text-xs md:text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
             />
           </label>
         </div>
 
         <label className="block flex-1">
-          <span className="block text-xs md:text-sm font-medium text-slate-500">
+          <span className="block text-xs md:text-sm text-slate-500">
             Password Change
           </span>
           <input
@@ -79,7 +79,7 @@ export default function Page() {
           <button className="self-starttext-gray-700 flex items-center justify-center text-xs md:text-base font-medium">
             Cancel
           </button>
-          <button className="self-start p-3 md:p-5 flex items-center justify-center text-xs md:text-base font-medium text-gray-50 bg-red-500 rounded">
+          <button className="self-start p-3 md:p-4 flex items-center justify-center text-xs md:text-base font-medium text-gray-50 bg-red-500 rounded">
             Save Changes
           </button>
         </div>
