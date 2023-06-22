@@ -61,27 +61,29 @@ export default function Page() {
                   </div>
 
                   <button
-                    className="absolute text-sm font-medium flex items-center justify-center bottom-0 z-50 text-center text-gray-100 self-end p-2 bg-gray-800"
-                    style={{ width: "100%" }}
+                    className="absolute w-full text-sm font-medium flex items-center justify-center bottom-0 z-50 text-center text-gray-100 self-end p-2 bg-gray-800"
+
                     // onClick={() => setCart(cart?.length)}
                   >
-                    <IoCartOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-200 mr-2" />
+                    <IoCartOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-200 mr-2 text-sm lg:text-base" />
                     Add To Cart
                   </button>
                 </div>
                 <Link href={item.path} className="space-y-2 mb-4">
-                  <h4 className="text-gray-700 text-md font-medium">
+                  <h4 className="text-gray-700 text-sm lg:text-base font-medium">
                     {item.name}
                   </h4>
 
-                  <h4 className="space-x-3 font-medium">
+                  <h4 className="space-x-3 font-medium text-sm">
                     <span className="text-red-500">${item.amount}</span>
                     <span className="text-gray-400 line-through">
                       ${item.prevAmount}
                     </span>
                   </h4>
 
-                  <span className="text-gray-400">Rating ({item.rating})</span>
+                  <span className="text-gray-400 text-sm">
+                    Rating ({item.rating})
+                  </span>
                 </Link>
               </div>
             ))}
@@ -129,8 +131,8 @@ export default function Page() {
                 </div>
 
                 <button
-                  className="absolute text-sm font-medium flex items-center justify-center bottom-0 z-50 text-center text-gray-100 self-end p-2 bg-gray-800"
-                  style={{ width: "100%" }}
+                  className="absolute w-full text-sm  font-medium flex items-center justify-center bottom-0 z-50 text-center text-gray-100 self-end p-2 bg-gray-800"
+
                   // onClick={() => setCart(cart + 1)}
                 >
                   <IoCartOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-200 mr-2" />
@@ -138,18 +140,20 @@ export default function Page() {
                 </button>
               </div>
               <Link href={item.path} className="space-y-2 mb-4">
-                <h4 className="text-gray-700 text-md font-medium">
+                <h4 className="text-gray-700 text-sm lg:text-base font-medium">
                   {item.name}
                 </h4>
 
-                <h4 className="space-x-3 font-medium">
+                <h4 className="space-x-3 font-medium text-sm">
                   <span className="text-red-500">${item.amount}</span>
                   <span className="text-gray-400 line-through">
                     ${item.prevAmount}
                   </span>
                 </h4>
 
-                <span className="text-gray-400">Rating ({item.rating})</span>
+                <span className="text-gray-400 text-sm">
+                  Rating ({item.rating})
+                </span>
               </Link>
             </div>
           ))}
