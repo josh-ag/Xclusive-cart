@@ -25,13 +25,17 @@ import {
   IoHeartOutline,
   IoEyeOutline,
   IoEyeOffOutline,
+  IoLogoApple,
 } from "react-icons/io5";
 import {
   MdOutlineCameraAlt,
   MdOutlineDesktopWindows,
   MdOutlineHeadphones,
+  MdOutlineHeadsetMic,
+  MdOutlineLocalShipping,
   MdOutlinePhoneAndroid,
   MdOutlineSportsEsports,
+  MdOutlineVerifiedUser,
   MdOutlineWatch,
 } from "react-icons/md";
 import {
@@ -160,7 +164,7 @@ export default function Home() {
   const [scrollVisible, setScrollVisible] = useState<Boolean>(false);
 
   // consume context
-  const { products, shopList, bestSelling, authenticated, setCart, cart } =
+  const { products, shopList, bestSelling, authenticated } =
     useContext(AppContext);
 
   //redirect user if not Authenticated
@@ -218,18 +222,14 @@ export default function Home() {
           <div className="bg-gray-900 p-4 w-full min-h-full h-80 flex items-center justify-evenly md:mt-4">
             <div className="flex flex-col items-start space-y-4">
               <div className="flex items-center justify-start">
-                <Image
-                  src={appleLogo}
-                  alt="apple logo"
-                  className="mr-2 w-6 h-6"
-                />
+                <IoLogoApple className="text-gray-100 mr-2 w-6 h-6" />
                 <span className="text-gray-400 font-sm">iphone 14 series</span>
               </div>
               <div>
-                <h4 className="text-gray-200 font-md text-2xl md:text-4xl lg:text-6xl">
+                <h4 className="text-gray-200 font-medium text-2xl md:text-4xl lg:text-6xl">
                   Up to 10%
                 </h4>
-                <h4 className="text-gray-200 font-md text-2xl md:text-4xl lg:text-6xl">
+                <h4 className="text-gray-200 font-medium text-2xl md:text-4xl lg:text-6xl">
                   off Voucher
                 </h4>
               </div>
@@ -237,7 +237,7 @@ export default function Home() {
                 href="/shop/now"
                 className="flex items-center text-sm justify-start text-gray-300 font-medium underline"
               >
-                Show Now
+                Shop Now
                 <Image src={arrowRight} alt="arrow" className="w-4 h-4 ml-1" />
               </Link>
             </div>
@@ -279,11 +279,11 @@ export default function Home() {
               <button className="bg-gray-200 rounded-lg mr-2 p-1">
                 <IoArrowBackOutline
                   size={20}
-                  className="text-gray-500 w-3 h-3 md:w-5 md:h-5"
+                  className="text-gray-600 w-3 h-3 md:w-5 md:h-5"
                 />
               </button>
               <button className="bg-gray-200 rounded-lg p-1">
-                <IoArrowForwardOutline className="text-gray-500 w-3 h-3 md:w-5 md:h-5" />
+                <IoArrowForwardOutline className="text-gray-600 w-3 h-3 md:w-5 md:h-5" />
               </button>
             </div>
           </div>
@@ -296,7 +296,7 @@ export default function Home() {
                 className={`relative flex flex-col space-y-2 ml-4`}
               >
                 <div className="relative w-40 h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
-                  <button className="absolute left-4 top-4 rounded-md p-1 bg-red-600 text-xs text-gray-50 font-medium">
+                  <button className="absolute left-4 top-4 rounded-md p-1 bg-red-600 text-xs text-gray-50">
                     -{item.perc_discount}%
                   </button>
                   <Image
@@ -305,7 +305,7 @@ export default function Home() {
                     className="w-2/5 h-2/5"
                     priority={true}
                   />
-                  <div className="absolute top-4 right-2 flex flex-col space-y-4">
+                  <div className="absolute top-4 right-2 flex flex-col space-y-3">
                     <button className="bg-gray-100">
                       <IoHeartOutline className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700" />
                     </button>
@@ -313,26 +313,27 @@ export default function Home() {
                   </div>
 
                   <button
-                    className="absolute bottom-0  text-center text-gray-100  p-2 bg-gray-800"
-                    style={{ width: "100%" }}
+                    className="absolute w-full bottom-0 text-sm lg:text-base  text-center text-gray-100  p-2 bg-gray-800"
                     // onClick={() => setCart(cart + 1)}
                   >
                     Add To Cart
                   </button>
                 </div>
                 <Link href={item.path} className="space-y-2 mb-4">
-                  <h4 className="text-gray-700 text-md font-medium">
+                  <h4 className="text-gray-700 text-sm lg:text-base font-medium">
                     {item.name}
                   </h4>
 
                   <h4 className="space-x-3 font-medium">
-                    <span className="text-red-500">${item.amount}</span>
-                    <span className="text-gray-400 line-through">
+                    <span className="text-red-500 text-sm">${item.amount}</span>
+                    <span className="text-gray-400 text-sm line-through">
                       ${item.prevAmount}
                     </span>
                   </h4>
 
-                  <span className="text-gray-400">Rating ({item.rating})</span>
+                  <span className="text-gray-400 text-sm">
+                    Rating ({item.rating})
+                  </span>
                 </Link>
               </div>
             ))}
@@ -362,26 +363,23 @@ export default function Home() {
 
             <div className="flex basis-2/5 items-center justify-end">
               <button className="bg-gray-200 rounded-lg mr-2 p-1">
-                <IoArrowBackOutline
-                  size={20}
-                  className="text-gray-500 w-3 h-3 md:w-5 md:h-5"
-                />
+                <IoArrowBackOutline className="text-gray-600 w-3 h-3 md:w-5 md:h-5" />
               </button>
               <button className="bg-gray-200 rounded-lg p-1">
-                <IoArrowForwardOutline className="text-gray-500 w-3 h-3 md:w-5 md:h-5" />
+                <IoArrowForwardOutline className="text-gray-600 w-3 h-3 md:w-5 md:h-5" />
               </button>
             </div>
           </div>
 
           {/* items */}
-          <div className="grid grid-cols-6 grid-rows-1 gap-4">
+          <div className="grid grid-cols-6 grid-rows-1 gap-2 md:gap-4 lg:gap-6">
             {Categories.map((category: CategoryType) => (
               <Link
                 href={category.path}
                 key={category.id}
-                className="p-4 text-xs font-light md:text-sm lg:text-base text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center truncate text-ellipsis hover:bg-red-500 hover:text-gray-100"
+                className="p-4 text-xs font-light md:text-sm lg:text-base text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center overflow-hidden text-ellipsis hover:bg-red-500 hover:text-gray-100"
               >
-                <category.logo className="w-4 h-4 lg:w-6 lg:h-6 mb-4" />
+                <category.logo className="w-5 h-5 lg:w-6 lg:h-6 mb-4" />
                 {category.type}
               </Link>
             ))}
@@ -427,7 +425,7 @@ export default function Home() {
                     alt={item.name}
                     className="w-2/5 h-2/5"
                   />
-                  <div className="absolute z-50 top-4 right-2 flex flex-col space-y-4">
+                  <div className="absolute z-50 top-4 right-2 flex flex-col space-y-3">
                     <button
                       className="bg-gray-100"
                       onClick={() => alert("Item Added To Your Favorites")}
@@ -443,26 +441,28 @@ export default function Home() {
                   </div>
 
                   <button
-                    className="absolute bottom-0 z-50 text-center text-gray-100 self-end p-2 bg-gray-800"
-                    style={{ width: "100%" }}
+                    className="absolute w-full bottom-0 z-50 text-center text-sm lg:text-base text-gray-100 self-end p-2 bg-gray-800"
+
                     // onClick={() => setCart(cart + 1)}
                   >
                     Add To Cart
                   </button>
                 </div>
                 <Link href={item.path} className="space-y-2 mb-4">
-                  <h4 className="text-gray-700 text-md font-medium">
+                  <h4 className="text-gray-700 text-sm lg:text-base font-medium">
                     {item.name}
                   </h4>
 
-                  <h4 className="space-x-3 font-medium">
+                  <h4 className="space-x-3 font-medium text-sm">
                     <span className="text-red-500">${item.amount}</span>
                     <span className="text-gray-400 line-through">
                       ${item.prevAmount}
                     </span>
                   </h4>
 
-                  <span className="text-gray-400">Rating ({item.rating})</span>
+                  <span className="text-gray-400 text-sm">
+                    Rating ({item.rating})
+                  </span>
                 </Link>
               </div>
             ))}
@@ -493,6 +493,7 @@ export default function Home() {
               Buy Now!
             </button>
           </div>
+
           <Image
             src={jbl_boombox}
             alt="category image"
@@ -524,11 +525,11 @@ export default function Home() {
               <button className="bg-gray-200 rounded-lg mr-2 p-1">
                 <IoArrowBackOutline
                   size={20}
-                  className="text-gray-500 w-3 h-3 md:w-5 md:h-5"
+                  className="text-gray-600 w-3 h-3 md:w-5 md:h-5"
                 />
               </button>
               <button className="bg-gray-200 rounded-lg p-1">
-                <IoArrowForwardOutline className="text-gray-500 w-3 h-3 md:w-5 md:h-5" />
+                <IoArrowForwardOutline className="text-gray-600 w-3 h-3 md:w-5 md:h-5" />
               </button>
             </div>
           </div>
@@ -538,7 +539,7 @@ export default function Home() {
             {products.map((item: TrendingProductsType) => (
               <div
                 key={item.ID}
-                className={`relative flex flex-col space-y-4 items-center`}
+                className={`relative flex flex-col space-y-3 items-center`}
               >
                 <div className="relative w-5/6  h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
                   {item.isNew ? (
@@ -560,16 +561,17 @@ export default function Home() {
 
                   <button
                     // onClick={() => setCart(cart + 1)}
-                    className="absolute bottom-0 z-50  text-center text-gray-100  p-2 bg-gray-800"
-                    style={{ width: "100%" }}
+                    className="absolute w-full bottom-0 z-50  text-center text-sm lg:text-base text-gray-100  p-2 bg-gray-800"
                   >
                     Add To Cart
                   </button>
                 </div>
                 <Link href={item.path} className="space-y-2 mb-4">
-                  <h4 className="text-gray-700 font-medium">{item.name}</h4>
+                  <h4 className="text-gray-700 text-sm lg:text-base font-medium">
+                    {item.name}
+                  </h4>
 
-                  <h4 className="space-x-3 font-medium">
+                  <h4 className="space-x-3 text-sm font-medium">
                     <span className="text-red-500">${item.amount}</span>
                     {item.prevAmount ? (
                       <span className="text-gray-400 line-through">
@@ -577,7 +579,9 @@ export default function Home() {
                       </span>
                     ) : null}
                   </h4>
-                  <span className="text-gray-400">Rating ({item.rating})</span>
+                  <span className="text-gray-400 text-sm">
+                    Rating ({item.rating})
+                  </span>
 
                   {item.colors ? (
                     <div className="flex items-center space-x-2">
@@ -626,7 +630,7 @@ export default function Home() {
               <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-4xl">
                 PlayStation 5
               </h2>
-              <p className="text-gray-400 text-sm font-medium md:text-md lg:text-lg">
+              <p className="text-gray-300 text-sm font-medium md:text-md lg:text-lg">
                 Black and White version of the PS5 coming out on sale.
               </p>
               <button className="text-gray-200 font-medium text-sm md:text-md lg:text-lg py-1 border-b border-b-gray-400 hover:text-gray-100">
@@ -641,7 +645,7 @@ export default function Home() {
                 <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-4xl">
                   Women's Collections
                 </h2>
-                <p className="text-gray-400 text-sm font-medium md:text-md lg:text-lg">
+                <p className="text-gray-300 text-sm font-medium md:text-md lg:text-lg">
                   Featured woman collections that give you another vibe.
                 </p>
                 <button className="text-gray-200 font-medium text-sm md:text-md lg:text-lg py-1 border-b border-b-gray-400 hover:text-gray-100">
@@ -656,7 +660,7 @@ export default function Home() {
                   <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-2xl">
                     Speakers
                   </h2>
-                  <p className="text-gray-400 text-xs font-medium md:text-md lg:text-lg">
+                  <p className="text-gray-300 text-xs font-medium md:text-md lg:text-lg">
                     Amazon wireless speakers
                   </p>
                   <button className="text-gray-200 font-medium text-xs md:text-md lg:text-lg py-1 border-b border-b-gray-400 hover:text-gray-100">
@@ -670,7 +674,7 @@ export default function Home() {
                   <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-2xl">
                     Perfums
                   </h2>
-                  <p className="text-gray-400 text-xs font-medium md:text-md lg:text-lg">
+                  <p className="text-gray-300 text-xs font-medium md:text-md lg:text-lg">
                     GUCCI INTENSE OUD EDP
                   </p>
                   <button className="text-gray-200 font-medium text-xs md:text-md lg:text-lg py-1 border-b border-b-gray-400 hover:text-gray-100">
@@ -682,49 +686,49 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center space-x-6 py-16 md:justify-evenly">
-          <div className="flex flex-col items-center justify-center space-y-4">
+        <div className="flex items-center justify-center space-x-6 md:justify-evenly pt-16">
+          <div className="basis-1/3 flex flex-col items-center justify-center space-y-4">
             {/* Icon  */}
-            <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-300">
-              <Image src={icon_delivery} alt="icon delivery" />
+            <button className="p-2 md:p-3 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
+              <MdOutlineLocalShipping className="text-gray-50 h-5 w-5 md:w-6 md:h-6" />
             </button>
 
-            <h2 className="text-gray-800 text-center text-sm font-medium md:text-lg lg:text-xl">
+            <h2 className="text-gray-800 text-center  font-medium text-xs md:text-base lg:text-lg">
               FREE AND FAST DELIVERY
             </h2>
 
-            <p className="text-gray-600 text-center text-xs font-medium md:text-sm lg:text-md">
+            <p className="text-gray-500 text-center text-xs md:text-sm">
               Free delivery for all orders over $140
             </p>
           </div>
 
-          <div className="flex flex-col items-center justify-center space-y-4">
+          <div className="basis-1/3 flex flex-col items-center justify-center space-y-4">
             {/* Icon  */}
-            <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-300">
-              <Image src={icon_customer_service} alt="icon delivery" />
+            <button className="p-2 md:p-3 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
+              <MdOutlineHeadsetMic className="text-gray-50 h-5 w-5 md:w-6 md:h-6" />
             </button>
 
-            <h2 className="text-gray-800 text-sm text-center font-medium md:text-lg lg:text-xl">
+            <h2 className="text-gray-800 text-center font-medium text-xs md:text-base lg:text-lg">
               24/7 CUSTOMER SERVICE
             </h2>
 
-            <p className="text-gray-600 text-xs text-center font-medium md:text-sm lg:text-md">
+            <p className="text-gray-500 text-xs text-center md:text-sm">
               Friendly 24/7 customer support
             </p>
           </div>
 
-          <div className="flex flex-col items-center justify-center space-y-4">
+          <div className="basis-1/3 flex flex-col items-center justify-center space-y-4">
             {/* Icon  */}
-            <button className="w-14 h-14 md:w-16 md:h-16 bg-gray-900 rounded-full p-2 border-8 border-gray-300">
-              <Image src={icon_secure} alt="icon delivery" />
+            <button className="p-2 md:p-3 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
+              <MdOutlineVerifiedUser className="text-gray-50 h-5 w-5 md:w-6 md:h-6" />
             </button>
 
-            <h2 className="text-gray-800 text-sm text-center font-medium md:text-lg lg:text-xl">
+            <h2 className="text-gray-800 text-center font-medium text-xs md:text-base lg:text-lg">
               MONEY BACK GUARANTEE
             </h2>
 
-            <p className="text-gray-600 text-xs text-center font-medium md:text-sm lg:text-md">
-              We reurn money within 30 days
+            <p className="text-gray-500 text-xs text-center md:text-sm">
+              We return money within 30 days
             </p>
           </div>
         </div>

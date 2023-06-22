@@ -28,16 +28,16 @@ export default function Page() {
           {cart && cart?.length ? (
             <>
               <div className="flex justify-between items-center shadow p-4 shadow-gray-100">
-                <h4 className="basis-1/4 text-xs md:text-sm lg:text-base font-medium text-gray-600 text-center">
+                <h4 className="basis-1/4 text-sm md:text-base lg:text-lg font-medium text-gray-600 text-center">
                   Product
                 </h4>
-                <h4 className="basis-1/4 text-xs md:text-sm lg:text-base font-medium text-gray-600 text-center">
+                <h4 className="basis-1/4 text-sm md:text-base lg:text-lg font-medium text-gray-600 text-center">
                   Price
                 </h4>
-                <h4 className="basis-1/4 text-xs md:text-sm lg:text-base font-medium text-gray-600">
+                <h4 className="basis-1/4 text-sm md:text-base lg:text-lg font-medium text-gray-600">
                   Quantity
                 </h4>
-                <h4 className="basis-1/4 text-xs md:text-sm lg:text-base font-medium text-gray-600 text-center">
+                <h4 className="basis-1/4 text-sm md:text-base lg:text-lg font-medium text-gray-600 text-center">
                   Subtotal
                 </h4>
               </div>
@@ -52,19 +52,19 @@ export default function Page() {
                       className="w-1/3 h-1/3 lg:w-20 lg:h-20"
                       alt={`${item.name} image`}
                     />
-                    <h4 className="text-xs md:text-sm  font-medium text-gray-500">
+                    <h4 className="text-xs md:text-sm lg:text-base  font-medium text-gray-500">
                       {item.name}
                     </h4>
                   </div>
 
-                  <h4 className="basis-1/4 text-xs md:text-sm  font-medium text-gray-500 text-center">
+                  <h4 className="basis-1/4 text-xs md:text-sm  font-medium lg:text-base text-gray-500 text-center">
                     $ {item.amount}
                   </h4>
                   <div className="basis-1/4">
                     <div className="shadow border border-gray-400 px-2  w-16 rounded flex items-center justify-center space-x-2">
                       <input
                         name="city"
-                        value="1"
+                        defaultValue="1"
                         className="self-center block w-full bg-white border border-slate-300 rounded-md text-sm shadow-sm text-center placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
                       />
                       <div className="flex flex-col items-center justify-center space-y-1">
@@ -77,7 +77,7 @@ export default function Page() {
                       </div>
                     </div>
                   </div>
-                  <h4 className="basis-1/4 text-xs md:text-sm font-medium text-gray-500 text-center">
+                  <h4 className="basis-1/4 text-xs md:text-sm lg:text-base font-medium text-gray-500 text-center">
                     $ {item.amount}
                   </h4>
                 </div>
@@ -108,31 +108,31 @@ export default function Page() {
                 </div>
 
                 <div className="basis-full md:basis-2/4  p-6 flex flex-col justify-center text-sm lg:text-base font-medium rounded space-y-4 text-gray-600 border border-gray-300">
-                  <h2 className="text-xs md:text-sm lg:text-base font-medium text-gray-700">
+                  <h2 className="text-base lg:text-lg font-medium text-gray-700">
                     Cart Total
                   </h2>
                   <div className="flex items-center justify-between p-3 border-b border-b-gray-300">
-                    <h4 className="text-xs md:text-sm lg:text-base text-gray-700">
+                    <h4 className="text-sm md:text-base lg:text-lg text-gray-700">
                       Subtotal:{" "}
                     </h4>
-                    <h4 className="text-xs md:text-sm lg:text-base text-gray-700">
+                    <h4 className="text-sm md:text-base lg:text-lg text-gray-700">
                       $ {cartTotal}
                     </h4>
                   </div>
                   <div className="flex items-center justify-between p-3 border-b border-b-gray-300">
-                    <h4 className="text-xs md:text-sm lg:text-base text-gray-700">
+                    <h4 className="text-sm md:text-base lg:text-lg text-gray-700">
                       Shipping:{" "}
                     </h4>
-                    <h4 className="text-xs md:text-sm lg:text-base text-gray-700">
+                    <h4 className="text-sm md:text-base lg:text-lg text-gray-700">
                       Free
                     </h4>
                   </div>
 
                   <div className="flex items-center justify-between p-3">
-                    <h4 className="text-xs md:text-sm lg:text-base text-gray-700">
+                    <h4 className="text-sm md:text-base lg:text-lg text-gray-700">
                       Total:{" "}
                     </h4>
-                    <h4 className="text-xs md:text-sm lg:text-base text-gray-700">
+                    <h4 className="text-sm md:text-base lg:text-lg text-gray-700">
                       $ {cartTotal}
                     </h4>
                   </div>

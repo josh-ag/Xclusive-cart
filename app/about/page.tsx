@@ -110,10 +110,13 @@ export default function Page() {
 
       <div className="grid grid-rows-1 grid-cols-1 md:grid-cols-3 gap-2 lg:gap-10 h-86">
         <div className="h-full flex flex-col space-y-4">
-          <div className="bg-gray-200 h-3/4 flex items-end justify-center px-4 pt-4">
+          <div
+            className="bg-gray-200 self-center h-3/4 flex items-end justify-center px-4 pt-4"
+            style={{ width: "95%" }}
+          >
             <Image src={person1} alt="admin one" style={{ height: "95%" }} />
           </div>
-          <div className="flex flex-col justify-start items-start space-y-2">
+          <div className="flex flex-col justify-start items-start space-y-2 ml-4">
             <h4 className="text-gray-700 text-sm md:text-base lg:text-lg font-medium">
               Tom Cruise
             </h4>
@@ -129,10 +132,13 @@ export default function Page() {
         </div>
 
         <div className="h-full flex flex-col space-y-4">
-          <div className="bg-gray-200 h-3/4 flex items-end justify-center px-4 pt-4">
+          <div
+            className="bg-gray-200 self-center h-3/4 flex items-end justify-center px-4 pt-4"
+            style={{ width: "95%" }}
+          >
             <Image src={person2} alt="admin two" style={{ height: "95%" }} />
           </div>
-          <div className="flex flex-col justify-start items-start space-y-2">
+          <div className="flex flex-col justify-start items-start space-y-2 ml-4">
             <h4 className="text-gray-700 text-sm md:text-base lg:text-lg font-medium">
               Emma Watson
             </h4>
@@ -148,10 +154,13 @@ export default function Page() {
         </div>
 
         <div className="h-full flex flex-col space-y-4">
-          <div className="bg-gray-200 h-3/4 flex items-end justify-center px-4 pt-4">
+          <div
+            className="bg-gray-200 h-3/4 self-center flex items-end justify-center px-4 pt-4"
+            style={{ width: "95%" }}
+          >
             <Image src={person3} alt="admin three" style={{ height: "95%" }} />
           </div>
-          <div className="flex flex-col justify-start items-start space-y-2">
+          <div className="flex flex-col justify-start items-start space-y-2 ml-4">
             <h4 className="text-gray-700 text-sm md:text-base lg:text-lg font-medium">
               Will Smith
             </h4>
@@ -170,8 +179,8 @@ export default function Page() {
       <div className="flex items-center justify-center space-x-6 md:justify-evenly">
         <div className="basis-1/3 flex flex-col items-center justify-center space-y-4">
           {/* Icon  */}
-          <button className="p-3 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
-            <MdOutlineLocalShipping className="text-gray-50 w-6 h-6" />
+          <button className="p-2 md:p-3 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
+            <MdOutlineLocalShipping className="text-gray-50 h-5 w-5 md:w-6 md:h-6" />
           </button>
 
           <h2 className="text-gray-800 text-center  font-medium text-xs md:text-base lg:text-lg">
@@ -185,8 +194,8 @@ export default function Page() {
 
         <div className="basis-1/3 flex flex-col items-center justify-center space-y-4">
           {/* Icon  */}
-          <button className="p-3 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
-            <MdOutlineHeadsetMic className="text-gray-50 w-6 h-6" />
+          <button className="p-2 md:p-3 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
+            <MdOutlineHeadsetMic className="text-gray-50 h-5 w-5 md:w-6 md:h-6" />
           </button>
 
           <h2 className="text-gray-800 text-center font-medium text-xs md:text-base lg:text-lg">
@@ -200,8 +209,8 @@ export default function Page() {
 
         <div className="basis-1/3 flex flex-col items-center justify-center space-y-4">
           {/* Icon  */}
-          <button className="p-3 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
-            <MdOutlineVerifiedUser className="text-gray-50 w-6 h-6" />
+          <button className="p-2 md:p-3 border-8 text-inherit border-gray-300 rounded-full bg-gray-900">
+            <MdOutlineVerifiedUser className="text-gray-50 h-5 w-5 md:w-6 md:h-6" />
           </button>
 
           <h2 className="text-gray-800 text-center font-medium text-xs md:text-base lg:text-lg">

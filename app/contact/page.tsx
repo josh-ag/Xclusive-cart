@@ -5,7 +5,7 @@ export default function Page() {
     <div className="container mx-auto mb-4 w-full h-auto p-8 space-y-8">
       {/* Header */}
       <header className="flex justify-between items-center">
-        <h4 className="text-xs md:text-sm text-gray-400 lg:text-base">
+        <h4 className="text-xs md:text-sm text-gray-400">
           / <span className="text-gray-500 font-medium">Contact</span>
         </h4>
       </header>
@@ -21,12 +21,12 @@ export default function Page() {
                 Call To Us
               </h2>
             </div>
-            <p className="text-xs md:text-sm text-gray-600 text-ellipsis overflow-hidden">
+            <span className="text-xs md:text-sm text-gray-600 text-ellipsis overflow-hidden">
               We are available 24/7, 7 days a week.
-            </p>
-            <p className="text-xs md:text-sm text-gray-600 text-ellipsis overflow-hidden">
+            </span>
+            <span className="text-xs md:text-sm text-gray-600 text-ellipsis overflow-hidden">
               Phone: +8801611112222
-            </p>
+            </span>
           </div>
 
           <div className="flex-1 flex pt-8 flex-col space-y-4  w-full">
@@ -38,16 +38,16 @@ export default function Page() {
                 Write To Us
               </h2>
             </div>
-            <p className="text-xs md:text-sm text-gray-600 text-clip overflow-hidden">
+            <span className="text-xs md:text-sm text-gray-600 text-clip overflow-hidden">
               Fill out our form and we will contact you within 24 hours.
-            </p>
-            <p className="text-xs md:text-sm text-gray-600 text-ellipsis overflow-hidden">
+            </span>
+            <span className="text-xs md:text-sm text-gray-600 text-ellipsis overflow-hidden">
               Emails: customer@exclusive.com
-            </p>
+            </span>
 
-            <p className="text-xs md:text-sm text-gray-600 text-ellipsis overflow-hidden">
+            <span className="text-xs md:text-sm text-gray-600 text-ellipsis overflow-hidden">
               Emails: support@exclusive.com
-            </p>
+            </span>
           </div>
         </div>
 

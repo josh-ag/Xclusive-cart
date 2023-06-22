@@ -103,7 +103,7 @@ export default function Page() {
                   type="checkbox"
                   className="appearance:none checked:text-red-500 checked:ring-red-500 hover:ring-red-500 active:ring-red-500 indeterminate:ring-red-500"
                 />
-                <span className="block text-sm lg:text-base text-slate-500">
+                <span className="block text-xs md:text-sm text-slate-500">
                   Save this information for faster check-out next time
                 </span>
               </label>

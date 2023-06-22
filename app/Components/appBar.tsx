@@ -7,6 +7,7 @@ import { AppContext } from "../Context/appContext";
 import {
   IoCartOutline,
   IoHeartOutline,
+  IoPersonOutline,
   IoSearchOutline,
 } from "react-icons/io5";
 import user_icon from "../../assets/icons/user_icon.svg";
@@ -109,17 +110,17 @@ export const AppbarComponent = () => {
           {authenticated ? (
             <>
               <Link href="/wishlist" className="relative">
-                <IoHeartOutline size={24} className="text-gray-600" />
+                <IoHeartOutline className="text-gray-600 w-5 h-5 lg:w-6 lg:h-6" />
                 {wishList ? (
-                  <button className="absolute flex items-center justify-center text-xs font-bold text-center -top-2 -right-3 bg-red-600 text-gray-200 p-1 w-5 h-5 rounded-full">
+                  <button className="absolute flex items-center justify-center text-xs lg:text-sm text-center -top-2 -right-2 bg-red-600 text-gray-200 p-1 w-4 h-4 rounded-full">
                     {wishList?.length}
                   </button>
                 ) : null}
               </Link>
               <Link href="/cart" className="relative">
-                <IoCartOutline size={24} className="text-gray-600" />
+                <IoCartOutline className="text-gray-600 w-5 h-5 lg:w-6 lg:h-6" />
                 {cart ? (
-                  <button className="absolute flex items-center justify-center text-xs font-bold text-center -top-2 -right-3 bg-red-600 text-gray-200 p-1 w-5 h-5 rounded-full">
+                  <button className="absolute flex items-center justify-center text-xs lg:text-sm text-center -top-2 -right-2 bg-red-600 text-gray-200 p-1 w-4 h-4 rounded-full">
                     {cart?.length}
                   </button>
                 ) : null}
@@ -127,27 +128,9 @@ export const AppbarComponent = () => {
               <button
                 onClick={() => setNavList(!navList)}
                 onMouseOver={() => setNavList(true)}
-                className="text-gray-700 hover:text-gray-200 hover:bg-red-500 p-1 rounded-full"
+                className="text-gray-700 hover:text-gray-200"
               >
-                <svg
-                  width="30"
-                  height="32"
-                  viewBox="0 0 32 30"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="stroke-2 stroke-gray-500 hover:stroke-gray-200"
-                >
-                  <path
-                    d="M24 27V24.3333C24 22.9188 23.5224 21.5623 22.6722 20.5621C21.8221 19.5619 20.669 19 19.4667 19H11.5333C10.331 19 9.17795 19.5619 8.32778 20.5621C7.47762 21.5623 7 22.9188 7 24.3333V27"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M16.5 14C18.9853 14 21 11.9853 21 9.5C21 7.01472 18.9853 5 16.5 5C14.0147 5 12 7.01472 12 9.5C12 11.9853 14.0147 14 16.5 14Z"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <IoPersonOutline className="text-gray-600 w-5 h-5 lg:w-6 lg:h-6" />
               </button>
             </>
           ) : null}
