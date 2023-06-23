@@ -5,11 +5,7 @@ import {
   TiSocialTwitter,
   TiSocialLinkedin,
 } from "react-icons/ti";
-import {
-  IoLogoGooglePlaystore,
-  IoLogoApple,
-  IoLogoInstagram,
-} from "react-icons/io5";
+import { IoLogoApple, IoLogoInstagram } from "react-icons/io5";
 import QrCode from "../../assets/icons/Qr Code.svg";
 import iconSend from "../../assets/icons/icon-send.svg";
 import playstore_icon from "../../assets/icons/icons8-google-play.svg";

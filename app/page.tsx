@@ -5,20 +5,13 @@ import { useState, useContext, useEffect } from "react";
 import Countdown from "react-countdown";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-// import { Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import Link from "next/link";
 import showcaseImage from "../assets/images/iphone.png";
-import appleLogo from "../assets/icons/apple_logo.svg";
 import arrowRight from "../assets/icons/arrow-right.svg";
-import category_cellphone from "../assets/icons/Category-CellPhone.svg";
-import category_computer from "../assets/icons/Category-Computer.svg";
-import category_camera from "../assets/icons/Category-Camera.svg";
-import category_gamepad from "../assets/icons/Category-Gamepad.svg";
-import category_smartwatch from "../assets/icons/Category-SmartWatch.svg";
+
 import jbl_boombox from "../assets/images/jbl_boombox.png";
-import icon_delivery from "../assets/icons/icon-delivery.svg";
-import icon_customer_service from "../assets/icons/Icon-Customer_service.svg";
-import icon_secure from "../assets/icons/Icon-secure.svg";
+
 import {
   IoArrowBackOutline,
   IoArrowForwardOutline,
@@ -80,34 +73,38 @@ const Categories = [
 
 const FlashRenderer = ({ days, hours, minutes, seconds, completed }: any) => {
   return (
-    <div className="flex items-center justify-between space-x-2">
+    <div className="flex items-center justify-between space-x-3 md:space-x-6">
       <div className="flex flex-col items-center justify-center space-y-2">
-        <p className="text-gray-700 font-medium text-xs md:text-md">Days</p>
-        <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
-          {days}
-        </h2>
+        <span className="text-gray-700 font-medium text-xs md:text-base">
+          DAYS
+        </span>
+        <h2 className="text-gray-700 text-xl font-bold md:text-2xl">{days}</h2>
       </div>
       <span className="text-2xl text-red-700">:</span>
 
       <div className="flex flex-col space-y-2 items-center justify-center">
-        <p className="text-gray-700 font-medium text-xs md:text-md">Hours</p>
-        <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
-          {hours}
-        </h2>
+        <span className="text-gray-700 font-medium text-xs md:text-base">
+          HRS
+        </span>
+        <h2 className="text-gray-700 text-xl font-bold md:text-2xl">{hours}</h2>
       </div>
       <span className="text-2xl text-red-700">:</span>
 
       <div className="flex flex-col space-y-2 items-center justify-center">
-        <p className="text-gray-700 font-medium text-xs md:text-md">Minutes</p>
-        <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
+        <span className="text-gray-700 font-medium text-xs md:text-base">
+          MINS
+        </span>
+        <h2 className="text-gray-700 text-xl font-bold md:text-2xl">
           {minutes}
         </h2>
       </div>
       <span className="text-2xl text-red-700">:</span>
 
       <div className="flex flex-col space-y-2 items-center justify-center">
-        <p className="text-gray-700 font-medium text-xs md:text-md">Seconds</p>
-        <h2 className="text-gray-700 text-xl font-bold md:text-2xl lg:text-4xl">
+        <span className="text-gray-700 font-medium text-xs md:text-base">
+          SECS
+        </span>
+        <h2 className="text-gray-700 text-xl font-bold md:text-2xl">
           {seconds}
         </h2>
       </div>
@@ -126,33 +123,33 @@ const ProductCategoryRenderer = ({
     <div className="flex justify-start items-center space-x-2 md:space-x-3">
       <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
         <h2 className="text-sm md:text-2xl font-bold text-gray-700">{hours}</h2>
-        <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
-          Hours
-        </h4>
+        <span className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
+          HRS
+        </span>
       </div>
 
       <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
         <h2 className="text-sm md:text-2xl font-bold text-gray-700">{days}</h2>
-        <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
-          Days
-        </h4>
+        <span className="text-ellipsis overflow-hidden text-center text-xs md:text-base text-gray-600">
+          DAYS
+        </span>
       </div>
 
       <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
         <h2 className="text-sm md:text-2xl font-bold text-gray-700">
           {minutes}
         </h2>
-        <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
-          Minutes
-        </h4>
+        <span className="text-ellipsis overflow-hidden text-center text-xs md:text-base text-gray-600">
+          MINS.
+        </span>
       </div>
       <div className="flex flex-col items-center justify-center rounded-full w-12 h-12 md:w-20 md:h-20 bg-gray-300">
         <h2 className="text-sm md:text-2xl font-bold text-gray-700">
           {seconds}
         </h2>
-        <h4 className="text-ellipsis overflow-hidden text-center text-xs md:text-base lg:text-md font-light text-gray-600">
-          Seconds
-        </h4>
+        <span className="text-ellipsis overflow-hidden text-center text-xs md:text-base text-gray-600">
+          SEC.
+        </span>
       </div>
     </div>
   );
@@ -377,10 +374,12 @@ export default function Home() {
               <Link
                 href={category.path}
                 key={category.id}
-                className="p-4 text-xs font-light md:text-sm lg:text-base text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center overflow-hidden text-ellipsis hover:bg-red-500 hover:text-gray-100"
+                className="p-4 text-xs md:text-sm lg:text-base text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center hover:bg-red-500 hover:text-gray-100 space-y-2 md:space-y-4 lg:space-y-6"
               >
-                <category.logo className="w-5 h-5 lg:w-6 lg:h-6 mb-4" />
-                {category.type}
+                <category.logo className="w-5 h-5 lg:w-6 lg:h-6" />
+                <span className="text-inherit overflow-hidden text-ellipsis">
+                  {category.type}
+                </span>
               </Link>
             ))}
           </div>
@@ -630,7 +629,7 @@ export default function Home() {
               <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-4xl">
                 PlayStation 5
               </h2>
-              <p className="text-gray-300 text-sm font-medium md:text-md lg:text-lg">
+              <p className="text-gray-300 text-sm lg:text-base">
                 Black and White version of the PS5 coming out on sale.
               </p>
               <button className="text-gray-200 font-medium text-sm md:text-md lg:text-lg py-1 border-b border-b-gray-400 hover:text-gray-100">
@@ -645,7 +644,7 @@ export default function Home() {
                 <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-4xl">
                   Women's Collections
                 </h2>
-                <p className="text-gray-300 text-sm font-medium md:text-md lg:text-lg">
+                <p className="text-gray-300 text-sm lg:text-base">
                   Featured woman collections that give you another vibe.
                 </p>
                 <button className="text-gray-200 font-medium text-sm md:text-md lg:text-lg py-1 border-b border-b-gray-400 hover:text-gray-100">
@@ -660,7 +659,7 @@ export default function Home() {
                   <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-2xl">
                     Speakers
                   </h2>
-                  <p className="text-gray-300 text-xs font-medium md:text-md lg:text-lg">
+                  <p className="text-gray-300 text-sm lg:text-base">
                     Amazon wireless speakers
                   </p>
                   <button className="text-gray-200 font-medium text-xs md:text-md lg:text-lg py-1 border-b border-b-gray-400 hover:text-gray-100">
@@ -674,7 +673,7 @@ export default function Home() {
                   <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-2xl">
                     Perfums
                   </h2>
-                  <p className="text-gray-300 text-xs font-medium md:text-md lg:text-lg">
+                  <p className="text-gray-300 text-sm lg:text-base">
                     GUCCI INTENSE OUD EDP
                   </p>
                   <button className="text-gray-200 font-medium text-xs md:text-md lg:text-lg py-1 border-b border-b-gray-400 hover:text-gray-100">
@@ -696,8 +695,7 @@ export default function Home() {
             <h2 className="text-gray-800 text-center  font-medium text-xs md:text-base lg:text-lg">
               FREE AND FAST DELIVERY
             </h2>
-
-            <p className="text-gray-500 text-center text-xs md:text-sm">
+            <p className="text-gray-500 text-center text-xs md:text-sm lg:text-base">
               Free delivery for all orders over $140
             </p>
           </div>
@@ -712,7 +710,7 @@ export default function Home() {
               24/7 CUSTOMER SERVICE
             </h2>
 
-            <p className="text-gray-500 text-xs text-center md:text-sm">
+            <p className="text-gray-500 text-xs text-center md:text-sm lg:text-base">
               Friendly 24/7 customer support
             </p>
           </div>
@@ -727,7 +725,7 @@ export default function Home() {
               MONEY BACK GUARANTEE
             </h2>
 
-            <p className="text-gray-500 text-xs text-center md:text-sm">
+            <p className="text-gray-500 text-xs text-center md:text-sm lg:text-base">
               We return money within 30 days
             </p>
           </div>
