@@ -1,8 +1,12 @@
 import "./globals.css";
+
+import { Raleway } from "next/font/google";
 import { AppContextProvider } from "./Context/appContext";
 import { AppbarComponent } from "./Components/appBar";
 import { Footer } from "./Components/footer";
 import { TopBarComponent } from "./Components/topBar";
+
+const raleway = Raleway({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -10,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={raleway.className}>
       <body>
         <AppContextProvider>
           <TopBarComponent />
