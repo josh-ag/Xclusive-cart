@@ -1,6 +1,7 @@
+"use client";
 import Link from "next/link";
 
-export default function NotFound() {
+export default function Error404() {
   return (
     <div className="flex flex-col mt-4 justify-center items-center">
       <h2 className="w-full h-full text-4xl text-center">

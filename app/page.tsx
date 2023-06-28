@@ -5,11 +5,9 @@ import { useState, useContext, useEffect } from "react";
 import Countdown from "react-countdown";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import { Inter } from "next/font/google";
 import Link from "next/link";
 import showcaseImage from "../assets/images/iphone.png";
 import arrowRight from "../assets/icons/arrow-right.svg";
-
 import jbl_boombox from "../assets/images/jbl_boombox.png";
 
 import {
@@ -19,17 +17,17 @@ import {
   IoEyeOutline,
   IoEyeOffOutline,
   IoLogoApple,
+  IoPhonePortraitOutline,
+  IoDesktopOutline,
+  IoWatchOutline,
+  IoCameraOutline,
+  IoHeadsetOutline,
+  IoGameControllerOutline,
 } from "react-icons/io5";
 import {
-  MdOutlineCameraAlt,
-  MdOutlineDesktopWindows,
-  MdOutlineHeadphones,
   MdOutlineHeadsetMic,
   MdOutlineLocalShipping,
-  MdOutlinePhoneAndroid,
-  MdOutlineSportsEsports,
   MdOutlineVerifiedUser,
-  MdOutlineWatch,
 } from "react-icons/md";
 import {
   ItemType,
@@ -53,22 +51,22 @@ const sideNav = [
 ];
 
 const Categories = [
-  { type: "Phones", logo: MdOutlinePhoneAndroid, id: 1, path: "/phones" },
+  { type: "Phones", logo: IoPhonePortraitOutline, id: 1, path: "/phones" },
   {
     type: "Computers",
-    logo: MdOutlineDesktopWindows,
+    logo: IoDesktopOutline,
     id: 2,
     path: "/computers",
   },
   {
     type: "SmartWatch",
-    logo: MdOutlineWatch,
+    logo: IoWatchOutline,
     id: 3,
     path: "/smartwatches",
   },
-  { type: "Camera", logo: MdOutlineCameraAlt, id: 4, path: "/cameras" },
-  { type: "Headphones", logo: MdOutlineHeadphones, id: 5, path: "/headphones" },
-  { type: "Gamepad", logo: MdOutlineSportsEsports, id: 6, path: "/gamepad" },
+  { type: "Camera", logo: IoCameraOutline, id: 4, path: "/cameras" },
+  { type: "Headphones", logo: IoHeadsetOutline, id: 5, path: "/headphones" },
+  { type: "Gamepad", logo: IoGameControllerOutline, id: 6, path: "/gamepad" },
 ];
 
 const FlashRenderer = ({ days, hours, minutes, seconds, completed }: any) => {
@@ -251,7 +249,7 @@ export default function Home() {
 
       <div className="space-y-16 divide-y divide-slate-200">
         {/* Today Sale */}
-        <div className="container flex flex-col justify-center space-y-6  mx-auto">
+        <div className="container flex flex-col justify-center space-y-6  mx-auto pt-2 md:pt-4">
           <div className="ml-4">
             {/* Bullet  */}
             <div className="flex items-center space-x-2">
@@ -286,7 +284,7 @@ export default function Home() {
           </div>
 
           {/* items */}
-          <div className="flex space-x-6 items-center mb-6 overflow-x-auto">
+          <div className="flex space-x-6 items-stretch overflow-x-auto">
             {shopList.map((item: ItemType) => (
               <div
                 key={item.ID}
@@ -335,13 +333,14 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div />
           <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2">
             View All Products
           </button>
         </div>
 
         {/* Categories */}
-        <div className="container pt-16 flex flex-col justify-center space-y-8  mx-auto ">
+        <div className="container pt-16 flex flex-col justify-center space-y-6  mx-auto ">
           <div className="ml-4">
             {/* Bullet  */}
             <div className="flex items-center space-x-2">
@@ -369,21 +368,22 @@ export default function Home() {
           </div>
 
           {/* items */}
-          <div className="grid grid-cols-6 grid-rows-1 gap-2 md:gap-4 lg:gap-6">
+          <div className="flex items-center space-x-4 overflow-x-auto px-2 pb-4">
             {Categories.map((category: CategoryType) => (
               <Link
                 href={category.path}
                 key={category.id}
-                className="p-4 text-xs md:text-sm lg:text-base text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center hover:bg-red-500 hover:text-gray-100 space-y-2 md:space-y-4 lg:space-y-6"
+                className="px-10 py-5 text-gray-600 border border-gray-200 rounded-sm flex flex-col items-center justify-center hover:bg-red-500 hover:text-gray-100 space-y-2  "
               >
                 <category.logo className="w-5 h-5 lg:w-6 lg:h-6" />
-                <span className="text-inherit overflow-hidden text-ellipsis">
+                <span className="text-inherit text-ellipsis overflow-hidden text-sm lg:text-base">
                   {category.type}
                 </span>
               </Link>
             ))}
           </div>
-          <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2 mt-10">
+          <div />
+          <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2">
             View All Products
           </button>
         </div>
@@ -468,10 +468,12 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/* Categories2 */}
-      <div className="container mx-auto pb-8">
+
+      <div className="container mx-auto pt-8 pb-8">
         <div className="py-12 bg-gray-900 space-x-4 flex items-center justify-around">
-          <div className="space-y-8 flex flex-col">
+          <div className="space-y-6 flex flex-col">
             <h4 className="text-green-400 font-medium text-lg md:text-2xl">
               Categories
             </h4>
@@ -501,9 +503,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="space-y-16 divide-y divide-slate-200 pb-8">
-        {/* Today Sale */}
-        <div className="container flex flex-col justify-center space-y-6  mx-auto">
+      <div className="space-y-6 border-b border-gray-200 pb-8">
+        <div className="container flex flex-col justify-center space-y-6 mx-auto">
           <div className="ml-4">
             {/* Bullet  */}
             <div className="flex items-center space-x-2">
@@ -542,7 +543,7 @@ export default function Home() {
               >
                 <div className="relative w-5/6  h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
                   {item.isNew ? (
-                    <button className="absolute left-4 top-4 rounded-md p-1 bg-green-400 text-xs md:text-sm text-gray-50 font-base text-center w-12 h-8">
+                    <button className="absolute left-4 top-4 rounded-md p-1 bg-green-400 text-xs  text-gray-50 text-center w-10 h-7">
                       New
                     </button>
                   ) : null}
@@ -597,14 +598,17 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div />
+          <div />
           <button className="self-center rounded w-56 bg-red-600 text-gray-100 text-base text-center p-2">
             View All Products
           </button>
         </div>
+        <div />
       </div>
 
       {/* Featured */}
-      <div className="container pt-16 flex flex-col justify-center space-y-6  mx-auto pb-8 px-4 md:px-0">
+      <div className="container flex flex-col justify-center space-y-6  mx-auto pb-8 pt-8 px-4 md:px-0">
         <div className="ml-4">
           {/* Bullet  */}
           <div className="flex items-center space-x-2">
