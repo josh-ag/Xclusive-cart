@@ -35,17 +35,17 @@ export default function Page() {
             Our Story
           </h2>
           <p className="text-base font-light text-gray-500">
-            Launced in 2015, Exclusive is South Asia’s premier online shopping
-            makterplace with an active presense in Bangladesh. Supported by wide
-            range of tailored marketing, data and service solutions, Exclusive
-            has 10,500 sallers and 300 brands and serves 3 millioons customers
-            across the region.
+            Launced in 2023, Xclusive is West Africa’s premier online shopping
+            makterplace with an active presense in Lagos, Nigeria. Supported by
+            wide range of tailored marketing, data and service solutions,
+            Xclusive has 10,500 sallers and 300 brands and serves 3 millioons
+            customers across the region.
           </p>
 
           <p className="text-base font-light text-gray-500">
-            Exclusive has more than 1 Million products to offer, growing at a
-            very fast. Exclusive offers a diverse assotment in categories
-            ranging from consumer.
+            Xclusive has more than 1 Million products to offer, growing at a
+            very fast pace. Xclusive offers a diverse assotment in categories
+            ranging consumer.
           </p>
         </div>
         <div className="basis-full md:basis-3/4 flex justify-center md:justify-end mb-8">
