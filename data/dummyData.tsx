@@ -14,6 +14,7 @@ import gp11_prd3 from "../assets/images/GP11_PRD3 1.png";
 import kid_electric_car from "../assets/images/kid_electric_car.png";
 import jr_zoom_soccer_cleats from "../assets/images/jr_zoom_soccer_cleats.png";
 import quilted_satin_jacket from "../assets/images/quilted_satin_jacket.png";
+import { AllProductType, ProductType } from "@/type.d";
 
 export const DummyUsers = [
   {
@@ -50,7 +51,7 @@ export const Products = [
     image: dog_food,
     rating: 35,
     ID: "T_0001",
-    path: "/",
+    path: "/products",
   },
 
   {
@@ -59,7 +60,7 @@ export const Products = [
     image: canon_dslr_camera,
     rating: 95,
     ID: "T_0002",
-    path: "/",
+    path: "/products",
   },
 
   {
@@ -68,7 +69,7 @@ export const Products = [
     image: asus_gaming_pc,
     rating: 325,
     ID: "T_0003",
-    path: "/",
+    path: "/products",
   },
   {
     name: "Curology Product Set",
@@ -76,7 +77,7 @@ export const Products = [
     image: curology_product_set,
     rating: 145,
     ID: "T_0004",
-    path: "/",
+    path: "/products",
   },
   {
     name: "Kids Electric Car",
@@ -85,7 +86,7 @@ export const Products = [
     rating: 65,
     ID: "T_0005",
     isNew: true,
-    path: "/",
+    path: "/products",
     colors: ["red"],
   },
 
@@ -95,7 +96,7 @@ export const Products = [
     image: jr_zoom_soccer_cleats,
     rating: 35,
     ID: "T_0006",
-    path: "/",
+    path: "/products",
     colors: ["yellow", "red"],
   },
 
@@ -106,7 +107,7 @@ export const Products = [
     rating: 95,
     ID: "T_0007",
     isNew: true,
-    path: "/",
+    path: "/products",
     colors: ["black", "red"],
   },
 
@@ -116,7 +117,7 @@ export const Products = [
     image: quilted_satin_jacket,
     rating: 55,
     ID: "T_0008",
-    path: "/",
+    path: "/products",
     colors: ["black", "red"],
   },
 ];
@@ -130,7 +131,7 @@ export const Shoplist = [
     image: havit_hv_g92_gamepad,
     ID: "1",
     perc_discount: 40,
-    path: "/havit_hv_g92_gamepad",
+    path: "/products",
   },
   {
     name: "AK-900 Wired Keyboard",
@@ -140,7 +141,7 @@ export const Shoplist = [
     image: ak_900_wired_keyboard,
     ID: "2",
     perc_discount: 35,
-    path: "ak_900_wired_keyboard",
+    path: "/products",
   },
   {
     name: "IPS LCD Gaming Monitor",
@@ -150,7 +151,7 @@ export const Shoplist = [
     image: ips_lcd_gaming_monitor,
     ID: "3",
     perc_discount: 30,
-    path: "ips_lcd_gaming_monitor",
+    path: "/products",
   },
   {
     name: "S-Series Comfort Chair",
@@ -160,7 +161,7 @@ export const Shoplist = [
     image: s_series_confort_chair,
     ID: "4",
     perc_discount: 25,
-    path: "s_series_comfort_chair",
+    path: "/products",
   },
 ];
 
@@ -172,7 +173,7 @@ export const Cart = [
     rating: 65,
     image: book_shelf,
     ID: "P_0004",
-    path: "/small_shelf",
+    path: "/products",
   },
   {
     name: "Canon EOS Dslr Camera",
@@ -180,7 +181,7 @@ export const Cart = [
     image: canon_dslr_camera,
     rating: 95,
     ID: "T_0002",
-    path: "/",
+    path: "/products",
   },
 ];
 
@@ -192,7 +193,7 @@ export const Bestselling = [
     rating: 65,
     image: north_coat,
     ID: "P_0001",
-    path: "/the_north_coat",
+    path: "/products",
   },
   {
     name: "Gucci Duffle Bag",
@@ -201,7 +202,7 @@ export const Bestselling = [
     rating: 65,
     image: gucci_bag,
     ID: "P_0002",
-    path: "/gucci_duffle_bag",
+    path: "/products",
   },
   {
     name: "RGB Liquid Cooler",
@@ -210,7 +211,7 @@ export const Bestselling = [
     rating: 65,
     image: rgb_cooler,
     ID: "P_0003",
-    path: "/rgb_liquid_cooler",
+    path: "/products",
   },
   {
     name: "Small Bookshelf",
@@ -219,7 +220,7 @@ export const Bestselling = [
     rating: 65,
     image: book_shelf,
     ID: "P_0004",
-    path: "/small_shelf",
+    path: "/products",
   },
 ];
 
@@ -231,6 +232,162 @@ export const Wishlist = [
     rating: 65,
     image: north_coat,
     ID: "P_0001",
-    path: "/the_north_coat",
+    path: "/products",
+  },
+];
+
+export const AllProducts: AllProductType[] = [
+  {
+    name: "HAVIT HV-G92 Gamepad",
+    amount: 120,
+    prevAmount: 160,
+    rating: 5,
+    images: [havit_hv_g92_gamepad],
+    ID: "1",
+    perc_discount: 40,
+    path: "/products",
+  },
+  {
+    name: "AK-900 Wired Keyboard",
+    amount: 960,
+    prevAmount: 1160,
+    rating: 4,
+    images: [ak_900_wired_keyboard],
+    ID: "2",
+    perc_discount: 35,
+    path: "/products",
+  },
+  {
+    name: "IPS LCD Gaming Monitor",
+    amount: 370,
+    prevAmount: 400,
+    rating: 5.5,
+    images: [ips_lcd_gaming_monitor],
+    ID: "3",
+    perc_discount: 30,
+    path: "/products",
+  },
+  {
+    name: "S-Series Comfort Chair",
+    amount: 375,
+    prevAmount: 400,
+    rating: 5.5,
+    images: [s_series_confort_chair],
+    ID: "4",
+    perc_discount: 25,
+    path: "/products",
+  },
+  {
+    name: "The North Coat",
+    amount: 260,
+    prevAmount: 360,
+    rating: 65,
+    images: [north_coat],
+    ID: "P_0001",
+    path: "/products",
+  },
+  {
+    name: "Gucci Duffle Bag",
+    amount: 260,
+    prevAmount: 360,
+    rating: 65,
+    images: [gucci_bag],
+    ID: "P_0002",
+    path: "/products",
+  },
+  {
+    name: "RGB Liquid Cooler",
+    amount: 160,
+    prevAmount: 170,
+    rating: 65,
+    images: [rgb_cooler],
+    ID: "P_0003",
+    path: "/products",
+  },
+  {
+    name: "Small Bookshelf",
+    amount: 360,
+    prevAmount: 360,
+    rating: 65,
+    images: [book_shelf],
+    ID: "P_0004",
+    path: "/products",
+  },
+  {
+    name: "Breed Dry Dog Food",
+    amount: 100,
+    images: [dog_food],
+    rating: 35,
+    ID: "T_0001",
+    path: "/products",
+  },
+
+  {
+    name: "Canon EOS Dslr Camera",
+    amount: 360,
+    images: [canon_dslr_camera],
+    rating: 95,
+    ID: "T_0002",
+    path: "/products",
+  },
+
+  {
+    name: "Asus FHD Gaming Laptop",
+    amount: 700,
+    images: [asus_gaming_pc],
+    rating: 325,
+    ID: "T_0003",
+    path: "/products",
+  },
+  {
+    name: "Curology Product Set",
+    amount: 500,
+    images: [curology_product_set],
+    rating: 145,
+    ID: "T_0004",
+    path: "/products",
+    sizes: ["S", "M"],
+  },
+  {
+    name: "Kids Electric Car",
+    amount: 960,
+    images: [kid_electric_car],
+    rating: 65,
+    ID: "T_0005",
+    isNew: true,
+    path: "/products",
+    colors: ["red"],
+  },
+
+  {
+    name: "Jr. Zoom Soccer Cleats",
+    amount: 1160,
+    images: [jr_zoom_soccer_cleats],
+    rating: 35,
+    ID: "T_0006",
+    path: "/products",
+    colors: ["yellow", "red"],
+  },
+
+  {
+    name: "GP11 Shooter USB Gamepad",
+    amount: 660,
+    images: [gp11_prd3],
+    rating: 95,
+    ID: "T_0007",
+    isNew: true,
+    path: "/products",
+    colors: ["black", "red"],
+  },
+
+  {
+    name: "Quilted Satin Jacket",
+    amount: 660,
+    images: [quilted_satin_jacket],
+    rating: 55,
+    ID: "T_0008",
+    path: "/products",
+    colors: ["black", "red"],
+    sizes: ["S", "L", "M", "XL"],
   },
 ];

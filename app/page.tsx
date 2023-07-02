@@ -24,17 +24,20 @@ import {
   IoHeadsetOutline,
   IoGameControllerOutline,
 } from "react-icons/io5";
+
 import {
   MdOutlineHeadsetMic,
   MdOutlineLocalShipping,
   MdOutlineVerifiedUser,
 } from "react-icons/md";
+
 import {
   ItemType,
   ProductType,
   CategoryType,
   TrendingProductsType,
 } from "@/type.d";
+
 import { AppContext } from "./Context/appContext";
 import arrow_up from "../assets/icons/arrow-up.svg";
 
@@ -51,22 +54,37 @@ const sideNav = [
 ];
 
 const Categories = [
-  { type: "Phones", logo: IoPhonePortraitOutline, id: 1, path: "/phones" },
+  {
+    type: "Phones",
+    logo: IoPhonePortraitOutline,
+    id: 1,
+    path: "/category/phones",
+  },
   {
     type: "Computers",
     logo: IoDesktopOutline,
     id: 2,
-    path: "/computers",
+    path: "/category/computers",
   },
   {
     type: "SmartWatch",
     logo: IoWatchOutline,
     id: 3,
-    path: "/smartwatches",
+    path: "/category/smartwatches",
   },
-  { type: "Camera", logo: IoCameraOutline, id: 4, path: "/cameras" },
-  { type: "Headphones", logo: IoHeadsetOutline, id: 5, path: "/headphones" },
-  { type: "Gamepad", logo: IoGameControllerOutline, id: 6, path: "/gamepad" },
+  { type: "Camera", logo: IoCameraOutline, id: 4, path: "/category/cameras" },
+  {
+    type: "Headphones",
+    logo: IoHeadsetOutline,
+    id: 5,
+    path: "/category/headphones",
+  },
+  {
+    type: "Gamepad",
+    logo: IoGameControllerOutline,
+    id: 6,
+    path: "/category/gamepad",
+  },
 ];
 
 const FlashRenderer = ({ days, hours, minutes, seconds, completed }: any) => {
@@ -249,7 +267,7 @@ export default function Home() {
 
       <div className="space-y-16 divide-y divide-slate-200">
         {/* Today Sale */}
-        <div className="container flex flex-col justify-center space-y-6  mx-auto pt-2 md:pt-4">
+        <div className="container flex flex-col justify-center space-y-4  mx-auto md:pt-4">
           <div className="ml-4">
             {/* Bullet  */}
             <div className="flex items-center space-x-2">
@@ -262,7 +280,7 @@ export default function Home() {
 
           {/* Heading  */}
           <div className="flex px-4 justify-between items-center space-x-6">
-            <h2 className="text-gray-700 text-lg font-medium md:text-2xl lg:text-4xl">
+            <h2 className="text-gray-700 text-lg font-medium md:text-2xl">
               Flash Sales
             </h2>
             <Countdown
@@ -292,7 +310,7 @@ export default function Home() {
               >
                 <div className="relative w-40 h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
                   <button className="absolute left-4 top-4 rounded-md p-1 bg-red-600 text-xs text-gray-50">
-                    -{item.perc_discount}%
+                    - {item.perc_discount}%
                   </button>
                   <Image
                     src={item.image}
@@ -314,7 +332,10 @@ export default function Home() {
                     Add To Cart
                   </button>
                 </div>
-                <Link href={item.path} className="space-y-2 mb-4">
+                <Link
+                  href={`${item.path}/${item.ID}`}
+                  className="space-y-2 mb-4"
+                >
                   <h4 className="text-gray-700 text-sm lg:text-base font-medium">
                     {item.name}
                   </h4>
@@ -340,7 +361,7 @@ export default function Home() {
         </div>
 
         {/* Categories */}
-        <div className="container pt-16 flex flex-col justify-center space-y-6  mx-auto ">
+        <div className="container pt-16 flex flex-col justify-center space-y-4  mx-auto ">
           <div className="ml-4">
             {/* Bullet  */}
             <div className="flex items-center space-x-2">
@@ -353,7 +374,7 @@ export default function Home() {
 
           {/* Heading  */}
           <div className="flex px-4 justify-between items-center space-x-6">
-            <h2 className="text-gray-700 text-lg font-medium md:text-2xl lg:text-4xl">
+            <h2 className="text-gray-700 text-lg font-medium md:text-2xl">
               Browse By Categories
             </h2>
 
@@ -389,7 +410,7 @@ export default function Home() {
         </div>
 
         {/* Best selling Products */}
-        <div className="container flex flex-col justify-center space-y-6  mx-auto pt-16">
+        <div className="container flex flex-col justify-center space-y-4  mx-auto pt-16">
           <div className="ml-4">
             {/* Bullet  */}
             <div className="flex items-center space-x-2">
@@ -402,7 +423,7 @@ export default function Home() {
 
           {/* Heading  */}
           <div className="flex px-4 justify-between items-center space-x-6">
-            <h2 className="text-gray-700 text-lg font-medium md:text-2xl lg:text-4xl">
+            <h2 className="text-gray-700 text-lg font-medium md:text-2xl">
               Best Selling Products
             </h2>
 
@@ -447,7 +468,10 @@ export default function Home() {
                     Add To Cart
                   </button>
                 </div>
-                <Link href={item.path} className="space-y-2 mb-4">
+                <Link
+                  href={`${item.path}/${item.ID}`}
+                  className="space-y-2 mb-4"
+                >
                   <h4 className="text-gray-700 text-sm lg:text-base font-medium">
                     {item.name}
                   </h4>
@@ -470,7 +494,6 @@ export default function Home() {
       </div>
 
       {/* Categories2 */}
-
       <div className="container mx-auto pt-8 pb-8">
         <div className="py-12 bg-gray-900 space-x-4 flex items-center justify-around">
           <div className="space-y-6 flex flex-col">
@@ -503,7 +526,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="space-y-6 border-b border-gray-200 pb-8">
+      <div className="space-y-4 border-b border-gray-200 pb-8">
         <div className="container flex flex-col justify-center space-y-6 mx-auto">
           <div className="ml-4">
             {/* Bullet  */}
@@ -517,7 +540,7 @@ export default function Home() {
 
           {/* Heading  */}
           <div className="flex px-4 justify-between items-center space-x-6">
-            <h2 className="text-gray-700 text-lg font-medium md:text-2xl lg:text-4xl">
+            <h2 className="text-gray-700 text-lg font-medium md:text-2xl">
               Explore Our Products
             </h2>
 
@@ -566,7 +589,10 @@ export default function Home() {
                     Add To Cart
                   </button>
                 </div>
-                <Link href={item.path} className="space-y-2 mb-4">
+                <Link
+                  href={`${item.path}/${item.ID}`}
+                  className="space-y-2 mb-4"
+                >
                   <h4 className="text-gray-700 text-sm lg:text-base font-medium">
                     {item.name}
                   </h4>
@@ -608,7 +634,7 @@ export default function Home() {
       </div>
 
       {/* Featured */}
-      <div className="container flex flex-col justify-center space-y-6  mx-auto pb-8 pt-8 px-4 md:px-0">
+      <div className="container flex flex-col justify-center space-y-4  mx-auto pb-8 pt-8 px-4 md:px-0">
         <div className="ml-4">
           {/* Bullet  */}
           <div className="flex items-center space-x-2">
@@ -621,7 +647,7 @@ export default function Home() {
 
         {/* Heading  */}
         <div className="flex px-4 justify-between items-center space-x-6">
-          <h2 className="text-gray-700 text-lg font-medium md:text-2xl lg:text-4xl">
+          <h2 className="text-gray-700 text-lg font-medium md:text-2xl">
             New Arrival
           </h2>
         </div>
@@ -630,7 +656,7 @@ export default function Home() {
         <div className="grid grid-cols-1 grid-rows-1 gap-2 md:grid-cols-2">
           <div className="bg-playStation bg-right bg-contain bg-no-repeat h-96 flex-1 flex items-end bg-black p-8">
             <div className="space-y-3">
-              <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-4xl">
+              <h2 className="text-gray-200 text-lg font-medium md:text-2xl">
                 PlayStation 5
               </h2>
               <p className="text-gray-300 text-sm lg:text-base">
@@ -645,7 +671,7 @@ export default function Home() {
           <div className="flex-1 flex flex-col item-stretch space-y-3">
             <div className="flex-1 flex items-end bg-womenCollection bg-black bg-right bg-contain bg-no-repeat p-6">
               <div className="space-y-3">
-                <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-4xl">
+                <h2 className="text-gray-200 text-lg font-medium md:text-2xl">
                   Women's Collections
                 </h2>
                 <p className="text-gray-300 text-sm lg:text-base">
@@ -660,7 +686,7 @@ export default function Home() {
             <div className="flex-1 flex space-x-4 items-stretch justify-stretch">
               <div className="flex-1 flex items-end bg-speakers bg-black  bg-right bg-contain bg-no-repeat p-6">
                 <div className="space-y-3">
-                  <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-2xl">
+                  <h2 className="text-gray-200 text-lg font-medium md:text-2xl">
                     Speakers
                   </h2>
                   <p className="text-gray-300 text-sm lg:text-base">
@@ -674,7 +700,7 @@ export default function Home() {
 
               <div className="flex-1 flex items-end bg-perfums bg-black  bg-right bg-contain bg-no-repeat p-6">
                 <div className="space-y-3">
-                  <h2 className="text-gray-200 text-lg font-medium md:text-2xl lg:text-2xl">
+                  <h2 className="text-gray-200 text-lg font-medium md:text-2xl">
                     Perfums
                   </h2>
                   <p className="text-gray-300 text-sm lg:text-base">

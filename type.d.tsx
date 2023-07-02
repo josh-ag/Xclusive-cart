@@ -1,6 +1,9 @@
 // @types
 
-// @Type
+export type PageProps = {
+  params: { id: string | number };
+};
+
 export type ProductType = {
   ID: string;
   name: string;
@@ -59,4 +62,19 @@ export interface AppContextInterface {
   setCart: (arg: number) => number;
   setUser: (arg: UserType) => any;
   setAuthenticated: (arg: boolean) => any;
+}
+
+export interface AllProductType {
+  ID: string;
+  name: string;
+  amount: number;
+  perc_discount?: number;
+  prevAmount?: number;
+  images?: any[];
+  rating: number;
+  path: string;
+  colors?: string[];
+  sizes?: string[];
+  isNew?: boolean;
+  description?: string;
 }
