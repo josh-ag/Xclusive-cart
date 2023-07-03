@@ -302,12 +302,9 @@ export default function Home() {
           </div>
 
           {/* items */}
-          <div className="flex space-x-6 items-stretch overflow-x-auto">
+          <div className="flex space-x-6 items-stretch overflow-x-auto px-2">
             {shopList.map((item: ItemType) => (
-              <div
-                key={item.ID}
-                className={`relative flex flex-col space-y-2 ml-4`}
-              >
+              <div key={item.ID} className={`relative flex flex-col space-y-2`}>
                 <div className="relative w-40 h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-gray-100 rounded-sm flex items-center justify-center">
                   <button className="absolute left-4 top-4 rounded-md p-1 bg-red-600 text-xs text-gray-50">
                     - {item.perc_discount}%
@@ -433,7 +430,7 @@ export default function Home() {
           </div>
 
           {/* items */}
-          <div className="flex space-x-6 items-center mb-6 overflow-x-auto">
+          <div className="flex space-x-6 items-center mb-6 overflow-x-auto px-2">
             {bestSelling.map((item: ProductType) => (
               <div
                 key={item.ID}

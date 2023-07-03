@@ -246,6 +246,8 @@ export const AllProducts: AllProductType[] = [
     ID: "1",
     perc_discount: 40,
     path: "/products",
+    colors: ["red", "black", "orange", "blue"],
+    sizes: ["S", "M", "L"],
   },
   {
     name: "AK-900 Wired Keyboard",
@@ -256,6 +258,8 @@ export const AllProducts: AllProductType[] = [
     ID: "2",
     perc_discount: 35,
     path: "/products",
+    sizes: ["M", "L"],
+    colors: ["black", "#CC3"],
   },
   {
     name: "IPS LCD Gaming Monitor",
@@ -266,6 +270,7 @@ export const AllProducts: AllProductType[] = [
     ID: "3",
     perc_discount: 30,
     path: "/products",
+    colors: ["black", "coral"],
   },
   {
     name: "S-Series Comfort Chair",
@@ -276,6 +281,8 @@ export const AllProducts: AllProductType[] = [
     ID: "4",
     perc_discount: 25,
     path: "/products",
+    sizes: ["S", "M"],
+    colors: ["black"],
   },
   {
     name: "The North Coat",
@@ -285,6 +292,8 @@ export const AllProducts: AllProductType[] = [
     images: [north_coat],
     ID: "P_0001",
     path: "/products",
+    colors: ["red", "black", "orange"],
+    sizes: ["S", "M", "L"],
   },
   {
     name: "Gucci Duffle Bag",
@@ -294,6 +303,8 @@ export const AllProducts: AllProductType[] = [
     images: [gucci_bag],
     ID: "P_0002",
     path: "/products",
+    sizes: ["S", "M", "L"],
+    colors: ["white", "orange", "blue", "brown"],
   },
   {
     name: "RGB Liquid Cooler",
@@ -303,6 +314,8 @@ export const AllProducts: AllProductType[] = [
     images: [rgb_cooler],
     ID: "P_0003",
     path: "/products",
+    sizes: ["S", "M", "L"],
+    colors: ["black"],
   },
   {
     name: "Small Bookshelf",
@@ -312,6 +325,8 @@ export const AllProducts: AllProductType[] = [
     images: [book_shelf],
     ID: "P_0004",
     path: "/products",
+    sizes: ["S", "M"],
+    colors: ["brown", "black"],
   },
   {
     name: "Breed Dry Dog Food",
@@ -320,6 +335,7 @@ export const AllProducts: AllProductType[] = [
     rating: 35,
     ID: "T_0001",
     path: "/products",
+    sizes: ["M", "L"],
   },
 
   {
@@ -329,6 +345,7 @@ export const AllProducts: AllProductType[] = [
     rating: 95,
     ID: "T_0002",
     path: "/products",
+    colors: ["black", "white", "coral"],
   },
 
   {
@@ -338,6 +355,7 @@ export const AllProducts: AllProductType[] = [
     rating: 325,
     ID: "T_0003",
     path: "/products",
+    colors: ["white", "red"],
   },
   {
     name: "Curology Product Set",
@@ -347,6 +365,7 @@ export const AllProducts: AllProductType[] = [
     ID: "T_0004",
     path: "/products",
     sizes: ["S", "M"],
+    colors: ["black", "blue"],
   },
   {
     name: "Kids Electric Car",
@@ -357,6 +376,7 @@ export const AllProducts: AllProductType[] = [
     isNew: true,
     path: "/products",
     colors: ["red"],
+    sizes: ["M", "L"],
   },
 
   {
@@ -367,6 +387,7 @@ export const AllProducts: AllProductType[] = [
     ID: "T_0006",
     path: "/products",
     colors: ["yellow", "red"],
+    sizes: ["S", "M"],
   },
 
   {
@@ -378,6 +399,7 @@ export const AllProducts: AllProductType[] = [
     isNew: true,
     path: "/products",
     colors: ["black", "red"],
+    sizes: ["M", "L"],
   },
 
   {

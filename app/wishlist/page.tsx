@@ -69,7 +69,10 @@ export default function Page() {
                     Add To Cart
                   </button>
                 </div>
-                <Link href={item.path} className="space-y-2 mb-4">
+                <Link
+                  href={`${item.path}/${item.ID}`}
+                  className="space-y-2 mb-4"
+                >
                   <h4 className="text-gray-700 text-sm lg:text-base font-medium">
                     {item.name}
                   </h4>
@@ -139,7 +142,7 @@ export default function Page() {
                   Add To Cart
                 </button>
               </div>
-              <Link href={item.path} className="space-y-2 mb-4">
+              <Link href={`${item.path}/${item.ID}`} className="space-y-2 mb-4">
                 <h4 className="text-gray-700 text-sm lg:text-base font-medium">
                   {item.name}
                 </h4>
